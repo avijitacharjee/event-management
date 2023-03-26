@@ -8,7 +8,7 @@
     <meta name="author" content="Gambolthemes">
     <title>Evento - Simple Online Event Ticketing System</title>
 
-    <link rel="icon" type="image/png" href="{{ asset('asset/barren/images/fav.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('asset/barren/images/evento.svg') }}">
 
     <link rel="preconnect" href="https://fonts.googleapis.com/">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -42,11 +42,15 @@
                     </button>
                     <a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 me-auto" href="index.html">
                         <div class="res-main-logo">
-                            <img src="{{asset('asset/barren/images/logo-icon.svg')}}" alt="">
+                            <img src="{{asset('asset/barren/images/evento.svg')}}" alt="">
+                            <span style="color:black">Evento</span>
                         </div>
                         <div class="main-logo" id="logo">
-                            <img src="{{asset('asset/barren/images/logo.svg')}}" alt="">
-                            <img class="logo-inverse" src="{{asset('asset/barren/images/dark-logo.svg')}}" alt="">
+                            <img src="{{asset('asset/barren/images/evento.svg')}}" alt="">
+                            <img class="logo-inverse" src="{{asset('asset/barren/images/evento-inverse.svg')}}" alt="">
+                            <span style="text-decoration:none;color: #6ac045; font-weight:bolder">
+                                Evento
+                            </span>
                         </div>
                     </a>
                     <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasNavbar"
@@ -1255,14 +1259,14 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-    <script src="js/jquery-3.6.0.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="vendor/OwlCarousel/owl.carousel.js"></script>
-    <script src="vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
-    <script src="vendor/mixitup/dist/mixitup.min.js"></script>
-    <script src="js/custom.js"></script>
-    <script src="js/night-mode.js"></script>
+    <script data-cfasync="false" src="{{asset('../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js')}}"></script>
+    <script src="{{ asset('asset/barren/js/jquery-3.6.0.min.js')}}"></script>
+    <script src="{{ asset('asset/barren/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('asset/barren/vendor/OwlCarousel/owl.carousel.js')}}"></script>
+    <script src="{{ asset('asset/barren/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
+    <script src="{{ asset('asset/barren/vendor/mixitup/dist/mixitup.min.js')}}"></script>
+    <script src="{{ asset('asset/barren/js/custom.js')}}"></script>
+    <script src="{{ asset('asset/barren/js/night-mode.js')}}"></script>
     <script>
         var containerEl = document.querySelector('[data-ref~="event-filter-content"]');
 
@@ -1273,7 +1277,4 @@
         });
     </script>
 </body>
-
-<!-- Mirrored from www.gambolthemes.net/html-items/barren-html/disable-demo-link/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Mar 2023 05:29:25 GMT -->
-
 </html>
