@@ -1,8 +1,5 @@
 ﻿<!DOCTYPE html>
 <html lang="en" class="h-100">
-
-<!-- Mirrored from www.gambolthemes.net/html-items/barren-html/disable-demo-link/sign_in.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Mar 2023 05:41:16 GMT -->
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -53,13 +50,14 @@
                                     </div>
                                 </a>
                                 <div class="app-top-right-link">
-                                    New to Barren?<a class="sidebar-register-link" href="{{ url("/sign_up") }}">Sign up</a>
+                                    New to Evento?<a class="sidebar-register-link" href="{{ url("/sign-up") }}">Sign up</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-6 col-md-7">
                             <div class="registration">
-                                <form>
+                                <form action="" method="POST">
+                                    @csrf
                                     <h2 class="registration-title">Sign in to Evento</h2>
                                     <div class="form-group mt-5">
                                         <label class="form-label">Your Email*</label>
@@ -77,14 +75,13 @@
                                             <span class="pass-show-eye"><i class="fas fa-eye-slash"></i></span>
                                         </div>
                                     </div>
-                                    <button class="main-btn btn-hover w-100 mt-4" type="button"
-                                        onclick="window.location.href='index.html'">Sign In <i
+                                    <button class="main-btn btn-hover w-100 mt-4" type="button">Sign In <i
                                             class="fas fa-sign-in-alt ms-2"></i></button>
                                 </form>
                                 <div class="divider">
                                     <span>or</span>
                                 </div>
-                                <div class="social-btns-list">
+                                {{-- <div class="social-btns-list">
                                     <button class="social-login-btn">
                                         <svg class="me-2" xmlns="http://www.w3.org/2000/svg" width="24"
                                             height="24" viewBox="0 0 26.488 27.029">
@@ -118,16 +115,16 @@
                                         </svg>
                                         Sign in with Facebook
                                     </button>
-                                </div>
+                                </div> --}}
                                 <div class="new-sign-link">
-                                    New to Barren?<a class="signup-link" href="{{ url("sign_up.html") }}">Sign up</a>
+                                    New to Evento?<a class="signup-link" href="{{ url("sign_up.html") }}">Sign up</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="copyright-footer">
-                    © 2022, Barren. All rights reserved. Powered by Gambolthemes
+                    © 2023, Evento. All rights reserved. Powered by <a href="https://avijitacharjee.com">Avijitech Softwares</a>
                 </div>
             </div>
         </div>
@@ -139,7 +136,5 @@
     <script src="{{ asset("/asset/barren/js/custom.js") }}"></script>
     <script src="{{ asset("/asset/barren/js/night-mode.js") }}"></script>
 </body>
-
-<!-- Mirrored from www.gambolthemes.net/html-items/barren-html/disable-demo-link/sign_in.html by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 26 Mar 2023 05:41:19 GMT -->
 
 </html>
