@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,3 +17,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('public.index');
 });
+Route::view('/sign-in', 'public.sign-in');
+Route::get('/sign-out',[Controller::class,'logout']);
