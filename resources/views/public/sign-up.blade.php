@@ -64,9 +64,10 @@
                         </div>
                         <div class="col-xl-5 col-lg-6 col-md-7">
                             <div class="registration">
-                                <form>
+                                <form action="" method="POST">
+                                    @csrf
                                     <h2 class="registration-title">
-                                        Sign up to Barren
+                                        Sign up to Evento
                                     </h2>
                                     <div class="row mt-3">
                                         <div class="col-lg-6 col-md-12">
@@ -78,7 +79,7 @@
                                                     class="form-control h_50"
                                                     type="text"
                                                     placeholder=""
-                                                    value=""
+                                                    name="firstname"
                                                 />
                                             </div>
                                         </div>
@@ -91,7 +92,7 @@
                                                     class="form-control h_50"
                                                     type="text"
                                                     placeholder=""
-                                                    value=""
+                                                    name="lastname"
                                                 />
                                             </div>
                                         </div>
@@ -104,7 +105,7 @@
                                                     class="form-control h_50"
                                                     type="email"
                                                     placeholder=""
-                                                    value=""
+                                                    name="email"
                                                 />
                                             </div>
                                         </div>
@@ -123,6 +124,7 @@
                                                         class="form-control h_50"
                                                         type="password"
                                                         placeholder=""
+                                                        name="password"
                                                     />
                                                     <span
                                                         class="pass-show-eye"

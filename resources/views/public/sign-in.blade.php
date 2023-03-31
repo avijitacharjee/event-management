@@ -62,7 +62,7 @@
                                     <div class="form-group mt-5">
                                         <label class="form-label">Your Email*</label>
                                         <input class="form-control h_50" type="email" placeholder="Enter your email"
-                                            value="">
+                                            name="email">
                                     </div>
                                     <div class="form-group mt-4">
                                         <div class="field-password">
@@ -71,11 +71,12 @@
                                         </div>
                                         <div class="loc-group position-relative">
                                             <input class="form-control h_50" type="password"
+                                                name="password"
                                                 placeholder="Enter your password">
                                             <span class="pass-show-eye"><i class="fas fa-eye-slash"></i></span>
                                         </div>
                                     </div>
-                                    <button class="main-btn btn-hover w-100 mt-4" type="button">Sign In <i
+                                    <button class="main-btn btn-hover w-100 mt-4" type="submit">Sign In <i
                                             class="fas fa-sign-in-alt ms-2"></i></button>
                                 </form>
                                 <div class="divider">

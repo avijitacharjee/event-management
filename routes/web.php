@@ -18,5 +18,7 @@ Route::get('/', function () {
     return view('public.index');
 });
 Route::view('/sign-in', 'public.sign-in');
+Route::post('/sign-in',[Controller::class,'login']);
 Route::view('/sign-up', 'public.sign-up');
+Route::post('/sign-up', [Controller::class, 'signUp']);
 Route::get('/sign-out',[Controller::class,'logout']);
