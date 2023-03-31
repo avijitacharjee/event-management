@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,7 +19,15 @@ Route::get('/', function () {
     return view('public.index');
 });
 Route::view('/sign-in', 'public.sign-in');
-Route::post('/sign-in',[Controller::class,'login']);
+Route::post('/sign-in', [Controller::class, 'login']);
 Route::view('/sign-up', 'public.sign-up');
 Route::post('/sign-up', [Controller::class, 'signUp']);
-Route::get('/sign-out',[Controller::class,'logout']);
+Route::get('/sign-out', [Controller::class, 'logout']);
+Route::group([
+    'prefix' => 'event',
+    'controller' => EventController::class,
+], function () {
+    Route::get('create-new', 'createNew');
+    Route::get('create-online', 'createOnline');
+    Route::get('create-offline', 'createOffline');
+});

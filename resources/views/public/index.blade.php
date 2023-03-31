@@ -9,7 +9,7 @@
                             <h2>The Easiest and Most Powerful Online Event Booking and Ticketing System</h2>
                             <p>Evento is an all-in-one event ticketing platform for event organisers, promoters, and
                                 managers. Easily create, promote and manage your events of any type and size.</p>
-                            <a href="create.html" class="main-btn btn-hover">Create Event <i
+                            <a href="/event/create-new" class="main-btn btn-hover">Create Event <i
                                     class="fa-solid fa-arrow-right ms-3"></i></a>
                         </div>
                     </div>

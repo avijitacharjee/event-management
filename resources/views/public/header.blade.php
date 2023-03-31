@@ -34,7 +34,7 @@
                     <div class="offcanvas-body">
                         <div class="offcanvas-top-area">
                             <div class="create-bg">
-                                <a href="create.html" class="offcanvas-create-btn">
+                                <a href="/event/create-new" class="offcanvas-create-btn">
                                     <i class="fa-solid fa-calendar-days"></i>
                                     <span>Create Event</span>
                                 </a>
@@ -166,7 +166,7 @@
                 <div class="right-header order-2">
                     <ul class="align-self-stretch">
                         <li>
-                            <a href="create.html" class="create-btn btn-hover">
+                            <a href="/event/create-new" class="create-btn btn-hover">
                                 <i class="fa-solid fa-calendar-days"></i>
                                 <span>Create Event</span>
                             </a>
