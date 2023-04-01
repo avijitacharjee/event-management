@@ -5,14 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Event;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
+use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
     public function createNew(){
         return view('public.create-new');
     }
-    public function createVenue(){
+    public function createOnline(){
         return view('public.create-online');
+    }
+    public function storeOnline(Request $request){
+        dd($request->all());
     }
     public function createOffline(){
         return view('public.create-offline');

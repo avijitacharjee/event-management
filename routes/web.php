@@ -29,5 +29,6 @@ Route::group([
 ], function () {
     Route::get('create-new', 'createNew');
     Route::get('create-online', 'createOnline');
+    Route::post('create-online', 'storeOnline');
     Route::get('create-offline', 'createOffline');
 });

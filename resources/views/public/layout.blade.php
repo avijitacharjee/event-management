@@ -25,6 +25,7 @@
     <link href="{{ asset('asset/barren/vendor/OwlCarousel/assets/owl.theme.default.min.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/barren/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/barren/vendor/bootstrap-select/dist/css/bootstrap-select.min.css') }}" rel="stylesheet">
+    @yield('css')
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -130,5 +131,6 @@
             }
         });
     </script>
+    @yield('js')
 </body>
 </html>
