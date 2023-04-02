@@ -9,7 +9,7 @@
                         <i class="fa-solid fa-bars"></i>
                     </span>
                 </button>
-                <a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 me-auto" href="index.html">
+                <a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 me-auto" href="/">
                     <div class="res-main-logo">
                         <img src="{{asset('asset/barren/images/evento.svg')}}" alt="">
                     </div>
@@ -42,7 +42,7 @@
                         </div>
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe_5">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+                                <a class="nav-link active" aria-current="page" href="/">Home</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button"
@@ -50,7 +50,7 @@
                                     Explore Events
                                 </a>
                                 <ul class="dropdown-menu dropdown-submenu">
-                                    <li><a class="dropdown-item" href="explore_events.html">Explore Events</a></li>
+                                    <li><a class="dropdown-item" href="/event/explore-events">Explore Events</a></li>
                                     <li><a class="dropdown-item" href="venue_event_detail_view.html">Venue Event
                                             Detail View</a></li>
                                     <li><a class="dropdown-item" href="online_event_detail_view.html">Online Event

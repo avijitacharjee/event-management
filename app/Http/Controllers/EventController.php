@@ -109,6 +109,12 @@ class EventController extends Controller
     {
         return date('H:i:s', strtotime($timeString));
     }
+
+    public function exploreEvents(){
+        $events = Event::all();
+        return view('public.explore-events')
+            ->with('events',$events);
+    }
     public function index()
     {
         //
