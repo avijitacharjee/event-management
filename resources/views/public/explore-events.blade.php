@@ -160,13 +160,13 @@
                                             data-ref="mixitup-target">
                                             <div class="main-card mt-4">
                                                 <div class="event-thumbnail">
-                                                    <a href="/event/event-single" class="thumbnail-img">
+                                                    <a href="/event/event-single/{{$event->id}}" class="thumbnail-img">
                                                         <img src="{{asset('storage/'.$event->image)}}" alt="" />
                                                     </a>
                                                     {{-- <span class="bookmark-icon" title="Bookmark"></span> --}}
                                                 </div>
                                                 <div class="event-content">
-                                                    <a href="/event/event-single" class="event-title">{{$event->name}}</a>
+                                                    <a href="/event/event-single/{{$event->id}}" class="event-title">{{$event->name}}</a>
                                                     <div class="duration-price-remaining">
                                                         <span class="duration-price">{{$event->currency}} {{$event->ticket_price}}*</span>
                                                         <span class="remaining"></span>

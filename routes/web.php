@@ -33,4 +33,9 @@ Route::group([
     Route::get('create-offline', 'createOffline');
     Route::post('create-offline', 'storeOffline');
     Route::get('explore-events', 'exploreEvents');
+    Route::get('event-single/{event}','show');
+    Route::get('checkout','checkout');
+});
+Route::fallback(function () {
+    return view('public.404');
 });
