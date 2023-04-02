@@ -23,6 +23,13 @@ Route::post('/sign-in', [Controller::class, 'login']);
 Route::view('/sign-up', 'public.sign-up');
 Route::post('/sign-up', [Controller::class, 'signUp']);
 Route::get('/sign-out', [Controller::class, 'logout']);
+
+
+Route::view('/about-us','public.about-us');
+Route::view('/help-center', 'public.help-center');
+Route::view('/faq', 'public.faq');
+
+
 Route::group([
     'prefix' => 'event',
     'controller' => EventController::class,

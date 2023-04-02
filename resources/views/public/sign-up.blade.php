@@ -147,7 +147,7 @@
                                 </form>
                                 <div class="agree-text">
                                     By clicking "Sign up", you agree to
-                                    Barren
+                                    Evento
                                     <a href="#">Terms & Conditions</a> and
                                     have read the
                                     <a href="#">Privacy Policy</a>.
@@ -226,8 +226,7 @@
                     </div>
                 </div>
                 <div class="copyright-footer">
-                    © 2022, Barren. All rights reserved. Powered by
-                    Gambolthemes
+                    © 2023, Evento. All rights reserved. Powered by <a href="https://avijitacharjee.com">Avijitech Softwares</a>
                 </div>
             </div>
         </div>

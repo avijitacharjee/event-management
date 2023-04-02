@@ -332,7 +332,7 @@
                 <div class="row">
                     <div class="col-lg-10">
                         <div class="main-title">
-                            <h3>Host Engaging Online and Venue Events with Barren</h3>
+                            <h3>Host Engaging Online and Venue Events with Evento</h3>
                             <p>Organise venue events and host online events with unlimited possibilities using our
                                 built-in virtual event platform. Build a unique event experience for you and your
                                 attendees.</p>
@@ -362,7 +362,7 @@
                                                     alt="">
                                             </div>
                                             <h4>Webinar</h4>
-                                            <p>Webinars tend to be one-way events. Barren helps to make them more
+                                            <p>Webinars tend to be one-way events. Evento helps to make them more
                                                 engaging.</p>
                                         </div>
                                     </div>
@@ -419,7 +419,7 @@
                         <div class="main-title">
                             <h3>No Feature Overload, Get Exactly What You Need</h3>
                             <p>As well as being the most affordable online-based event registration tool and one of the
-                                best online event ticketing systems in Australia, Barren is super easy-to-use and built
+                                best online event ticketing systems in Australia, Evento is super easy-to-use and built
                                 with a simplistic layout which is totally convenient for the organisers to operate.</p>
                         </div>
                     </div>
@@ -672,7 +672,7 @@
                                 <div class="tab-pane fade" id="step-03" role="tabpanel">
                                     <div class="row">
                                         <div class="col-lg-12 col-md-12">
-                                            <div class="step-text">Use Barren to host any types of online events for
+                                            <div class="step-text">Use Evento to host any types of online events for
                                                 free.</div>
                                         </div>
                                         <div class="col-lg-4 col-md-6">

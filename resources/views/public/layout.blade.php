@@ -44,9 +44,9 @@
                         <div class="footer-content">
                             <h4>Company</h4>
                             <ul class="footer-link-list">
-                                <li><a href="about_us.html" class="footer-link">About Us</a></li>
-                                <li><a href="help_center.html" class="footer-link">Help Center</a></li>
-                                <li><a href="faq.html" class="footer-link">FAQ</a></li>
+                                <li><a href="/about-us" class="footer-link">About Us</a></li>
+                                <li><a href="/help-center" class="footer-link">Help Center</a></li>
+                                <li><a href="/faq" class="footer-link">FAQ</a></li>
                                 <li><a href="contact_us.html" class="footer-link">Contact Us</a></li>
                             </ul>
                         </div>
