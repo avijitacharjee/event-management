@@ -17,7 +17,7 @@
                                         <a href="{{ url('index.html') }}">Home</a>
                                     </li>
                                     <li class="breadcrumb-item">
-                                        <a href="{{ url('create.html') }}">Create</a>
+                                        <a href="{{ url('/event/create-new') }}">Create</a>
                                     </li>
                                     <li class="breadcrumb-item active" aria-current="page">
                                         Create Online Event

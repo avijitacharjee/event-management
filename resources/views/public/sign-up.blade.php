@@ -56,7 +56,7 @@
                                 <div class="app-top-right-link">
                                     Already have an account?<a
                                         class="sidebar-register-link"
-                                        href="sign_in.html"
+                                        href="/sign-in"
                                         >Sign In</a
                                     >
                                 </div>

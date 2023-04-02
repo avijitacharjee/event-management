@@ -31,4 +31,5 @@ Route::group([
     Route::get('create-online', 'createOnline');
     Route::post('create-online', 'storeOnline');
     Route::get('create-offline', 'createOffline');
+    Route::post('create-offline', 'storeOffline');
 });

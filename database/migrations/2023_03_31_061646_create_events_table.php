@@ -17,8 +17,7 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->constrained();
             $table->string('name')->nullable();
             $table->string('category')->nullable();
-            $table->date('date')->nullable();
-            $table->time('time')->nullable();
+            $table->datetime('datetime')->nullable();
             $table->integer('duration')->nullable();
             $table->string('image')->nullable();
             $table->longText('description')->nullable();
@@ -28,15 +27,10 @@ return new class extends Migration
             $table->integer('number_of_tickets')->default(0);
             $table->float('discount')->nullable();
             $table->string('discount_type')->nullable();
+            $table->time('discount_ends_at')->nullable();
 
-            $table->date('discount_end_date')->nullable();
-            $table->time('discount_end_time')->nullable();
-
-            $table->date('booking_start_date')->nullable();
-            $table->time('booking_start_time')->nullable();
-
-            $table->date('booking_end_date')->nullable();
-            $table->time('booking_end_time')->nullable();
+            $table->date('booking_starts_at')->nullable();
+            $table->date('booking_ends_at')->nullable();
 
             $table->string('refund_policy')->nullable();
             $table->longText('ticket_instruction')->nullable();
