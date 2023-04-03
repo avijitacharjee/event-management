@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EventController;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,14 @@ Route::group([
     Route::get('event-single/{event}','show');
     Route::get('checkout','checkout');
 });
+Route::group([
+    'prefix' => 'blog',
+    'controller' => BlogController::class
+], function () {
+    Route::get('', 'index');
+    Route::get('/{blog}', 'show');
+});
+
 Route::fallback(function () {
     return view('public.404');
 });
