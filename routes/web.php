@@ -3,6 +3,7 @@
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EventController;
+use App\Http\Controllers\OrganizationController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,7 @@ Route::post('/sign-up', [Controller::class, 'signUp']);
 Route::get('/sign-out', [Controller::class, 'logout']);
 
 
-Route::view('about-us','public.about-us');
+Route::view('about-us', 'public.about-us');
 Route::view('help-center', 'public.help-center');
 Route::view('faq', 'public.faq');
 Route::view('contact-us', 'public.contact-us');
@@ -44,8 +45,8 @@ Route::group([
     Route::get('create-offline', 'createOffline');
     Route::post('create-offline', 'storeOffline');
     Route::get('explore-events', 'exploreEvents');
-    Route::get('event-single/{event}','show');
-    Route::get('checkout','checkout');
+    Route::get('event-single/{event}', 'show');
+    Route::get('checkout', 'checkout');
 });
 Route::group([
     'prefix' => 'blog',
@@ -54,6 +55,16 @@ Route::group([
     Route::get('', 'index');
     Route::get('/{blog}', 'show');
 });
+Route::group(
+    [
+        'prefix' => 'organization',
+        'controller' => OrganizationController::class
+    ],
+    function () {
+        Route::get('dashboard','dashboard');
+        Route::get('events','events');
+    }
+);
 
 Route::fallback(function () {
     return view('public.404');

@@ -69,7 +69,7 @@
                             <ul class="footer-link-list">
                                 {{-- <li><a href="pricing.html" class="footer-link">Pricing</a></li> --}}
                                 <li><a href="blog" class="footer-link">Blog</a></li>
-                                <li><a href="refer_a_friend.html" class="footer-link">Refer a Friend</a></li>
+                                {{-- <li><a href="refer_a_friend.html" class="footer-link">Refer a Friend</a></li> --}}
                             </ul>
                         </div>
                     </div>
@@ -77,11 +77,11 @@
                         <div class="footer-content">
                             <h4>Follow Us</h4>
                             <ul class="social-links">
-                                <li><a href="#" class="social-link"><i class="fab fa-facebook-square"></i></a>
-                                <li><a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                                <li><a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                                <li><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                                <li><a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                                <li><a target="_blank" href="https://web.facebook.com/avijitech.cse" class="social-link"><i class="fab fa-facebook-square"></i></a>
+                                <li><a target="_blank" href="https://www.instagram.com/avijitech/" class="social-link"><i class="fab fa-instagram"></i></a>
+                                <li><a target="_blank" href="https://twitter.com/avi57225670" class="social-link"><i class="fab fa-twitter"></i></a>
+                                <li><a target="_blank" href="https://www.linkedin.com/in/avijitech/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <li><a target="_blank" href="https://www.youtube.com/@avijitacharjee1441" class="social-link"><i class="fab fa-youtube"></i></a>
                             </ul>
                         </div>
                         <div class="footer-content">

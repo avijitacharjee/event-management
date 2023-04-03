@@ -192,7 +192,7 @@
                                     </div>
                                 </li>
                                 <li class="profile-link">
-                                    <a href="my_organisation_dashboard.html" class="link-item">My Organisation</a>
+                                    <a href="/organization/dashboard" class="link-item">My Organisation</a>
                                     <a href="organiser_profile_view.html" class="link-item">My Profile</a>
                                     <a href="/sign-out" class="link-item">Sign Out</a>
                                 </li>
