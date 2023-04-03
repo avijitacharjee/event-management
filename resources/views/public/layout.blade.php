@@ -47,7 +47,7 @@
                                 <li><a href="/about-us" class="footer-link">About Us</a></li>
                                 <li><a href="/help-center" class="footer-link">Help Center</a></li>
                                 <li><a href="/faq" class="footer-link">FAQ</a></li>
-                                <li><a href="contact_us.html" class="footer-link">Contact Us</a></li>
+                                <li><a href="/contact-us" class="footer-link">Contact Us</a></li>
                             </ul>
                         </div>
                     </div>
@@ -55,11 +55,11 @@
                         <div class="footer-content">
                             <h4>Useful Links</h4>
                             <ul class="footer-link-list">
-                                <li><a href="create.html" class="footer-link">Create Event</a></li>
+                                <li><a href="/event/create-new" class="footer-link">Create Event</a></li>
                                 <li><a href="sell_tickets_online.html" class="footer-link">Sell Tickets Online</a>
                                 </li>
-                                <li><a href="privacy_policy.html" class="footer-link">Privacy Policy</a></li>
-                                <li><a href="term_and_conditions.html" class="footer-link">Terms & Conditions</a></li>
+                                <li><a href="/privacy-policy" class="footer-link">Privacy Policy</a></li>
+                                <li><a href="/terms-and-conditions" class="footer-link">Terms & Conditions</a></li>
                             </ul>
                         </div>
                     </div>
@@ -67,8 +67,8 @@
                         <div class="footer-content">
                             <h4>Resources</h4>
                             <ul class="footer-link-list">
-                                <li><a href="pricing.html" class="footer-link">Pricing</a></li>
-                                <li><a href="our_blog.html" class="footer-link">Blog</a></li>
+                                {{-- <li><a href="pricing.html" class="footer-link">Pricing</a></li> --}}
+                                <li><a href="blog" class="footer-link">Blog</a></li>
                                 <li><a href="refer_a_friend.html" class="footer-link">Refer a Friend</a></li>
                             </ul>
                         </div>

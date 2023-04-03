@@ -25,9 +25,12 @@ Route::post('/sign-up', [Controller::class, 'signUp']);
 Route::get('/sign-out', [Controller::class, 'logout']);
 
 
-Route::view('/about-us','public.about-us');
-Route::view('/help-center', 'public.help-center');
-Route::view('/faq', 'public.faq');
+Route::view('about-us','public.about-us');
+Route::view('help-center', 'public.help-center');
+Route::view('faq', 'public.faq');
+Route::view('contact-us', 'public.contact-us');
+Route::view('privacy-policy', 'public.privacy-policy');
+Route::view('terms-and-conditions', 'public.terms-and-conditions');
 
 
 Route::group([
