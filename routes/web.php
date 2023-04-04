@@ -63,6 +63,7 @@ Route::group(
     function () {
         Route::get('dashboard','dashboard');
         Route::get('events','events');
+        Route::get('payouts','payouts');
     }
 );
 

@@ -16,7 +16,7 @@
                         <span class="menu--label">Events</span>
                     </a>
                 </li>
-                <li class="menu--item">
+                {{-- <li class="menu--item">
                     <a href="{{ url('my_organisation_dashboard_promotion.html') }}" class="menu--link"
                         title="Promotion" data-bs-toggle="tooltip" data-bs-placement="right">
                         <i class="fa-solid fa-rectangle-ad menu--icon"></i>
@@ -29,15 +29,15 @@
                         <i class="fa-regular fa-address-card menu--icon"></i>
                         <span class="menu--label">Contact List</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="menu--item">
-                    <a href="{{ url('my_organisation_dashboard_payout.html') }}" class="menu--link"
+                    <a href="{{ url('/organization/payouts') }}" class="menu--link"
                         title="Payouts" data-bs-toggle="tooltip" data-bs-placement="right">
                         <i class="fa-solid fa-credit-card menu--icon"></i>
                         <span class="menu--label">Payouts</span>
                     </a>
                 </li>
-                <li class="menu--item">
+                {{-- <li class="menu--item">
                     <a href="{{ url('my_organisation_dashboard_reports.html') }}" class="menu--link"
                         title="Reports" data-bs-toggle="tooltip" data-bs-placement="right">
                         <i class="fa-solid fa-chart-pie menu--icon"></i>
@@ -57,21 +57,21 @@
                         <i class="fa-solid fa-square-plus menu--icon"></i>
                         <span class="menu--label">Conversion Setup</span>
                     </a>
-                </li>
+                </li> --}}
                 <li class="menu--item">
-                    <a href="{{ url('my_organisation_dashboard_about.html') }}" class="menu--link"
+                    <a href="{{ url('/organization/profile') }}" class="menu--link"
                         title="About" data-bs-toggle="tooltip" data-bs-placement="right">
                         <i class="fa-solid fa-circle-info menu--icon"></i>
-                        <span class="menu--label">About</span>
+                        <span class="menu--label">Profile</span>
                     </a>
                 </li>
-                <li class="menu--item">
+                {{-- <li class="menu--item">
                     <a href="{{ url('my_organisation_dashboard_my_team.html') }}" class="menu--link team-lock"
                         title="My Team" data-bs-toggle="tooltip" data-bs-placement="right">
                         <i class="fa-solid fa-user-group menu--icon"></i>
                         <span class="menu--label">My Team</span>
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>
