@@ -7,9 +7,9 @@
     <meta name="viewport" content="width=device-width, shrink-to-fit=9" />
     <meta name="description" content="Gambolthemes" />
     <meta name="author" content="Gambolthemes" />
-    <title>Barren - Simple Online Event Ticketing System</title>
+    <title>Evento - Simple Online Event Ticketing System</title>
 
-    <link rel="icon" type="image/png" href="{{ asset('/asset/barren/images/fav.png') }}" />
+    <link rel="icon" type="image/png" href="{{ asset('/asset/barren/images/evento-logo-icon.svg') }}" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com/" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin />
@@ -35,7 +35,7 @@
 </head>
 
 <body class="d-flex flex-column h-100">
-    <x-modals.add-organization-modal/>
+
 
     @include('organization.navbar')
 

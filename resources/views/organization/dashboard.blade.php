@@ -1,5 +1,6 @@
 @extends('organization.layout')
 @section('content')
+    <x-modals.add-organization-modal />
     <div class="wrapper wrapper-body">
         <div class="dashboard-body">
             <div class="container-fluid">

@@ -16,13 +16,13 @@
                                     <div class="col-lg-5 col-md-12">
                                         <div class="form-group search-category">
                                             <select class="selectpicker" data-width="100%" data-size="5">
-                                                <option value="browse_all" data-icon="fa-solid fa-tower-broadcast" selected>
+                                                <option value="browse_all" data-icon="fa-solid fa-tower-broadcast" @selected(request()->type==null)>
                                                     Browse All
                                                 </option>
-                                                <option value="online_events" data-icon="fa-solid fa-video">
+                                                <option value="online_events" data-icon="fa-solid fa-video" @selected(request()->type=='online')>
                                                     Online Events
                                                 </option>
-                                                <option value="venue_events" data-icon="fa-solid fa-location-dot">
+                                                <option value="venue_events" data-icon="fa-solid fa-location-dot" @selected(request()->type=='offline')>
                                                     Venue Events
                                                 </option>
                                             </select>
@@ -109,7 +109,7 @@
                     <div class="col-xl-12 col-lg-12 col-md-12">
                         <div class="event-filter-items">
                             <div class="featured-controls">
-                                <div class="filter-tag">
+                                {{-- <div class="filter-tag">
                                     <a href="explore_events_by_date.html" class="active">All</a>
                                     <a href="explore_events_by_date.html">Today</a>
                                     <a href="explore_events_by_date.html">Tomorrow</a>
@@ -121,7 +121,7 @@
                                     <a href="explore_events_by_date.html">Next Month</a>
                                     <a href="explore_events_by_date.html">This Year</a>
                                     <a href="explore_events_by_date.html">Next Year</a>
-                                </div>
+                                </div> --}}
                                 <div class="controls">
                                     <button type="button" class="control" data-filter="all">
                                         All
@@ -132,26 +132,56 @@
                                     <button type="button" class="control" data-filter=".business">
                                         Business
                                     </button>
-                                    <button type="button" class="control" data-filter=".concert">
-                                        Concert
-                                    </button>
-                                    <button type="button" class="control" data-filter=".workshops">
-                                        Workshops
-                                    </button>
-                                    <button type="button" class="control" data-filter=".coaching_consulting">
+                                    <button type="button" class="control" data-filter=".coaching_and_consulting">
                                         Coaching and Consulting
                                     </button>
-                                    <button type="button" class="control" data-filter=".health_Wellness">
-                                        Health and Wellbeing
+                                    <button type="button" class="control" data-filter=".community_and_culture">
+                                        Community and Culture
                                     </button>
-                                    <button type="button" class="control" data-filter=".volunteer">
-                                        Volunteer
+                                    <button type="button" class="control" data-filter=".education_and_training">
+                                        Education and Training
                                     </button>
-                                    <button type="button" class="control" data-filter=".sports">
-                                        Sports
+                                    <button type="button" class="control" data-filter=".family_and_friends">
+                                        Family and Friends
+                                    </button>
+                                    <button type="button" class="control" data-filter=".fashion_and_beauty">
+                                        Fashion and Beauty
+                                    </button>
+                                    <button type="button" class="control" data-filter=".film_and_entertainment">
+                                        Film and Entertainment
+                                    </button>
+                                    <button type="button" class="control" data-filter=".food_and_drink">
+                                        Food and Drink
                                     </button>
                                     <button type="button" class="control" data-filter=".free">
                                         Free
+                                    </button>
+                                    <button type="button" class="control" data-filter=".health_and_welbeing">
+                                        Health and Wellbeing
+                                    </button>
+                                    <button type="button" class="control" data-filter=".hobbies_and_interest">
+                                        Hobbies and Interest
+                                    </button>
+                                    <button type="button" class="control" data-filter=".music_and_teacher">
+                                        Music and Theater
+                                    </button>
+                                    <button type="button" class="control" data-filter=".religion_and_spirituality">
+                                        Religion and Spirituality
+                                    </button>
+                                    <button type="button" class="control" data-filter=".science_and_technology">
+                                        Science and Technology
+                                    </button>
+                                    <button type="button" class="control" data-filter=".sports_and_fitness">
+                                        Sports and Fitness
+                                    </button>
+                                    <button type="button" class="control" data-filter=".travel_and_outdoor">
+                                        Travel and Outdoor
+                                    </button>
+                                    <button type="button" class="control" data-filter=".visual_arts">
+                                        Visual Arts
+                                    </button>
+                                    <button type="button" class="control" data-filter=".others">
+                                        Others
                                     </button>
                                 </div>
                                 <div class="row" data-ref="event-filter-content">

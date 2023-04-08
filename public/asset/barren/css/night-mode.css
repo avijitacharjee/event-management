@@ -18,7 +18,7 @@ Night Mood
     content: "\f186";
 }
 
-.night-mode html , 
+.night-mode html ,
 .night-mode body  {
     background-color: #111315 !important;
     color: #6F767E !important;
@@ -199,7 +199,7 @@ Night Mood
 	opacity: 1;
 	background: #6ac045 !important;
 	border: 1px solid #6ac045 !important;
-}	
+}
 
 .night-mode .owl-nav .owl-next:hover {
 	color: #fff !important;
@@ -600,7 +600,7 @@ Night Mood
     background-color: #6ac045;
 }
 
-.night-mode #add-event-tab .step-steps > li.active > a > .step-name, 
+.night-mode #add-event-tab .step-steps > li.active > a > .step-name,
 .night-mode #add-eventevent-tab .step-steps > li.done > a > .step-name {
     color: #fff;
 }
@@ -871,6 +871,9 @@ Night Mood
 .night-mode .menu--link:hover, .night-mode .menu--link:hover .menu--label {
 	color:#fcfcfc;
 	background: transparent;
+}
+.night-mode .sub_menu--link {
+    color: #6F767E;
 }
 
 .night-mode .sub_menu--link .menu--icon:hover {
@@ -1239,7 +1242,7 @@ Night Mood
     color: #a2a2a2;
 }
 
-.night-mode #option-1:checked:checked ~ .option-1, 
+.night-mode #option-1:checked:checked ~ .option-1,
 .night-mode #option-2:checked:checked ~ .option-2 {
     border: 2px solid #6ac045;
     background: #1a1d1f;
@@ -1250,7 +1253,7 @@ Night Mood
     color: #fff;
 }
 
-.night-mode #option-1:checked:checked ~ .option-1 span:last-child, 
+.night-mode #option-1:checked:checked ~ .option-1 span:last-child,
 .night-mode #option-2:checked:checked ~ .option-2 span:last-child {
     color: #a2a2a2;
 }
@@ -1286,7 +1289,7 @@ Night Mood
 
 .night-mode .role-header span {
     color: #a2a2a2;
-} 
+}
 
 .night-mode .role-item span {
     color: #fff;
@@ -1298,19 +1301,19 @@ Night Mood
 }
 
 .night-mode {
-    
+
 }
 
 .night-mode {
-    
+
 }
 
 .night-mode {
-    
+
 }
 
 .night-mode {
-    
+
 }
 
 
@@ -1373,7 +1376,7 @@ Night Mood
 }
 
 .night-mode .navbar-nav .nav-link:hover {
-    background-color: #1A1D1F;	
+    background-color: #1A1D1F;
 }
 
 .night-mode .dropdown-menu {
@@ -1388,6 +1391,6 @@ Night Mood
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) and (max-width: 1199.98px) {
-	
+
 }
 }

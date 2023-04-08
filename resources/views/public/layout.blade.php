@@ -68,7 +68,7 @@
                             <h4>Resources</h4>
                             <ul class="footer-link-list">
                                 {{-- <li><a href="pricing.html" class="footer-link">Pricing</a></li> --}}
-                                <li><a href="blog" class="footer-link">Blog</a></li>
+                                <li><a href="/blog" class="footer-link">Blog</a></li>
                                 {{-- <li><a href="refer_a_friend.html" class="footer-link">Refer a Friend</a></li> --}}
                             </ul>
                         </div>

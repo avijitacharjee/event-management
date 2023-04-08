@@ -125,95 +125,95 @@
                                                                     <select class="selectpicker"
                                                                         data-size="5" title="Select category"
                                                                         name="event_category" data-live-search="true">
-                                                                        <option value="01">
+                                                                        <option value="Arts">
                                                                             Arts
                                                                         </option>
-                                                                        <option value="02">
+                                                                        <option value="Business">
                                                                             Business
                                                                         </option>
-                                                                        <option value="03">
+                                                                        <option value="Coaching and Consulting">
                                                                             Coaching
                                                                             and
                                                                             Consulting
                                                                         </option>
-                                                                        <option value="04">
+                                                                        <option value="Community and Culture">
                                                                             Community
                                                                             and
                                                                             Culture
                                                                         </option>
-                                                                        <option value="05">
+                                                                        <option value="Entrepreneurship">
                                                                             Entrepreneurship
                                                                         </option>
-                                                                        <option value="06">
+                                                                        <option value="Education and Training">
                                                                             Education
                                                                             and
                                                                             Training
                                                                         </option>
-                                                                        <option value="07">
+                                                                        <option value="Family and Friends">
                                                                             Family
                                                                             and
                                                                             Friends
                                                                         </option>
-                                                                        <option value="08">
+                                                                        <option value="Fashion and Beauty">
                                                                             Fashion
                                                                             and
                                                                             Beauty
                                                                         </option>
-                                                                        <option value="09">
+                                                                        <option value="Film and Entertainment">
                                                                             Film
                                                                             and
                                                                             Entertainment
                                                                         </option>
-                                                                        <option value="10">
+                                                                        <option value="Food and Drink">
                                                                             Food
                                                                             and
                                                                             Drink
                                                                         </option>
-                                                                        <option value="11">
+                                                                        <option value="Government and  Politics">
                                                                             Government
                                                                             and
                                                                             Politics
                                                                         </option>
-                                                                        <option value="12">
+                                                                        <option value="Health and Wellbeing">
                                                                             Health
                                                                             and
                                                                             Wellbeing
                                                                         </option>
-                                                                        <option value="13">
+                                                                        <option value="Hobbies and Interest">
                                                                             Hobbies
                                                                             and
                                                                             Interest
                                                                         </option>
-                                                                        <option value="14">
+                                                                        <option value="Music and Theater">
                                                                             Music
                                                                             and
                                                                             Theater
                                                                         </option>
-                                                                        <option value="15">
+                                                                        <option value="Religion and Spirituality">
                                                                             Religion
                                                                             and
                                                                             Spirituality
                                                                         </option>
-                                                                        <option value="16">
+                                                                        <option value="Science and Technology">
                                                                             Science
                                                                             and
                                                                             Technology
                                                                         </option>
-                                                                        <option value="17">
+                                                                        <option value="Sports and Fitness">
                                                                             Sports
                                                                             and
                                                                             Fitness
                                                                         </option>
-                                                                        <option value="18">
+                                                                        <option value="Travel and Outdoor">
                                                                             Travel
                                                                             and
                                                                             Outdoor
                                                                         </option>
-                                                                        <option value="19">
+                                                                        <option value="Visual Arts">
                                                                             Visual
                                                                             Arts
                                                                         </option>
-                                                                        <option value="20">
+                                                                        <option value="Others">
                                                                             Others
                                                                         </option>
                                                                     </select>

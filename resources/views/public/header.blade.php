@@ -1,21 +1,21 @@
 <header class="header">
     <div class="header-inner">
-        <nav
-            class="navbar navbar-expand-lg bg-barren barren-head navbar fixed-top justify-content-sm-start pt-0 pb-0">
+        <nav class="navbar navbar-expand-lg bg-barren barren-head navbar fixed-top justify-content-sm-start pt-0 pb-0">
             <div class="container">
-                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
-                    data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+                    aria-controls="offcanvasNavbar">
                     <span class="navbar-toggler-icon">
                         <i class="fa-solid fa-bars"></i>
                     </span>
                 </button>
                 <a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 me-auto" href="/">
                     <div class="res-main-logo">
-                        <img src="{{asset('asset/barren/images/evento.svg')}}" alt="">
+                        <img src="{{ asset('asset/barren/images/evento.svg') }}" alt="">
                     </div>
                     <div class="main-logo" id="logo">
-                        <img src="{{asset('asset/barren/images/evento.svg')}}" alt="">
-                        <img class="logo-inverse" src="{{asset('asset/barren/images/evento-inverse.svg')}}" alt="">
+                        <img src="{{ asset('asset/barren/images/evento.svg') }}" alt="">
+                        <img class="logo-inverse" src="{{ asset('asset/barren/images/evento-inverse.svg') }}"
+                            alt="">
                         {{-- <span style="text-decoration:none;color: #6ac045; font-weight:bolder">
                             Evento
                         </span> --}}
@@ -25,7 +25,7 @@
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <div class="offcanvas-logo" id="offcanvasNavbarLabel">
-                            <img src="{{asset('asset/barren/images/logo-icon.svg')}}" alt="">
+                            <img src="{{ asset('asset/barren/images/logo-icon.svg') }}" alt="">
                         </div>
                         <button type="button" class="close-btn" data-bs-dismiss="offcanvas" aria-label="Close">
                             <i class="fa-solid fa-xmark"></i>
@@ -44,6 +44,9 @@
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="/">Home</a>
                             </li>
+                            {{-- <li class="nav-item">
+                                <a href="" class="nav-link"></a>
+                            </li> --}}
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -51,16 +54,17 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-submenu">
                                     <li><a class="dropdown-item" href="/event/explore-events">Explore Events</a></li>
-                                    <li><a class="dropdown-item" href="venue_event_detail_view.html">Venue Event
-                                            Detail View</a></li>
-                                    <li><a class="dropdown-item" href="online_event_detail_view.html">Online Event
-                                            Detail View</a></li>
+                                    <li><a class="dropdown-item" href="/event/explore-events?type=offline">Venue Events</a></li>
+                                    <li><a class="dropdown-item" href="/event/explore-events?type=online">Online Events</a></li>
                                 </ul>
                             </li>
                             {{-- <li class="nav-item">
                                 <a class="nav-link" href="pricing.html">Pricing</a>
                             </li> --}}
-                            <li class="nav-item dropdown">
+                            <li class="nav-item">
+                                <a class="nav-link {{request()->is('blog')?'active':''}}" href="/blog">Blog</a>
+                            </li>
+                            {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Blog
@@ -70,7 +74,7 @@
                                     <li><a class="dropdown-item" href="blog_detail_view.html">Blog Detail View</a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -99,8 +103,8 @@
                                             </li>
                                             <li><a class="dropdown-item pe-5" href="checkout.html">Checkout</a>
                                             </li>
-                                            <li><a class="dropdown-item pe-5"
-                                                    href="checkout_premium.html">Checkout Premium</a></li>
+                                            <li><a class="dropdown-item pe-5" href="checkout_premium.html">Checkout
+                                                    Premium</a></li>
                                             <li><a class="dropdown-item pe-5" href="invoice.html">Invoice</a></li>
                                             <li><a class="dropdown-item pe-5" href="coming_soon.html">Coming
                                                     Soon</a></li>
@@ -112,10 +116,10 @@
                                         <a class="dropdown-item submenu-item" href="#">Create Event</a>
                                         <ul class="submenu dropdown-menu">
                                             <li><a class="dropdown-item pe-5" href="create.html">Create</a></li>
-                                            <li><a class="dropdown-item pe-5"
-                                                    href="create_venue_event.html">Create Venue Event</a></li>
-                                            <li><a class="dropdown-item pe-5"
-                                                    href="create_online_event.html">Create Online Event</a></li>
+                                            <li><a class="dropdown-item pe-5" href="create_venue_event.html">Create
+                                                    Venue Event</a></li>
+                                            <li><a class="dropdown-item pe-5" href="create_online_event.html">Create
+                                                    Online Event</a></li>
                                         </ul>
                                     </li>
                                     <li>
@@ -135,8 +139,8 @@
                                             Profile View</a></li>
                                     <li><a class="dropdown-item" href="organiser_profile_view.html">Organiser
                                             Profile View</a></li>
-                                    <li><a class="dropdown-item"
-                                            href="my_organisation_dashboard.html">Organization Dashboard</a></li>
+                                    <li><a class="dropdown-item" href="my_organisation_dashboard.html">Organization
+                                            Dashboard</a></li>
                                     <li><a class="dropdown-item" href="sell_tickets_online.html">Sell Tickets
                                             Online</a></li>
                                     <li><a class="dropdown-item" href="refer_a_friend.html">Refer a Friend</a>
@@ -153,8 +157,7 @@
                         <div class="offcanvas-social">
                             <h5>Follow Us</h5>
                             <ul class="social-links">
-                                <li><a href="#" class="social-link"><i
-                                            class="fab fa-facebook-square"></i></a>
+                                <li><a href="#" class="social-link"><i class="fab fa-facebook-square"></i></a>
                                 <li><a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                                 <li><a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                                 <li><a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
@@ -171,10 +174,11 @@
                                 <span>Create Event</span>
                             </a>
                         </li>
+                        @auth
                         <li class="dropdown account-dropdown">
                             <a href="#" class="account-link" role="button" id="accountClick"
                                 data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{asset('asset/barren/images/profile-imgs/img-13.jpg')}}"" alt="">
+                                <img src="{{ asset('asset/barren/images/avatar.svg') }}"" alt="">
                                 <i class="fas fa-caret-down arrow-icon"></i>
                             </a>
                             <ul class="dropdown-menu dropdown-menu-account dropdown-menu-end"
@@ -182,22 +186,31 @@
                                 <li>
                                     <div class="dropdown-account-header">
                                         <div class="account-holder-avatar">
-                                            <img src="{{asset('asset/barren/images/profile-imgs/img-13.jpg')}}"" alt="">
+                                            <img src="{{ asset('asset/barren/images/avatar.svg') }}""
+                                                alt="">
                                         </div>
-                                        <h5>John Doe</h5>
-                                        <p><a href="https://www.gambolthemes.net/cdn-cgi/l/email-protection"
-                                                class="__cf_email__"
-                                                data-cfemail="c1abaea9afa5aea481a4b9a0acb1ada4efa2aeac">[email&#160;protected]</a>
+                                        <h5> {{ auth()->user()->name}} </h5>
+                                        <p>
+                                            {{ auth()->user()->email }}
                                         </p>
                                     </div>
                                 </li>
                                 <li class="profile-link">
                                     <a href="/organization/dashboard" class="link-item">My Organisation</a>
-                                    <a href="organiser_profile_view.html" class="link-item">My Profile</a>
+                                    <a href="/profile" class="link-item">My Profile</a>
                                     <a href="/sign-out" class="link-item">Sign Out</a>
                                 </li>
                             </ul>
                         </li>
+                        @endauth
+                        @guest
+                            <li>
+                                <a class="create-btn btn-hover" href="/sign-in">
+                                    <i class="fa-solid fa-sign-in"></i>
+                                    <span>Join</span>
+                                </a>
+                            </li>
+                        @endguest
                         <li>
                             <div class="night_mode_switch__btn">
                                 <div id="night-mode" class="fas fa-moon fa-sun"></div>

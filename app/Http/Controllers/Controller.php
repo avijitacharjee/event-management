@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Event;
 use App\Models\User;
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -40,10 +41,19 @@ class Controller extends BaseController
                 Auth::login($user);
                 return redirect('/');
             } else {
-                return 'hi';
+                return back();
             }
         } else {
-            return 'hello';
+            return back();
         }
+    }
+    public function index()
+    {
+        $events = Event::all();
+        return view('public.index', compact(['events']));
+    }
+    public function profile()
+    {
+        return view('public.profile')->with('user',auth()->user());
     }
 }
