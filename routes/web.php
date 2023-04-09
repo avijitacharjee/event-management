@@ -69,6 +69,10 @@ Route::group(
         Route::get('profile', 'profile');
 
         Route::get('blogs','blogs');
+        Route::post('blogs', 'storeBlog');
+        Route::get('blog/delete/{blog}','deleteBlog');
+        Route::post('blogs/update/{blog}', 'updateBlog');
+        Route::get('blogs/duplicate/{blog}', 'duplicateBlog');
     }
 );
 Route::group([

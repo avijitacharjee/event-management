@@ -30,7 +30,7 @@
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <div class="offcanvas-logo" id="offcanvasNavbarLabel">
-                            <img src="{{ asset('/asset/barren/images/logo-icon.svg') }}" alt="" />
+                            <img src="{{ asset('/asset/barren/images/evento.svg') }}" alt="" />
                         </div>
                         <button type="button" class="close-btn" data-bs-dismiss="offcanvas" aria-label="Close">
                             <i class="fa-solid fa-xmark"></i>
@@ -106,7 +106,7 @@
                                 <li>
                                     <div class="dropdown-account-header">
                                         <div class="account-holder-avatar">
-                                            <img src="{{ asset('/asset/barren/images/profile-imgs/img-13.jpg') }}"
+                                            <img src="{{ asset('/asset/barren/images/avatar.svg') }}"
                                                 alt="" />
                                         </div>
                                         <h5>{{auth()->user()->name}}</h5>

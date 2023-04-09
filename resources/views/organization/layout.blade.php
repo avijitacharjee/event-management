@@ -32,6 +32,7 @@
     <link href="{{ asset('/asset/barren/vendor/chartist/dist/chartist.min.css') }}" rel="stylesheet" />
     <link href="{{ asset('/asset/barren/vendor/chartist-plugin-tooltip/dist/chartist-plugin-tooltip.css') }}"
         rel="stylesheet" />
+    @yield('css')
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -56,6 +57,7 @@
     <script src="{{ asset('/asset/barren/js/analytics.js') }}"></script>
     <script src="{{ asset('/asset/barren/js/custom.js') }}"></script>
     <script src="{{ asset('/asset/barren/js/night-mode.js') }}"></script>
+    @yield('js')
 </body>
 
 </html>

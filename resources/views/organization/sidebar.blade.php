@@ -40,14 +40,14 @@
                         <span class="menu--label">Payouts</span>
                     </a>
                 </li>
-                <li class="menu--item">
+                {{-- <li class="menu--item">
                     <a href="{{ url('/organization/blogs') }}"
                         class="menu--link {{ request()->is('organization/blogs') ? 'active' : '' }}" title="Blogs"
                         data-bs-toggle="tooltip" data-bs-placement="right">
                         <i class="fa-solid fa-credit-card menu--icon"></i>
                         <span class="menu--label">Blogs</span>
                     </a>
-                </li>
+                </li> --}}
                 {{-- <li class="menu--item">
                     <a href="{{ url('my_organisation_dashboard_reports.html') }}" class="menu--link"
                         title="Reports" data-bs-toggle="tooltip" data-bs-placement="right">
@@ -69,38 +69,38 @@
                         <span class="menu--label">Conversion Setup</span>
                     </a>
                 </li> --}}
-                {{-- <li class="menu--item">
+                <li class="menu--item">
+                    <ul>
+                        <li class="menu--item__has_sub_menu">
+                            <a
+                                class="menu--link {{ request()->is('organization/blogs') ? 'active' : '' }}"
+                                title="Blogs" data-bs-toggle="tooltip" data-bs-placement="right">
+                                <i class="fa-solid fa-circle-info menu--icon"></i>
+                                <span class="menu--label">Blogs</span>
+                            </a>
+                        </li>
+                        <li class="sub_menu">
+                            <a href="{{ url('/organization/blogs') }}" class="sub_menu--link" title="About"
+                                data-bs-toggle="tooltip" data-bs-placement="right">
+                                <i class="fa-solid fa-circle-info menu--icon"></i>
+                                <span class="menu--label">See Blogs</span>
+                            </a>
+                        </li>
+                        {{-- <li class="sub_menu">
+                            <a href="{{ url('/organization/profile') }}" class="sub_menu--link" title="About"
+                                data-bs-toggle="tooltip" data-bs-placement="right">
+                                <i class="fa-solid fa-circle-info menu--icon"></i>
+                                <span class="menu--label">Profile</span>
+                            </a>
+                        </li> --}}
+                    </ul>
+                </li>
+                <li class="menu--item">
                     <a href="{{ url('/organization/profile') }}" class="menu--link {{request()->is('organization/profile')?'active':''}}"
                         title="About" data-bs-toggle="tooltip" data-bs-placement="right">
                         <i class="fa-solid fa-circle-info menu--icon"></i>
                         <span class="menu--label">Profile</span>
                     </a>
-                </li> --}}
-                <li class="menu--item">
-                    <ul>
-                        <li class="menu--item__has_sub_menu">
-                            <a
-                                class="menu--link {{ request()->is('organization/profile') ? 'active' : '' }}"
-                                title="About" data-bs-toggle="tooltip" data-bs-placement="right">
-                                <i class="fa-solid fa-circle-info menu--icon"></i>
-                                <span class="menu--label">Profile</span>
-                            </a>
-                        </li>
-                        <li class="sub_menu">
-                            <a href="{{ url('/organization/profile') }}" class="sub_menu--link" title="About"
-                                data-bs-toggle="tooltip" data-bs-placement="right">
-                                <i class="fa-solid fa-circle-info menu--icon"></i>
-                                <span class="menu--label">Profile</span>
-                            </a>
-                        </li>
-                        <li class="sub_menu">
-                            <a href="{{ url('/organization/profile') }}" class="sub_menu--link" title="About"
-                                data-bs-toggle="tooltip" data-bs-placement="right">
-                                <i class="fa-solid fa-circle-info menu--icon"></i>
-                                <span class="menu--label">Profile</span>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
 
                 </li>
@@ -115,22 +115,3 @@
         </div>
     </div>
 </nav>
-{{--
-    <ul class="menu--item">
-                            <li class="menu--item">
-                                <a href="{{ url('/organization/profile') }}" class="menu--link" title="About"
-                                    data-bs-toggle="tooltip" data-bs-placement="right">
-                                    <i class="fa-solid fa-circle-info menu--icon"></i>
-                                    <span class="menu--label">Profile</span>
-                                </a>
-                            </li>
-                            <li class="menu--item">
-                                <a href="{{ url('/organization/profile') }}" class="menu--link" title="About"
-                                    data-bs-toggle="tooltip" data-bs-placement="right">
-                                    <i class="fa-solid fa-circle-info menu--icon"></i>
-                                    <span class="menu--label">Profile</span>
-                                </a>
-                            </li>
-                        </ul>
-
-    --}}
