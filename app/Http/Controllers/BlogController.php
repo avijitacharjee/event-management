@@ -13,7 +13,12 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('blog.blogs');
+        $topBlogs = Blog::orderBy('view_count', 'desc')->limit(4)->get();
+        $blogs = Blog::all();
+        return view('blog.blogs',compact([
+            'topBlogs',
+            'blogs'
+        ]));
     }
 
     /**
@@ -37,7 +42,10 @@ class BlogController extends Controller
      */
     public function show(Blog $blog)
     {
-        return view('blog.blog-single', compact(['blog']));
+        $blog->view_count += 1;
+        $blog->save();
+        $blogs = Blog::latest()->limit(5)->get();
+        return view('blog.blog-single', compact(['blog','blogs']));
     }
 
     /**

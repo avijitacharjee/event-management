@@ -643,29 +643,7 @@
                     <div class="col-md-12">
                         <div class="our-team custom-border-top">
                             <div class="row justify-content-xl-center">
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-                                    <div class="main-card team-card">
-                                        <div class="team-img">
-                                            <img src="{{ asset('/asset/barren/images/about/avijit.jpg') }}"
-                                                alt="" />
-                                        </div>
-                                        <div class="team-content">
-                                            <h4>Avijit Acharjee</h4>
-                                            <span>General Manager</span>
-                                            <div class="user-social-links-group">
-                                                <a href="https://www.facebook.com/" class="user-social-link"
-                                                    target="_blank"><i class="fab fa-facebook-square"></i></a>
-                                                <a href="https://www.instagram.com/accounts/login/"
-                                                    class="user-social-link" target="_blank"><i
-                                                        class="fab fa-instagram"></i></a>
-                                                <a href="https://twitter.com/" class="user-social-link"
-                                                    target="_blank"><i class="fab fa-twitter"></i></a>
-                                                <a href="https://www.linkedin.com/" class="user-social-link"
-                                                    target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                                 {{-- <div class="col-xl-3 col-lg-4 col-md-6 col-12">
                                     <div class="main-card team-card">
                                         <div class="team-img">
@@ -721,8 +699,7 @@
                                         </div>
                                         <div class="team-content">
                                             <h4>Antika Das</h4>
-                                            <span>Client Success
-                                                Manager</span>
+                                            <span>CEO</span>
                                             <div class="user-social-links-group">
                                                 <a href="https://www.facebook.com/" class="user-social-link"
                                                     target="_blank"><i class="fab fa-facebook-square"></i></a>
@@ -733,6 +710,29 @@
                                                     target="_blank"><i class="fab fa-twitter"></i></a>
                                                 <a href="https://www.linkedin.com/" class="user-social-link"
                                                     target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
+                                    <div class="main-card team-card">
+                                        <div class="team-img">
+                                            <img src="{{ asset('/asset/barren/images/about/avijit.jpg') }}"
+                                                alt="" />
+                                        </div>
+                                        <div class="team-content">
+                                            <h4>Avijit Acharjee</h4>
+                                            <span>General Manager</span>
+                                            <div class="user-social-links-group">
+                                                <a href="https://www.facebook.com/avijitech.cse" class="user-social-link"
+                                                    target="_blank"><i class="fab fa-facebook-square"></i></a>
+                                                <a href="https://www.instagram.com/avijitech" class="user-social-link"
+                                                    target="_blank"><i class="fab fa-instagram"></i></a>
+                                                <a href="https://twitter.com/avi57225670" class="user-social-link"
+                                                    target="_blank"><i class="fab fa-twitter"></i></a>
+                                                <a href="https://www.linkedin.com/in/avijitacharje"
+                                                    class="user-social-link" target="_blank"><i
+                                                        class="fab fa-linkedin-in"></i></a>
                                             </div>
                                         </div>
                                     </div>
@@ -744,8 +744,8 @@
                                                 alt="" />
                                         </div>
                                         <div class="team-content">
-                                            <h4>Nabila/Sabiha</h4>
-                                            <span>Product Manager</span>
+                                            <h4>Alma Ferdaus Sabiha</h4>
+                                            <span>Director</span>
                                             <div class="user-social-links-group">
                                                 <a href="https://www.facebook.com/" class="user-social-link"
                                                     target="_blank"><i class="fab fa-facebook-square"></i></a>
@@ -760,75 +760,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-                                    <div class="main-card team-card">
-                                        <div class="team-img">
-                                            <img src="{{ asset('/asset/barren/images/about/team-6.jpg') }}"
-                                                alt="" />
-                                        </div>
-                                        <div class="team-content">
-                                            <h4>Anneliese Hough</h4>
-                                            <span>Product Manager</span>
-                                            <div class="user-social-links-group">
-                                                <a href="https://www.facebook.com/" class="user-social-link"
-                                                    target="_blank"><i class="fab fa-facebook-square"></i></a>
-                                                <a href="https://www.instagram.com/accounts/login/"
-                                                    class="user-social-link" target="_blank"><i
-                                                        class="fab fa-instagram"></i></a>
-                                                <a href="https://twitter.com/" class="user-social-link"
-                                                    target="_blank"><i class="fab fa-twitter"></i></a>
-                                                <a href="https://www.linkedin.com/" class="user-social-link"
-                                                    target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-                                    <div class="main-card team-card">
-                                        <div class="team-img">
-                                            <img src="{{ asset('/asset/barren/images/about/team-7.jpg') }}"
-                                                alt="" />
-                                        </div>
-                                        <div class="team-content">
-                                            <h4>Johnson Dua</h4>
-                                            <span>Tech Lead</span>
-                                            <div class="user-social-links-group">
-                                                <a href="https://www.facebook.com/" class="user-social-link"
-                                                    target="_blank"><i class="fab fa-facebook-square"></i></a>
-                                                <a href="https://www.instagram.com/accounts/login/"
-                                                    class="user-social-link" target="_blank"><i
-                                                        class="fab fa-instagram"></i></a>
-                                                <a href="https://twitter.com/" class="user-social-link"
-                                                    target="_blank"><i class="fab fa-twitter"></i></a>
-                                                <a href="https://www.linkedin.com/" class="user-social-link"
-                                                    target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-xl-3 col-lg-4 col-md-6 col-12">
-                                    <div class="main-card team-card">
-                                        <div class="team-img">
-                                            <img src="{{ asset('/asset/barren/images/about/team-8.jpg') }}"
-                                                alt="" />
-                                        </div>
-                                        <div class="team-content">
-                                            <h4>Lizzy Wizzy</h4>
-                                            <span>Tech Lead</span>
-                                            <div class="user-social-links-group">
-                                                <a href="https://www.facebook.com/" class="user-social-link"
-                                                    target="_blank"><i class="fab fa-facebook-square"></i></a>
-                                                <a href="https://www.instagram.com/accounts/login/"
-                                                    class="user-social-link" target="_blank"><i
-                                                        class="fab fa-instagram"></i></a>
-                                                <a href="https://twitter.com/" class="user-social-link"
-                                                    target="_blank"><i class="fab fa-twitter"></i></a>
-                                                <a href="https://www.linkedin.com/" class="user-social-link"
-                                                    target="_blank"><i class="fab fa-linkedin-in"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
                     </div>

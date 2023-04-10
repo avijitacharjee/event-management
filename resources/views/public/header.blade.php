@@ -9,8 +9,10 @@
                     </span>
                 </button>
                 <a class="navbar-brand order-1 order-lg-0 ml-lg-0 ml-2 me-auto" href="/">
-                    <div class="res-main-logo">
+                    <div class="res-main-logo" id="logo">
                         <img src="{{ asset('asset/barren/images/evento.svg') }}" alt="">
+                        <img class="logo-inverse" src="{{ asset('asset/barren/images/evento-inverse.svg') }}"
+                            alt="">
                     </div>
                     <div class="main-logo" id="logo">
                         <img src="{{ asset('asset/barren/images/evento.svg') }}" alt="">
@@ -25,7 +27,7 @@
                     aria-labelledby="offcanvasNavbarLabel">
                     <div class="offcanvas-header">
                         <div class="offcanvas-logo" id="offcanvasNavbarLabel">
-                            <img src="{{ asset('asset/barren/images/logo-icon.svg') }}" alt="">
+                            <img src="{{ asset('asset/barren/images/evento-logo-icon.svg') }}" alt="">
                         </div>
                         <button type="button" class="close-btn" data-bs-dismiss="offcanvas" aria-label="Close">
                             <i class="fa-solid fa-xmark"></i>
@@ -54,15 +56,17 @@
                                 </a>
                                 <ul class="dropdown-menu dropdown-submenu">
                                     <li><a class="dropdown-item" href="/event/explore-events">Explore Events</a></li>
-                                    <li><a class="dropdown-item" href="/event/explore-events?type=offline">Venue Events</a></li>
-                                    <li><a class="dropdown-item" href="/event/explore-events?type=online">Online Events</a></li>
+                                    <li><a class="dropdown-item" href="/event/explore-events?type=offline">Venue
+                                            Events</a></li>
+                                    <li><a class="dropdown-item" href="/event/explore-events?type=online">Online
+                                            Events</a></li>
                                 </ul>
                             </li>
                             {{-- <li class="nav-item">
                                 <a class="nav-link" href="pricing.html">Pricing</a>
                             </li> --}}
                             <li class="nav-item">
-                                <a class="nav-link {{request()->is('blog')?'active':''}}" href="/blog">Blog</a>
+                                <a class="nav-link {{ request()->is('blog') ? 'active' : '' }}" href="/blog">Blog</a>
                             </li>
                             {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button"
@@ -81,12 +85,12 @@
                                     Help
                                 </a>
                                 <ul class="dropdown-menu dropdown-submenu">
-                                    <li><a class="dropdown-item" href="faq.html">FAQ</a></li>
-                                    <li><a class="dropdown-item" href="help_center.html">Help Center</a></li>
-                                    <li><a class="dropdown-item" href="contact_us.html">Contact Us</a></li>
+                                    <li><a class="dropdown-item" href="/faq">FAQ</a></li>
+                                    <li><a class="dropdown-item" href="/help-center">Help Center</a></li>
+                                    <li><a class="dropdown-item" href="/contact-us">Contact Us</a></li>
                                 </ul>
                             </li>
-                            <li class="nav-item dropdown">
+                            {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
                                     Pages
@@ -150,7 +154,7 @@
                                     <li><a class="dropdown-item" href="privacy_policy.html">Privacy Policy</a>
                                     </li>
                                 </ul>
-                            </li>
+                            </li> --}}
                         </ul>
                     </div>
                     <div class="offcanvas-footer">
@@ -175,33 +179,32 @@
                             </a>
                         </li>
                         @auth
-                        <li class="dropdown account-dropdown">
-                            <a href="#" class="account-link" role="button" id="accountClick"
-                                data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{ asset('asset/barren/images/avatar.svg') }}"" alt="">
-                                <i class="fas fa-caret-down arrow-icon"></i>
-                            </a>
-                            <ul class="dropdown-menu dropdown-menu-account dropdown-menu-end"
-                                aria-labelledby="accountClick">
-                                <li>
-                                    <div class="dropdown-account-header">
-                                        <div class="account-holder-avatar">
-                                            <img src="{{ asset('asset/barren/images/avatar.svg') }}""
-                                                alt="">
+                            <li class="dropdown account-dropdown">
+                                <a href="#" class="account-link" role="button" id="accountClick"
+                                    data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="{{ asset('asset/barren/images/avatar.svg') }}"" alt="">
+                                    <i class="fas fa-caret-down arrow-icon"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-account dropdown-menu-end"
+                                    aria-labelledby="accountClick">
+                                    <li>
+                                        <div class="dropdown-account-header">
+                                            <div class="account-holder-avatar">
+                                                <img src="{{ asset('asset/barren/images/avatar.svg') }}"" alt="">
+                                            </div>
+                                            <h5> {{ auth()->user()->name }} </h5>
+                                            <p>
+                                                {{ auth()->user()->email }}
+                                            </p>
                                         </div>
-                                        <h5> {{ auth()->user()->name}} </h5>
-                                        <p>
-                                            {{ auth()->user()->email }}
-                                        </p>
-                                    </div>
-                                </li>
-                                <li class="profile-link">
-                                    <a href="/organization/dashboard" class="link-item">My Organisation</a>
-                                    <a href="/profile" class="link-item">My Profile</a>
-                                    <a href="/sign-out" class="link-item">Sign Out</a>
-                                </li>
-                            </ul>
-                        </li>
+                                    </li>
+                                    <li class="profile-link">
+                                        <a href="/organization/dashboard" class="link-item">My Organisation</a>
+                                        <a href="/profile" class="link-item">My Profile</a>
+                                        <a href="/sign-out" class="link-item">Sign Out</a>
+                                    </li>
+                                </ul>
+                            </li>
                         @endauth
                         @guest
                             <li>

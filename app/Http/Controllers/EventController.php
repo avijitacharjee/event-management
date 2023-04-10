@@ -72,7 +72,8 @@ class EventController extends Controller
         $event = new Event();
         $event->user_id = auth()->user()->id;
         $event->name = $request->event_name;
-        $event->category = str($request->event_category)->lower()->replace(' ','_')->value();
+        // $event->category = str($request->event_category)->lower()->replace(' ','_')->value();
+        $event->category = str($request->event_category)->snake()->value();
         $event->datetime = $this->getDateTime($request->date, $request->time);
         $event->duration = $request->duration;
         $event->image = null;

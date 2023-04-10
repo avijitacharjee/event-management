@@ -452,6 +452,14 @@ Night Mood
 .night-mode .blog-title:hover {
     color: #fcfcfc !important;
 }
+.night-mode .blog--title {
+    color: #fcfcfc !important;
+    font-size: large;
+}
+
+.night-mode .blog--title:hover {
+    color: #fcfcfc !important;
+}
 
 .night-mode .cb-icon {
     color: #9A9FA5;
