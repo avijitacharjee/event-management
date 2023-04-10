@@ -43,10 +43,10 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-10 col-md-10">
                             <div class="app-top-items">
-                                <a href="{{ url("index.html") }}">
+                                <a href="{{ url("/") }}">
                                     <div class="sign-logo" id="logo">
                                         <img src="{{ asset("/asset/barren/images/evento.svg") }}" alt="">
-                                        <img class="logo-inverse" src="{{ asset("/asset/barren/images/evento.svg") }}" alt="">
+                                        <img class="logo-inverse" src="{{ asset("/asset/barren/images/evento-inverse.svg") }}" alt="">
                                     </div>
                                 </a>
                                 <div class="app-top-right-link">
@@ -118,7 +118,7 @@
                                     </button>
                                 </div> --}}
                                 <div class="new-sign-link">
-                                    New to Evento?<a class="signup-link" href="{{ url("sign_up.html") }}">Sign up</a>
+                                    New to Evento?<a class="signup-link" href="{{ url("sign-up") }}">Sign up</a>
                                 </div>
                             </div>
                         </div>

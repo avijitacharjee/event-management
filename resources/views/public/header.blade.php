@@ -42,6 +42,7 @@
                                 </a>
                             </div>
                         </div>
+
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe_5">
                             <li class="nav-item">
                                 <a class="nav-link active" aria-current="page" href="/">Home</a>
@@ -90,6 +91,7 @@
                                     <li><a class="dropdown-item" href="/contact-us">Contact Us</a></li>
                                 </ul>
                             </li>
+
                             {{-- <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" role="button"
                                     data-bs-toggle="dropdown" aria-expanded="false">
@@ -208,10 +210,12 @@
                         @endauth
                         @guest
                             <li>
-                                <a class="create-btn btn-hover" href="/sign-in">
-                                    <i class="fa-solid fa-sign-in"></i>
-                                    <span>Join</span>
-                                </a>
+                                <div class="sign_in_btn">
+                                    <a class="" href="/sign-in">
+                                        <i class="fa-solid fa-sign-in"></i>
+                                        {{-- <span>Join</span> --}}
+                                    </a>
+                                </div>
                             </li>
                         @endguest
                         <li>

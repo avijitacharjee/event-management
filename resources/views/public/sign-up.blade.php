@@ -43,12 +43,12 @@
                     <div class="row justify-content-center">
                         <div class="col-lg-10 col-md-10">
                             <div class="app-top-items">
-                                <a href="index.html">
+                                <a href="/">
                                     <div class="sign-logo" id="logo">
-                                        <img src="images/logo.svg" alt="" />
+                                        <img src="{{asset('asset/barren/images/evento.svg')}}" alt="" />
                                         <img
                                             class="logo-inverse"
-                                            src="images/dark-logo.svg"
+                                            src="{{asset('asset/barren/images/evento-inverse.svg')}}"
                                             alt=""
                                         />
                                     </div>
