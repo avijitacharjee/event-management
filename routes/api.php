@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Middleware\ForceJsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -18,4 +19,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::post('login',[AuthController::class,'login']);
+
+Route::group([
+    'controller' => AuthController::class,
+    'middleware'=>[ForceJsonResponse::class],
+], function () {
+    Route::post('/sign-in',  'login');
+    Route::post('/sign-up','signUp');
+    Route::get('/sign-out', 'logout');
+    Route::get('profile',  'profile');
+});
