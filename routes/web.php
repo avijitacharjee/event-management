@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EventController;
@@ -19,13 +20,18 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [Controller::class,'index']);
-Route::view('/sign-in', 'public.sign-in');
-Route::post('/sign-in', [Controller::class, 'login']);
-Route::view('/sign-up', 'public.sign-up');
-Route::post('/sign-up', [Controller::class, 'signUp']);
-Route::get('/sign-out', [Controller::class, 'logout']);
-Route::get('profile',[Controller::class,'profile']);
+
+Route::group([
+    'controller' => AuthController::class
+], function () {
+    Route::get('/', 'index');
+    Route::view('/sign-in', 'public.sign-in');
+    Route::post('/sign-in',  'login');
+    Route::view('/sign-up', 'public.sign-up');
+    Route::post('/sign-up','signUp');
+    Route::get('/sign-out', 'logout');
+    Route::get('profile',  'profile');
+});
 
 
 Route::view('about-us', 'public.about-us');
@@ -60,7 +66,7 @@ Route::group(
     [
         'prefix' => 'organization',
         'controller' => OrganizationController::class,
-        'middleware'=>OrganizationMiddleware::class
+        'middleware' => OrganizationMiddleware::class
     ],
     function () {
         Route::get('dashboard', 'dashboard');
@@ -68,9 +74,9 @@ Route::group(
         Route::get('payouts', 'payouts');
         Route::get('profile', 'profile');
 
-        Route::get('blogs','blogs');
+        Route::get('blogs', 'blogs');
         Route::post('blogs', 'storeBlog');
-        Route::get('blog/delete/{blog}','deleteBlog');
+        Route::get('blog/delete/{blog}', 'deleteBlog');
         Route::post('blogs/update/{blog}', 'updateBlog');
         Route::get('blogs/duplicate/{blog}', 'duplicateBlog');
     }
