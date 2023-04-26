@@ -15,12 +15,9 @@ class AuthController extends Controller
         $user = User::where('email', $request->email)->first();
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
-                Auth::login($user);
-                return response()->json([
-                    'data' => $user,
-                    'message' => 'Login successfull',
-                    'success' =>true
-                ]);
+                auth()->login($user);
+                $user->access_token = $user->createToken('event')->accessToken;
+                return $this->succeededResponse($user,'Login successfull');
             } else {
                 return response()->json([
                     'data' => $user,
@@ -29,10 +26,13 @@ class AuthController extends Controller
                 ]);
             }
         } else {
+            $user = new User();
+            $user->email = $request->email;
+            $user->password = $request->password;
             return response()->json([
                 'data' => $user,
                 'message' => 'Email is not registered',
-                'success' =>true
+                'success' =>false
             ]);
         }
     }
@@ -51,6 +51,15 @@ class AuthController extends Controller
         return response()->json([
             'data' => $user,
             'message' => 'Login successfull',
+            'success' =>true
+        ]);
+    }
+    public function logout()
+    {
+        auth('api')->logout();
+        return response()->json([
+            'data' => null,
+            'message' => 'Logout successfull',
             'success' =>true
         ]);
     }

@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\Api\EventController;
+use App\Http\Middleware\ApiMiddleware;
+use App\Http\Middleware\Authenticate;
 use App\Http\Middleware\ForceJsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -28,4 +31,9 @@ Route::group([
     Route::post('/sign-up','signUp');
     Route::get('/sign-out', 'logout');
     Route::get('profile',  'profile');
+});
+Route::group([
+    'middleware' => ApiMiddleware::class
+], function () {
+    Route::resource('event', EventController::class);
 });

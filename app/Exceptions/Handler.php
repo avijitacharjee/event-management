@@ -47,13 +47,13 @@ class Handler extends ExceptionHandler
             //
         });
         $this->renderable(function (Exception $e, Request $request) {
-            if ( $request->is('api/*')) {
-                return response()->json([
-                    'message' => $e->getMessage(),
-                    'file' => $e->getFile(),
-                    'line' => $e->getLine(),
-                ], 404);
-            }
+            // if ( $request->is('api/*')) {
+            //     return response()->json([
+            //         'message' => $e->getMessage(),
+            //         'file' => $e->getFile(),
+            //         'line' => $e->getLine(),
+            //     ], 404);
+            // }
         });
     }
 }

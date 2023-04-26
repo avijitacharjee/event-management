@@ -27,7 +27,7 @@
                     <div class="col-xl-12 col-lg-12 col-md-12">
                         <div class="event-filter-items">
                             <div class="featured-controls">
-                                <div class="filter-tag">
+                                {{-- <div class="filter-tag">
                                     <a href="explore_events_by_date.html" class="active">All</a>
                                     <a href="explore_events_by_date.html">Today</a>
                                     <a href="explore_events_by_date.html">Tomorrow</a>
@@ -39,7 +39,7 @@
                                     <a href="explore_events_by_date.html">Next Month</a>
                                     <a href="explore_events_by_date.html">This Year</a>
                                     <a href="explore_events_by_date.html">Next Year</a>
-                                </div>
+                                </div> --}}
                                 <div class="controls">
                                     <button type="button" class="control" data-filter="all">All</button>
                                     <button type="button" class="control" data-filter=".arts">Arts</button>
