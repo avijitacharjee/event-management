@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Event;
+use App\Models\EventVenue;
 use App\Models\User;
 use DateTime;
 use GuzzleHttp\Client;
@@ -45,7 +46,7 @@ class EventFactory extends Factory
         ];
         $isOnline = fake()->boolean();
         if(!$isOnline){
-            $eventVenue = Event::factory()->createOne();
+            $eventVenue = EventVenue::factory()->createOne();
         }
         $dateTime = fake()->dateTimeBetween('+1 week', '+1 month');
 
@@ -53,7 +54,7 @@ class EventFactory extends Factory
             'name' => fake()->unique()->sentence(),
             'date_time' => $dateTime,
             'duration' => rand(1, 6)*30,
-            'category'=>$categories[array_rand($categories)],
+            'category'=>str($categories[array_rand($categories)])->snake()->value(),
             'image' => (new Client(['allow_redirects' => ['track_redirects' => true]]))
                 ->get("https://picsum.photos/640/360")
                 ->getHeader(\GuzzleHttp\RedirectMiddleware::HISTORY_HEADER)[0],

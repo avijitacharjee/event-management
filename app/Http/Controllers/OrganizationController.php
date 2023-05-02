@@ -36,7 +36,7 @@ class OrganizationController extends Controller
         $blog->user_id = auth()->user()->id;
         $blog->author = auth()->user()->name;
         $blog->title = $request->title;
-        $blog->image = $request->hasFile('image') ? 'storage/'.$request->file('image')->store('blogs','public') : null;
+        $blog->image = $request->hasFile('image') ? $request->file('image')->store('blogs','public') : null;
         $blog->content = $request->content;
         $blog->save();
         return back();
