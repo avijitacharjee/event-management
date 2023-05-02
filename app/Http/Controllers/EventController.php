@@ -26,11 +26,11 @@ class EventController extends Controller
         $event = new Event();
         $event->name = $request->event_name;
         $event->category = $request->event_category;
-        $event->datetime = $this->getDateTime($request->date, $request->time);
+        $event->date_time = $this->getDateTime($request->date, $request->time);
         $event->duration = $request->duration;
         $event->image = null;
         if ($request->hasFile('image')) {
-            $event->image = $request->file('image')->store(
+            $event->image = 'storage/' . $request->file('image')->store(
                 'event',
                 'public'
             );
@@ -60,7 +60,7 @@ class EventController extends Controller
     {
 
         $eventVenue = new EventVenue();
-        $eventVenue->name = $request->event_name;
+        $eventVenue->name = $request->venue_name;
         $eventVenue->address_line_1 = $request->address_line_1;
         $eventVenue->address_line_2 = $request->address_line_2;
         $eventVenue->country = $request->country;
@@ -74,11 +74,11 @@ class EventController extends Controller
         $event->name = $request->event_name;
         // $event->category = str($request->event_category)->lower()->replace(' ','_')->value();
         $event->category = str($request->event_category)->snake()->value();
-        $event->datetime = $this->getDateTime($request->date, $request->time);
+        $event->date_time = $this->getDateTime($request->date, $request->time);
         $event->duration = $request->duration;
         $event->image = null;
         if ($request->hasFile('image')) {
-            $event->image = $request->file('image')->store(
+            $event->image = 'storage/' . $request->file('image')->store(
                 'event',
                 'public'
             );
@@ -111,10 +111,11 @@ class EventController extends Controller
         return date('H:i:s', strtotime($timeString));
     }
 
-    public function exploreEvents(){
+    public function exploreEvents()
+    {
         $events = Event::all();
         return view('public.explore-events')
-            ->with('events',$events);
+            ->with('events', $events);
     }
     public function show(Event $event)
     {

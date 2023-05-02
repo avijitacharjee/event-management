@@ -49,7 +49,7 @@
                     <div class="col-xl-8 col-lg-7 col-md-12">
                         <div class="main-event-dt">
                             <div class="event-img">
-                                <img src="{{ asset('storage/' . $event->image) }}" alt="" />
+                                <img src="{{ asset($event->image) }}" alt="" />
                             </div>
                             <div class="share-save-btns dropdown">
                                 <button class="sv-btn me-2">

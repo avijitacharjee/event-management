@@ -191,7 +191,7 @@
                                             <div class="main-card mt-4">
                                                 <div class="event-thumbnail">
                                                     <a href="/event/event-single/{{$event->id}}" class="thumbnail-img">
-                                                        <img src="{{asset('storage/'.$event->image)}}" alt="" />
+                                                        <img src="{{url($event->image)}}" alt="" />
                                                     </a>
                                                     {{-- <span class="bookmark-icon" title="Bookmark"></span> --}}
                                                 </div>

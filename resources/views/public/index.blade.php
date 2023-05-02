@@ -61,7 +61,7 @@
                                             <div class="main-card mt-4">
                                                 <div class="event-thumbnail">
                                                     <a href="/event/event-single/{{ $event->id }}" class="thumbnail-img">
-                                                        <img src="{{ asset('storage/' . $event->image) }}" alt="" />
+                                                        <img src="{{url($event->image)}}" alt="" />
                                                     </a>
                                                     {{-- <span class="bookmark-icon" title="Bookmark"></span> --}}
                                                 </div>
@@ -78,9 +78,9 @@
                                                     <div class="event-timing">
                                                         <div class="publish-date">
                                                             <span><i
-                                                                    class="fa-solid fa-calendar-day me-2"></i>{{ (new \DateTime($event->datetime))->format('j M') }}</span>
+                                                                    class="fa-solid fa-calendar-day me-2"></i>{{ (new \DateTime($event->date_time))->format('j M') }}</span>
                                                             <span class="dot"><i class="fa-solid fa-circle"></i></span>
-                                                            <span>{{ date('D, g:i a', strtotime($event->datetime)) }}</span>
+                                                            <span>{{ date('D, g:i a', strtotime($event->date_time)) }}</span>
                                                         </div>
                                                         <span class="publish-time"><i
                                                                 class="fa-solid fa-clock me-2"></i>{{ $event->duration_in_h }}h</span>

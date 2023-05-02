@@ -45,7 +45,7 @@ class AuthController extends Controller
     }
     public function index()
     {
-        $events = Event::all();
+        $events = Event::latest()->take(12)->get();
         return view('public.index', compact(['events']));
     }
     public function profile()
