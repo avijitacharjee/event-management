@@ -37,10 +37,10 @@ class AuthController extends Controller
                 Auth::login($user);
                 return redirect('/');
             } else {
-                return back();
+                return back()->with('msg','Invalid password');
             }
         } else {
-            return back();
+            return back()->with('msg','Invalid username');
         }
     }
     public function index()
