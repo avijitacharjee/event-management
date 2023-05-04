@@ -19,19 +19,24 @@ class AuthTest extends TestCase
         $response->assertViewIs('public.sign-in')->assertStatus(200);
     }
 
-    public function test_login_post_method(): void
+    public function test_user_can_login(): void
     {
         $this->post('/sign-in', [
             'email' => 'avijitach@gmail.com',
             'password' => '654321'
         ])->assertStatus(Response::HTTP_FOUND)->assertRedirect('/');
+        $this->assertAuthenticated();
 
+    }
+    public function test_user_can_not_login_with_wrong_password(): void
+    {
         $this->post('/sign-in', [
             'email' => null,
             'password' => null,
         ])->assertStatus(Response::HTTP_FOUND)
             ->assertRedirect(session()->previousUrl())
             ->assertFound();
+        $this->assertGuest();
     }
     public function test_register_view(): void
     {
@@ -47,6 +52,10 @@ class AuthTest extends TestCase
             'password' => '654321'
         ])->assertStatus(Response::HTTP_FOUND)->assertRedirect('/');
 
+
+    }
+    public function test_register_with_existing_email(): void
+    {
         $this->post('/sign-up', [
             'email' => null,
             'password' => null,

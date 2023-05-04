@@ -119,7 +119,11 @@ class EventController extends Controller
     }
     public function show(Event $event)
     {
-        return view('public.event-single')->with('event', $event);
+        $moreEvents = Event::latest()->take(5)->get();
+        return view('public.event-single',compact([
+            'event',
+            'moreEvents'
+        ]));
     }
 
     public function checkout()

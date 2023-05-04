@@ -30,18 +30,22 @@
                     <div class="col-xl-12 col-lg-12 col-md-12">
                         <div class="event-top-dts">
                             <div class="event-top-date">
-                                <span class="event-month">{{ date('M', strtotime($event->datetime)) }}</span>
-                                <span class="event-date">{{$event->datetime->format('j')}}</span>
+                                <span class="event-month">{{ date('M', strtotime($event->date_time)) }}</span>
+                                <span class="event-date">{{ $event->date_time->format('j') }}</span>
                             </div>
                             <div class="event-top-dt">
                                 <h3 class="event-main-title">
-                                    {{$event->name}} Showcase {{str_replace(":00","",$event->datetime->format('l F jS Y \a\t h:ia'))}}
+                                    {{ $event->name }} Showcase
+                                    {{ str_replace(':00', '', $event->date_time->format('l F jS Y \a\t h:ia')) }}
                                 </h3>
                                 <div class="event-top-info-status">
-                                    <span class="event-type-name"><i class="fa-solid fa-location-dot"></i>{{ucfirst($event->event_type)}} Event</span>
+                                    <span class="event-type-name"><i
+                                            class="fa-solid fa-location-dot"></i>{{ ucfirst($event->event_type) }}
+                                        Event</span>
                                     <span class="event-type-name details-hr">Starts on
-                                        <span class="ev-event-date">{{$event->datetime->format('D, M j, Y h:ia')}}</span></span>
-                                    <span class="event-type-name details-hr">{{$event->duration_in_h}}h</span>
+                                        <span
+                                            class="ev-event-date">{{ $event->date_time->format('D, M j, Y h:ia') }}</span></span>
+                                    <span class="event-type-name details-hr">{{ $event->duration_in_h }}h</span>
                                 </div>
                             </div>
                         </div>
@@ -112,7 +116,7 @@
                                 </div>
                                 <div class="event-dt-right-content">
                                     <h4>Organised by</h4>
-                                    <h5>{{$event->user->name}}</h5>
+                                    <h5>{{ $event->user->name }}</h5>
                                     {{-- <a href="attendee_profile_view.html">View Profile</a> --}}
                                 </div>
                             </div>
@@ -152,10 +156,15 @@
                                 <div class="event-dt-right-icon">
                                     <i class="fa-solid fa-location-dot"></i>
                                 </div>
+
                                 <div class="event-dt-right-content">
                                     <h4>Location</h4>
                                     <h5 class="mb-0">
-                                        {{$event->location}}
+                                        @if ($event->type == 'offline')
+                                            {{ $event->location }}
+                                        @else
+                                            Online
+                                        @endif
                                     </h5>
                                     {{-- <a href="#"><i class="fa-solid fa-location-dot me-2"></i>View Map</a> --}}
                                 </div>
@@ -181,7 +190,7 @@
                                 </p> --}}
                                 <div class="xtotel-tickets-count">
                                     <div class="x-title">1x Ticket(s)</div>
-                                    <h4>{{$event->currency}} <span>{{$event->ticket_price}}</span></h4>
+                                    <h4>{{ $event->currency }} <span>{{ $event->ticket_price }}</span></h4>
                                 </div>
                             </div>
                             <div class="booking-btn">
@@ -197,178 +206,39 @@
                                         class="fa-solid fa-right-long ms-2"></i></a>
                             </div>
                             <div class="owl-carousel moreEvents-slider owl-theme">
-                                <div class="item">
-                                    <div class="main-card mt-4">
-                                        <div class="event-thumbnail">
-                                            <a href="venue_event_detail_view.html" class="thumbnail-img">
-                                                <img src="images/event-imgs/img-1.jpg" alt="" />
-                                            </a>
-                                            <span class="bookmark-icon" title="Bookmark"></span>
-                                        </div>
-                                        <div class="event-content">
-                                            <a href="venue_event_detail_view.html" class="event-title">A New Way Of
-                                                Life</a>
-                                            <div class="duration-price-remaining">
-                                                <span class="duration-price">AUD $100.00*</span>
-                                                <span class="remaining"></span>
+                                @foreach ($moreEvents as $event)
+                                    <div class="item">
+                                        <div class="main-card mt-4">
+                                            <div class="event-thumbnail">
+                                                <a href="/event/event-single/{{ $event->id }}" class="thumbnail-img">
+                                                    <img src="{{ url($event->image) }}" alt="" />
+                                                </a>
+                                                {{-- <span class="bookmark-icon" title="Bookmark"></span> --}}
                                             </div>
-                                        </div>
-                                        <div class="event-footer">
-                                            <div class="event-timing">
-                                                <div class="publish-date">
-                                                    <span><i class="fa-solid fa-calendar-day me-2"></i>15 Apr</span>
-                                                    <span class="dot"><i class="fa-solid fa-circle"></i></span>
-                                                    <span>Fri, 3.45 PM</span>
+                                            <div class="event-content">
+                                                <a href="/event/event-single/{{ $event->id }}"
+                                                    class="event-title">{{ $event->name }}</a>
+                                                <div class="duration-price-remaining">
+                                                    <span class="duration-price">{{ $event->currency }}
+                                                        {{ $event->ticket_price }}*</span>
+                                                    <span class="remaining"></span>
                                                 </div>
-                                                <span class="publish-time"><i class="fa-solid fa-clock me-2"></i>1h</span>
+                                            </div>
+                                            <div class="event-footer">
+                                                <div class="event-timing">
+                                                    <div class="publish-date">
+                                                        <span><i
+                                                                class="fa-solid fa-calendar-day me-2"></i>{{ (new \DateTime($event->date_time))->format('j M') }}</span>
+                                                        <span class="dot"><i class="fa-solid fa-circle"></i></span>
+                                                        <span>{{ date('D, g:i a', strtotime($event->date_time)) }}</span>
+                                                    </div>
+                                                    <span class="publish-time"><i
+                                                            class="fa-solid fa-clock me-2"></i>{{ $event->duration_in_h }}h</span>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="item">
-                                    <div class="main-card mt-4">
-                                        <div class="event-thumbnail">
-                                            <a href="online_event_detail_view.html" class="thumbnail-img">
-                                                <img src="images/event-imgs/img-2.jpg" alt="" />
-                                            </a>
-                                            <span class="bookmark-icon" title="Bookmark"></span>
-                                        </div>
-                                        <div class="event-content">
-                                            <a href="online_event_detail_view.html" class="event-title">Earrings Workshop
-                                                with
-                                                Bronwyn David</a>
-                                            <div class="duration-price-remaining">
-                                                <span class="duration-price">AUD $75.00*</span>
-                                                <span class="remaining"><i class="fa-solid fa-ticket fa-rotate-90"></i>6
-                                                    Remaining</span>
-                                            </div>
-                                        </div>
-                                        <div class="event-footer">
-                                            <div class="event-timing">
-                                                <div class="publish-date">
-                                                    <span><i class="fa-solid fa-calendar-day me-2"></i>30 Apr</span>
-                                                    <span class="dot"><i class="fa-solid fa-circle"></i></span>
-                                                    <span>Sat, 11.20 PM</span>
-                                                </div>
-                                                <span class="publish-time"><i class="fa-solid fa-clock me-2"></i>2h</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="main-card mt-4">
-                                        <div class="event-thumbnail">
-                                            <a href="venue_event_detail_view.html" class="thumbnail-img">
-                                                <img src="images/event-imgs/img-3.jpg" alt="" />
-                                            </a>
-                                            <span class="bookmark-icon" title="Bookmark"></span>
-                                        </div>
-                                        <div class="event-content">
-                                            <a href="venue_event_detail_view.html" class="event-title">Spring Showcase
-                                                Saturday
-                                                April 30th 2022 at 7pm</a>
-                                            <div class="duration-price-remaining">
-                                                <span class="duration-price">Free*</span>
-                                                <span class="remaining"></span>
-                                            </div>
-                                        </div>
-                                        <div class="event-footer">
-                                            <div class="event-timing">
-                                                <div class="publish-date">
-                                                    <span><i class="fa-solid fa-calendar-day me-2"></i>1 May</span>
-                                                    <span class="dot"><i class="fa-solid fa-circle"></i></span>
-                                                    <span>Sun, 4.30 PM</span>
-                                                </div>
-                                                <span class="publish-time"><i class="fa-solid fa-clock me-2"></i>3h</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="main-card mt-4">
-                                        <div class="event-thumbnail">
-                                            <a href="online_event_detail_view.html" class="thumbnail-img">
-                                                <img src="images/event-imgs/img-4.jpg" alt="" />
-                                            </a>
-                                            <span class="bookmark-icon" title="Bookmark"></span>
-                                        </div>
-                                        <div class="event-content">
-                                            <a href="online_event_detail_view.html" class="event-title">Shutter Life</a>
-                                            <div class="duration-price-remaining">
-                                                <span class="duration-price">AUD $85.00</span>
-                                                <span class="remaining"><i class="fa-solid fa-ticket fa-rotate-90"></i>7
-                                                    Remaining</span>
-                                            </div>
-                                        </div>
-                                        <div class="event-footer">
-                                            <div class="event-timing">
-                                                <div class="publish-date">
-                                                    <span><i class="fa-solid fa-calendar-day me-2"></i>1 May</span>
-                                                    <span class="dot"><i class="fa-solid fa-circle"></i></span>
-                                                    <span>Sun, 5.30 PM</span>
-                                                </div>
-                                                <span class="publish-time"><i class="fa-solid fa-clock me-2"></i>1h</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="main-card mt-4">
-                                        <div class="event-thumbnail">
-                                            <a href="venue_event_detail_view.html" class="thumbnail-img">
-                                                <img src="images/event-imgs/img-5.jpg" alt="" />
-                                            </a>
-                                            <span class="bookmark-icon" title="Bookmark"></span>
-                                        </div>
-                                        <div class="event-content">
-                                            <a href="venue_event_detail_view.html" class="event-title">Friday Night Dinner
-                                                at The
-                                                Old Station May 27 2022</a>
-                                            <div class="duration-price-remaining">
-                                                <span class="duration-price">AUD $41.50*</span>
-                                                <span class="remaining"></span>
-                                            </div>
-                                        </div>
-                                        <div class="event-footer">
-                                            <div class="event-timing">
-                                                <div class="publish-date">
-                                                    <span><i class="fa-solid fa-calendar-day me-2"></i>27 May</span>
-                                                    <span class="dot"><i class="fa-solid fa-circle"></i></span>
-                                                    <span>Fri, 12.00 PM</span>
-                                                </div>
-                                                <span class="publish-time"><i class="fa-solid fa-clock me-2"></i>5h</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="item">
-                                    <div class="main-card mt-4">
-                                        <div class="event-thumbnail">
-                                            <a href="venue_event_detail_view.html" class="thumbnail-img">
-                                                <img src="images/event-imgs/img-6.jpg" alt="" />
-                                            </a>
-                                            <span class="bookmark-icon" title="Bookmark"></span>
-                                        </div>
-                                        <div class="event-content">
-                                            <a href="venue_event_detail_view.html" class="event-title">Step Up Open Mic
-                                                Show</a>
-                                            <div class="duration-price-remaining">
-                                                <span class="duration-price">AUD $200.00*</span>
-                                                <span class="remaining"></span>
-                                            </div>
-                                        </div>
-                                        <div class="event-footer">
-                                            <div class="event-timing">
-                                                <div class="publish-date">
-                                                    <span><i class="fa-solid fa-calendar-day me-2"></i>30 Jun</span>
-                                                    <span class="dot"><i class="fa-solid fa-circle"></i></span>
-                                                    <span>Thu, 4.30 PM</span>
-                                                </div>
-                                                <span class="publish-time"><i class="fa-solid fa-clock me-2"></i>1h</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </div>
                         </div>
                     </div>
@@ -395,7 +265,7 @@
                 nextYear = yyyy + 1,
                 dayMonth = "04/03/",
                 // event = dayMonth + yyyy;
-                event = <?php echo json_encode($event->datetime->format('m/j/Y')); ?>
+                event = <?php echo json_encode($event->date_time->format('m/j/Y')); ?>
 
             today = mm + "/" + dd + "/" + yyyy;
             if (today > event) {

@@ -61,7 +61,7 @@
                                             <div class="main-card mt-4">
                                                 <div class="event-thumbnail">
                                                     <a href="/event/event-single/{{ $event->id }}" class="thumbnail-img">
-                                                        <img src="{{url($event->image)}}" alt="" />
+                                                        <img src="{{ url($event->image) }}" alt="" />
                                                     </a>
                                                     {{-- <span class="bookmark-icon" title="Bookmark"></span> --}}
                                                 </div>
@@ -91,7 +91,7 @@
                                     @endforeach
                                 </div>
                                 <div class="browse-btn">
-                                    <a href="explore_events.html" class="main-btn btn-hover ">Browse All</a>
+                                    <a href="{{ url('event/explore-events') }}" class="main-btn btn-hover ">Browse All</a>
                                 </div>
                             </div>
                         </div>

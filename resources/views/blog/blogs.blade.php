@@ -36,7 +36,7 @@
                                                         <div class="main-card">
                                                             <div class="blog-block flex-slide">
                                                                 <div class="blog-img-card left">
-                                                                    <a href="{{ url('/blog/3') }}" class="bbig-img">
+                                                                    <a href="{{ url("blog/$blog->id") }}" class="bbig-img">
                                                                         <img src="{{ asset($blog->image) }}"
                                                                             alt="" />
                                                                     </a>
