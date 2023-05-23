@@ -452,24 +452,12 @@
                                                                         join the
                                                                         event.
                                                                     </p>
-                                                                    <div
-                                                                        class="stepper-data-set"
-                                                                    >
-                                                                        <div
-                                                                            class="content-holder template-selector"
-                                                                        >
-                                                                            <div
-                                                                                class="row g-4"
-                                                                            >
-                                                                                <div
-                                                                                    class="col-md-12"
-                                                                                >
-                                                                                    <div
-                                                                                        class="venue-event"
-                                                                                    >
-                                                                                        <div
-                                                                                            class="map"
-                                                                                        >
+                                                                    <div class="stepper-data-set">
+                                                                        <div class="content-holder template-selector">
+                                                                            <div class="row g-4">
+                                                                                <div class="col-md-12">
+                                                                                    {{-- <div class="venue-event">
+                                                                                        <div class="map">
                                                                                             <iframe
                                                                                                 src="https://www.google.com/maps/embed?pb=!1m10!1m8!1m3!1d27382.59422947023!2d91.833864!3d22.3387918!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sin!4v1534312417365"
                                                                                                 style="
@@ -478,13 +466,19 @@
                                                                                                 allowfullscreen
                                                                                             ></iframe>
                                                                                         </div>
-                                                                                    </div>
+                                                                                    </div> --}}
+                                                                                    <input type="text" id="searchInput" class="controls" placeholder="Enter a location">
+                                                                                    <div id="map"></div>
+                                                                                    <ul class="geo-data">
+                                                                                        <li>Full Address: <span id="location"></span></li>
+                                                                                        <li>Postal Code: <span id="postal_code"></span></li>
+                                                                                        <li>Country: <span id="country"></span></li>
+                                                                                        <li>Latitude: <span id="lat"></span></li>
+                                                                                        <li>Longitude: <span id="lon"></span></li>
+                                                                                    </ul>
                                                                                 </div>
-                                                                                <div
-                                                                                    class="col-md-12"
-                                                                                >
-                                                                                    <div
-                                                                                        class="form-group mt-1"
+                                                                                <div class="col-md-12">
+                                                                                    <div class="form-group mt-1"
                                                                                     >
                                                                                         <label
                                                                                             class="form-label fs-6"
@@ -2624,6 +2618,7 @@
     </div>
 @endsection
 @section('js')
+    <script src="https://maps.googleapis.com/maps/api/js?libraries=places&key=Your_API_Key"></script>
     <script src="{{ asset('asset/barren/vendor/ckeditor5/ckeditor.js') }}"></script>
     <script src="{{ asset('asset/barren/js/jquery-steps.min.js') }}"></script>
     <script src="{{ asset('asset/barren/js/datepicker.min.js') }}"></script>
