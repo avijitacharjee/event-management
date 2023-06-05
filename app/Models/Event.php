@@ -27,6 +27,6 @@ class Event extends Model
         );
     }
     protected $casts = [
-        'date_time' => DateTime::class
+        'date_time' => 'datetime'
     ];
 }

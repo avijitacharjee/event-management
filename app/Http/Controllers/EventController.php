@@ -23,6 +23,7 @@ class EventController extends Controller
     }
     public function storeOnline(Request $request)
     {
+        // dd($request->all());
         $event = new Event();
         $event->name = $request->event_name;
         $event->category = $request->event_category;

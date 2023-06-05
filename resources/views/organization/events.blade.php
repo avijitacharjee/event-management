@@ -56,7 +56,7 @@
                                                     class="card-top event-top p-4 align-items-center top d-md-flex flex-wrap justify-content-between">
                                                     <div class="d-md-flex align-items-center event-top-info">
                                                         <div class="card-event-img">
-                                                            <img src="{{ asset('storage/'.$event->image) }}"
+                                                            <img src="{{ url($event->image) }}"
                                                                 alt="" />
                                                         </div>
                                                         <div class="card-event-dt">
@@ -101,7 +101,7 @@
                                                         </span>
                                                         <p>Starts on</p>
                                                         <h6 class="coupon-status">
-                                                            {{$event->datetime->format('j M, Y g:i A')}}
+                                                            {{$event->date_time->format('j M, Y g:i A')}}
                                                         </h6>
                                                     </div>
                                                     <div class="icon-box">
