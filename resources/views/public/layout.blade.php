@@ -107,6 +107,9 @@
                                     Avijitech Softwares
                                 </a>
                             </p>
+                            <p>
+                                v{{config('app.version')}}
+                            </p>
                         </div>
                     </div>
                 </div>
