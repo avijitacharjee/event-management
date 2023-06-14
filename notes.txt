@@ -3,13 +3,13 @@ Web:
     Features Added:
     Bugs:
       1. Event type (online in offline events type)
-      2.
+      2. Image preview in store online event page .
     Features to add:
-      1. Multiday events
+      1. Multiday events 🏃‍♀️
       2. Recurring events
       3. Rename venue events to offline events ✔
-      4. Places api (not available without credit card)
-      5. Store current location
+      4. Places api (not available without credit card) ❌
+      5. Store current location ❌
       6. Multiple ticket types ( eg. age based)
       7. Add ticket description
       8. Add logo in ticket
@@ -18,7 +18,6 @@ Web:
       11. Refund
       12. Event search with filtering system (eg. location,radius)
       13. Featured events with special payment ( premium package/sponsored events )
-      14.
 
 App:
   V1.0.0

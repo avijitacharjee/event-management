@@ -230,6 +230,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+                                                                    <x-form-input.event-repeat/>
                                                                 </div>
                                                                 <div class="form-group pt_30 pb_30">
                                                                     <label class="form-label fs-16">Add a
@@ -1496,6 +1497,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
+
                                                                     <div class="setting-item border_bottom pb_30 pt_30">
                                                                         <div class="d-flex align-items-start">
                                                                             <label class="btn-switch m-0 me-3">
