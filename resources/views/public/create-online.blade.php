@@ -423,7 +423,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="step-tab-panel step-tab-gallery" id="tab_step2">
+                                        {{-- <div class="step-tab-panel step-tab-gallery" id="tab_step2">
                                             <div class="tab-from-content">
                                                 <div class="main-card">
                                                     <div class="bp-title">
@@ -991,7 +991,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
+                                        </div> --}}
+                                        <x-sections.tickets-create-tab/>
                                         <div class="step-tab-panel step-tab-location" id="tab_step3">
                                             <div class="tab-from-content">
                                                 <div class="main-card">
