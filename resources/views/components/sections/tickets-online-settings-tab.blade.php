@@ -28,7 +28,7 @@
                             accordingly.
                         </p>
                         <div class="content-holder">
-                            <div class="setting-item pb-0 pt_30">
+                            <div class="setting-item border_bottom pb_30 pt-4">
                                 <div class="d-flex align-items-start">
                                     <label class="btn-switch m-0 me-3">
                                         <input type="checkbox" class="" id="tags-btn" value=""
@@ -37,23 +37,10 @@
                                     </label>
                                     <div class="d-flex flex-column">
                                         <label class="color-black fw-bold mb-1">I don't accept partial payment</label>
-                                        {{-- <p class="mt-2 fs-14 d-block mb-0">
-                                            Use
-                                            relevant
-                                            words
-                                            as
-                                            your
-                                            tags
-                                            to
-                                            improve
-                                            the
-                                            discoverability
-                                            of
-                                            your
-                                            event.
-                                            <a href="{{ url('#') }}" class="a-link">Learn
-                                                more</a>
-                                        </p> --}}
+                                        <p class="mt-2 fs-14 d-block mb-0">
+                                            Disable this option if you don't want to accept partial payments
+                                            while selling tickets.
+                                        </p>
                                     </div>
                                 </div>
                                 <div class="tags-holder"
@@ -62,6 +49,28 @@
                                         <input class="form-control tags-input" type="number" name="partial_payment"
                                             placeholder="Enter amount" />
                                         <div class="tags-list"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="setting-item border_bottom pb_30 pt-4">
+                                <div class="d-flex align-items-start">
+                                    <label class="btn-switch m-0 me-3">
+                                        <input type="checkbox" class="" id="tags-btn" value=""
+                                            checked />
+                                        <span class="checkbox-slider"></span>
+                                    </label>
+                                    <div class="d-flex flex-column">
+                                        <label class="color-black fw-bold mb-1">I don't accept refund</label>
+                                        <p class="mt-2 fs-14 d-block mb-0">
+                                            Disable
+                                            this
+                                            option
+                                            if
+                                            you
+                                            want
+                                            to
+                                            accept refund.
+                                        </p>
                                     </div>
                                 </div>
                             </div>
