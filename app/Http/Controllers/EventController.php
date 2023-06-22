@@ -114,8 +114,10 @@ class EventController extends Controller
     public function exploreEvents()
     {
         $events = Event::all();
+        $featuredEvents = Event::take(10)->get();
         return view('public.explore-events')
-            ->with('events', $events);
+            ->with('events', $events)
+            ->with('featuredEvents', $featuredEvents);
     }
     public function show(Event $event)
     {

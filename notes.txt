@@ -14,9 +14,9 @@ Web:
       7. Add ticket description ✔
       8. Add logo in ticket ✔
       9. Template for the tickets (eg. Concert, Wedding) ✔
-      10. Partial Payment
-      11. Refund
-      12. Event search with filtering system (eg. location,radius)
+      10. Partial Payment ✔
+      11. Refund ✔
+      12. Event search with filtering system (eg. location,radius) (Location,radius not possible) ✔
       13. Featured events with special payment ( premium package/sponsored events )
   V1.0.1
     Features Added:

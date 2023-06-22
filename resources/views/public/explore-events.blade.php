@@ -93,6 +93,18 @@
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="col-lg-5 col-md-12">
+                                        <div class="form-group">
+                                            <div class="form-label"></div>
+                                            <input type="text" placeholder="Event name" class="form-control">
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-5 col-md-12">
+                                        <div class="form-group">
+                                            <div class="form-label"></div>
+                                            <input type="text" placeholder="Location" class="form-control">
+                                        </div>
+                                    </div>
                                     <div class="col-lg-2 col-md-12">
                                         <a href="#" class="main-btn btn-hover w-100">Find</a>
                                     </div>
@@ -184,6 +196,44 @@
                                         Others
                                     </button>
                                 </div>
+                                <label for="">Featured Events</label>
+                                <div class="row" data-ref="event-filter-content">
+                                    @foreach ($featuredEvents as $event)
+                                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 {{$event->category}}"
+                                            data-ref="mixitup-target">
+                                            <div class="main-card mt-4">
+                                                <div class="event-thumbnail">
+                                                    <a href="/event/event-single/{{$event->id}}" class="thumbnail-img">
+                                                        <img src="{{url($event->image)}}" alt="" />
+                                                    </a>
+                                                    {{-- <span class="bookmark-icon" title="Bookmark"></span> --}}
+                                                </div>
+                                                <div class="event-content">
+                                                    <a href="/event/event-single/{{$event->id}}" class="event-title">{{$event->name}}</a>
+                                                    <div class="duration-price-remaining">
+                                                        <span class="duration-price">{{$event->currency}} {{$event->ticket_price}}*</span>
+                                                        <span class="remaining"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="event-footer">
+                                                    <div class="event-timing">
+                                                        <div class="publish-date">
+                                                            <span><i class="fa-solid fa-calendar-day me-2"></i>{{(new \DateTime($event->datetime))->format('j M')}}</span>
+                                                            <span class="dot"><i class="fa-solid fa-circle"></i></span>
+                                                            <span>{{date('D, g:i a',strtotime($event->datetime))}}</span>
+                                                        </div>
+                                                        <span class="publish-time"><i
+                                                                class="fa-solid fa-clock me-2"></i>{{$event->duration_in_h}}h</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                                <div class="browse-btn">
+                                    <a href="#" class="main-btn btn-hover">See all featured</a>
+                                </div>
+                                <label for="">All Events</label>
                                 <div class="row" data-ref="event-filter-content">
                                     @foreach ($events as $event)
                                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 {{$event->category}}"
