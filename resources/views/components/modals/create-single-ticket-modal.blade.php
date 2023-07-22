@@ -138,17 +138,75 @@
                                     Ticket Details
                                 </div>
                                 <div class="form-group">
-                                    <label class="form-label mb-2 fs-14">Ticket Order*</label>
+                                    <div class="d-flex align-items-center flex-wrap pb-4 flex-nowrap">
+                                        <h4 class="fs-14 mb-0 me-auto">
+                                            Age based tickets
+                                        </h4>
+                                        <label class="btn-switch m-0 me-3">
+                                            <input type="checkbox" id="age_based_ticket_checkbox" />
+                                            <span class="checkbox-slider"></span>
+                                        </label>
+                                        <div>
+                                            <label class="fs-12 m-0">Enabled</label>
+                                        </div>
+                                    </div>
+                                    <div id="age_based_price_input" style="display:none;">
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                Age ( Years )
+                                            </div>
+                                            <div class="pt-3 col-md-4">
+                                                Ticket Price ( $ )
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="p-0 mb-4 total_ticket_per_level" style="display:block">
+                                                    <input type="text" class="js-range-slider" id="slider1"
+                                                        name="my_range" value="" />
+                                                </div>
+                                            </div>
+                                            <div class="pt-3 col-md-4">
+                                                <input type="number" name="" id="">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="p-0 mb-4 total_ticket_per_level" style="display:block">
+                                                    <input type="text" class="js-range-slider" id="slider2"
+                                                        name="my_range" value="" />
+                                                </div>
+                                            </div>
+                                            <div class="pt-3 col-md-4">
+                                                <input type="number" name="" id="">
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-8">
+                                                <div class="p-0 mb-4 total_ticket_per_level" style="display:block">
+                                                    <input type="text" class="js-range-slider" id="slider3"
+                                                        name="my_range" value="" />
+                                                </div>
+                                            </div>
+                                            <div class="pt-3 col-md-4">
+                                                <input type="number" name="" id="">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="form-group" id="ticket_price">
+                                    <label class="form-label mb-2 fs-14">Ticket Price*</label>
                                     <input class="form-control h_40" type="number" value="1" min="1"
-                                        max="30" placeholder="Enter Sort Order" />
+                                        max="30" placeholder="Enter ticket price" />
                                 </div>
                                 <div class="form-group mt-4">
                                     <label class="form-label mb-2 fs-14">Ticket Description*</label>
-                                    <textarea class="form-textarea" placeholder="Description will go here"></textarea>
+                                    <textarea class="form-textarea" placeholder="Description will go here" id="ticket_description_editor"></textarea>
                                 </div>
                                 <div class="form-group mt-4">
                                     <label class="form-label mb-2 fs-14">Add logo*</label>
-                                    <input type="file" class="form-image"/>
+                                    <input type="file" class="form-image" />
                                 </div>
                             </div>
                         </div>

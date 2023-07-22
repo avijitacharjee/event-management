@@ -3,6 +3,9 @@
     <link href="{{ asset('asset/barren/css/datepicker.min.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/barren/css/jquery-steps.css') }}" rel="stylesheet">
     <link href="{{ asset('asset/barren/vendor/ckeditor5/sample/css/sample.css') }}" rel="stylesheet">
+
+    {{-- CSS for age picker --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css" />
 @endsection
 @section('content')
     <div class="wrapper">
@@ -122,7 +125,7 @@
                                                                         <a href="{{ url('#') }}" class="a-link">Learn
                                                                             more</a>
                                                                     </p>
-                                                                    <x-utils.select-event-category/>
+                                                                    <x-utils.select-event-category />
                                                                 </div>
                                                                 <div class="form-group border_bottom pt_30 pb_30">
                                                                     <label class="form-label fs-16">When is
@@ -161,7 +164,7 @@
                                                                                     <div class="clock-icon">
                                                                                         <label
                                                                                             class="form-label mt-3 fs-6">Time</label>
-                                                                                        <x-utils.select-time/>
+                                                                                        <x-utils.select-time />
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
@@ -230,7 +233,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                    <x-form-input.event-repeat/>
+                                                                    <x-form-input.event-repeat />
                                                                 </div>
                                                                 <div class="form-group pt_30 pb_30">
                                                                     <label class="form-label fs-16">Add a
@@ -992,8 +995,8 @@
                                                 </div>
                                             </div>
                                         </div> --}}
-                                        <x-sections.tickets-create-tab/>
-                                        <x-sections.tickets-online-settings-tab/>
+                                        <x-sections.tickets-create-tab />
+                                        <x-sections.tickets-online-settings-tab />
                                     </div>
                                     <div class="step-footer step-tab-pager mt-4">
                                         <button data-direction="prev" class="btn btn-default btn-hover steps_btn">
@@ -1002,11 +1005,9 @@
                                         <button data-direction="next" class="btn btn-default btn-hover steps_btn">
                                             Next
                                         </button>
-                                        <button type="submit" data-direction="finish"
-                                            value="Create"
-                                            form="form1"
+                                        <button type="submit" data-direction="finish" value="Create" form="form1"
                                             class="btn btn-default btn-hover steps_btn">
-                                        Create</button>
+                                            Create</button>
 
                                     </div>
                                 </div>
@@ -1023,6 +1024,10 @@
     <script src="{{ asset('asset/barren/js/jquery-steps.min.js') }}"></script>
     <script src="{{ asset('asset/barren/js/datepicker.min.js') }}"></script>
     <script src="{{ asset('asset/barren/js/i18n/datepicker.en.js') }}"></script>
+
+    {{-- For age input --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+
     <script>
         $("#add-event-tab").steps({
             onFinish: function() {
@@ -1040,5 +1045,72 @@
             .catch((err) => {
                 console.error(err.stack);
             });
+        ClassicEditor.create(document.querySelector("#ticket_description_editor"), {
+                // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+            })
+            .then((editor) => {
+                window.editor = editor;
+            })
+            .catch((err) => {
+                console.error(err.stack);
+            });
+    </script>
+    <script>
+        $("#slider1").ionRangeSlider({
+            type: "double",
+            min: 0,
+            max: 100,
+            from: 0,
+            to: 10,
+            grid: true,
+            postfix: " years",
+            onFinish: function(data) {
+                console.log($('#slider2').data("ionRangeSlider"));
+                $('#slider2').data("ionRangeSlider").update({
+                    from: data.to
+                });
+            }
+        });
+        $("#slider2").ionRangeSlider({
+            type: "double",
+            min: 0,
+            max: 100,
+            from: 10,
+            to: 50,
+            grid: true,
+            postfix: " years",
+            onFinish: function(data) {
+                $('#slider3').data("ionRangeSlider").update({
+                    from: data.to
+                });
+                $('#slider1').data("ionRangeSlider").update({
+                    to: data.from
+                });
+            }
+        });
+        $("#slider3").ionRangeSlider({
+            type: "double",
+            min: 0,
+            max: 100,
+            from: 50,
+            to: 100,
+            grid: true,
+            postfix: " years",
+            onFinish: function(data) {
+                $('#slider2').data("ionRangeSlider").update({
+                    to: data.from
+                });
+            }
+        });
+        $('#age_based_ticket_checkbox').on('change', function(e) {
+            const isOn = e.currentTarget.checked;
+            if (isOn) {
+                $("#age_based_price_input").show(650);
+                $("#ticket_price").hide(650);
+            } else {
+                $("#age_based_price_input").hide(650);
+                $("#ticket_price").show(650);
+            }
+        });
     </script>
 @endsection
