@@ -1,5 +1,5 @@
 <x-modals.create-single-ticket-modal/>
-<div class="step-tab-panel step-tab-gallery" id="tab_step2">
+{{-- <div class="step-tab-panel step-tab-gallery" id="tab_step2">
     <div class="tab-from-content">
         <div class="main-card">
             <div class="bp-title">
@@ -249,4 +249,23 @@
             </div>
         </div>
     </div>
+</div> --}}
+<div class="step-tab-panel step-tab-gallery" id="tab_step2">
+    <div class="tab-from-content">
+        <div class="main-card">
+            <div class="bp-title">
+                <h4>
+                    <i class="fa-solid fa-ticket step_icon me-3"></i>Tickets
+                </h4>
+            </div>
+            <div class="bp-form main-form">
+                <div class="p-4 form-group border_bottom pb_30">
+                    <div class="">
+                        <p>Create tickets after creating event</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+

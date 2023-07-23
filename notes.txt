@@ -22,11 +22,14 @@ Web:
     Features Added:
     Bugs fixed: 1
     Bugs:
+      1. Event date minimum values
     Features to add:
       1. Add age in ticket (✔)
       2. Use Mapbox for locations ( Location picker not available in Mapbox)
       3. Qr to recognize both food and entry
       4. RSVP
+      5. Event ( duration -> from-time,to-time )
+      6. Pdf Generating
 App:
   V1.0.0
     Features Added:

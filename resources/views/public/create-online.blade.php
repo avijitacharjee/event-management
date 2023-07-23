@@ -151,8 +151,10 @@
                                                                             <div class="loc-group position-relative">
                                                                                 <input
                                                                                     class="form-control h_50 datepicker-here"
+                                                                                    id="datepick"
                                                                                     data-language="en" type="text"
                                                                                     placeholder="MM/DD/YYYY"
+                                                                                    minDate="07/23/2023"
                                                                                     name="date" />
                                                                                 <span class="absolute-icon"><i
                                                                                         class="fa-solid fa-calendar-days"></i></span>
@@ -163,12 +165,17 @@
                                                                                 <div class="col-md-6">
                                                                                     <div class="clock-icon">
                                                                                         <label
-                                                                                            class="form-label mt-3 fs-6">Time</label>
+                                                                                            class="form-label mt-3 fs-6">From Time</label>
                                                                                         <x-utils.select-time />
                                                                                     </div>
                                                                                 </div>
                                                                                 <div class="col-md-6">
-                                                                                    <label
+                                                                                    <div class="clock-icon">
+                                                                                        <label
+                                                                                            class="form-label mt-3 fs-6">To time</label>
+                                                                                        <x-utils.select-time />
+                                                                                    </div>
+                                                                                    {{-- <label
                                                                                         class="form-label mt-3 fs-6">Duration</label>
                                                                                     <select class="selectpicker"
                                                                                         data-size="5" name="duration"
@@ -228,7 +235,7 @@
                                                                                             3h
                                                                                             45m
                                                                                         </option>
-                                                                                    </select>
+                                                                                    </select> --}}
                                                                                 </div>
                                                                             </div>
                                                                         </div>
@@ -1110,6 +1117,16 @@
             } else {
                 $("#age_based_price_input").hide(650);
                 $("#ticket_price").show(650);
+            }
+        });
+    </script>
+    <script>
+        $('#datepick').datepicker({
+            minDate: new Date(),
+            onSelect: function(){
+                $('#till_date').datepicker({
+                    minDate: new Date($('#datepick').datepicker().data().datepicker.date)
+                })
             }
         });
     </script>

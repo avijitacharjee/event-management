@@ -16,7 +16,7 @@
     <label class="form-label mt-3 fs-6">Till Date</label>
     <div class="loc-group position-relative disabled" id="till_date_picker">
         <input class="form-control h_50 datepicker-here" data-language="en" type="text" placeholder="MM/DD/YYYY"
-            name="date" />
+            name="date" id="till_date" />
         <span class="absolute-icon disabled"><i class="fa-solid fa-calendar-days"></i></span>
     </div>
 </div>
