@@ -282,9 +282,19 @@
                                                                                 </div>
                                                                             </div>
                                                                             <img src="{{ asset('/asset/barren/images/banners/custom-img.jpg') }}"
-                                                                                alt="" />
+                                                                                id="img-preview" alt="" />
                                                                         </div>
                                                                     </div>
+                                                                    <script>
+                                                                        var thumbImg = document.getElementById('thumb-img');
+                                                                        var preview = document.getElementById('img-preview');
+                                                                        thumbImg.addEventListener('change', function() {
+                                                                            const [file] = thumbImg.files;
+                                                                            if (file) {
+                                                                                preview.src = URL.createObjectURL(file);
+                                                                            }
+                                                                        });
+                                                                    </script>
                                                                 </div>
                                                                 <div class="form-group border_bottom pb_30">
                                                                     <label class="form-label fs-16">Please
@@ -320,7 +330,7 @@
                                                                         <textarea name="description" id="pd_editor"></textarea>
                                                                     </div>
                                                                 </div>
-                                                                <div class="form-group pt_30 pb-2">
+                                                                {{-- <div class="form-group pt_30 pb-2">
                                                                     <label class="form-label fs-16">What
                                                                         type of
                                                                         online
@@ -426,7 +436,7 @@
                                                                             </div>
                                                                         </div>
                                                                     </div>
-                                                                </div>
+                                                                </div> --}}
                                                             </div>
                                                         </div>
                                                     </div>

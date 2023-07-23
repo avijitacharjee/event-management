@@ -97,7 +97,7 @@
                         <li class="dropdown account-dropdown order-3">
                             <a href="{{ url('#') }}" class="account-link" role="button" id="accountClick"
                                 data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false">
-                                <img src="{{ asset('/asset/barren/images/avatar.svg') }}"
+                                <img src="{{ asset('/asset/barren/images/avatar1.svg') }}"
                                     alt="" />
                                 <i class="fas fa-caret-down arrow-icon"></i>
                             </a>
@@ -106,7 +106,7 @@
                                 <li>
                                     <div class="dropdown-account-header">
                                         <div class="account-holder-avatar">
-                                            <img src="{{ asset('/asset/barren/images/avatar.svg') }}"
+                                            <img src="{{ asset('/asset/barren/images/avatar1.svg') }}"
                                                 alt="" />
                                         </div>
                                         <h5>{{auth()->user()->name}}</h5>

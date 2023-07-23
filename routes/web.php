@@ -71,6 +71,7 @@ Route::group(
     function () {
         Route::get('dashboard', 'dashboard');
         Route::get('events', 'events');
+        Route::get('event/{event}', 'showEvent');
         Route::get('payouts', 'payouts');
         Route::get('profile', 'profile');
 
