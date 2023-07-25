@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Blog;
 use App\Models\Event;
+use App\Models\Ticket;
+use App\Models\TicketPrice;
 use Illuminate\Http\Request;
 
 class OrganizationController extends Controller
@@ -63,5 +65,40 @@ class OrganizationController extends Controller
     {
         return view('organization.event-single')
             ->with('event', $event);
+    }
+    public function storeTicket(Event $event, Request $request)
+    {
+        // dd(explode($request['age_range1'],';'));
+        $ticket = new Ticket();
+        $ticket->event_id = $event->id;
+        $ticket->name = $request->name;
+        $ticket->template_name = $request->template_id;
+        $ticket->num_of_tickets = $request->is_ticket_unlimited ? null : $request->num_of_tickets;
+        $ticket->description = $request->description;
+        $ticket->logo = $request->hasFile('image')
+            ? 'storage/' . $request->file('image')->store('ticket-logos', 'public')
+            : null;
+        $ticket->save();
+
+        if ($request->age_based_enabled) {
+            for ($i = 1; $i <= 3; $i++) {
+                $ticketPrice = new TicketPrice();
+                $ticketPrice->ticket_id = $ticket->id;
+                $ticketPrice->price = $request['aged_price' . $i];
+                [$ticketPrice->from_age, $ticketPrice->to_age] = explode(';',$request['age_range' . $i]);
+                $ticketPrice->save();
+            }
+        } else {
+            $ticketPrice = new TicketPrice();
+            $ticketPrice->ticket_id = $ticket->id;
+            $ticketPrice->price = $request['price'];
+            $ticketPrice->save();
+        }
+        return back()->with('msg', 'Successfully saved');
+    }
+    public function deleteTicket(Ticket $ticket)
+    {
+        $ticket->delete();
+        return back();
     }
 }

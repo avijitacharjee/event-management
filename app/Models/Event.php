@@ -10,20 +10,28 @@ use Illuminate\Database\Eloquent\Model;
 class Event extends Model
 {
     use HasFactory;
-    public function eventVenue(){
+    public function eventVenue()
+    {
         return $this->belongsTo(EventVenue::class);
     }
-    public function user(){
+    public function user()
+    {
         return $this->belongsTo(User::class);
     }
-    public function durationInH(): Attribute{
+    public function tickets()
+    {
+        return $this->hasMany(Ticket::class);
+    }
+    public function durationInH(): Attribute
+    {
         return Attribute::make(
-        get: fn($value) => $this->duration/60
+            get: fn ($value) => $this->duration / 60
         );
     }
-    public function location(): Attribute {
+    public function location(): Attribute
+    {
         return Attribute::make(
-            get: fn($value) => $this->eventVenue->location
+            get: fn ($value) => $this->eventVenue->location
         );
     }
     protected $casts = [

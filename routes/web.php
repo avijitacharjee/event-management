@@ -72,6 +72,7 @@ Route::group(
         Route::get('dashboard', 'dashboard');
         Route::get('events', 'events');
         Route::get('event/{event}', 'showEvent');
+        Route::post('event/{event}', 'storeTicket');
         Route::get('payouts', 'payouts');
         Route::get('profile', 'profile');
 
@@ -80,6 +81,7 @@ Route::group(
         Route::get('blog/delete/{blog}', 'deleteBlog');
         Route::post('blogs/update/{blog}', 'updateBlog');
         Route::get('blogs/duplicate/{blog}', 'duplicateBlog');
+        Route::get('/ticket/{ticket}/delete','deleteTicket');
     }
 );
 Route::group([

@@ -44,9 +44,6 @@
 
     @yield('content')
 
-    <script data-cfasync="false"
-        src="{{ asset('/asset/barren/../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}">
-    </script>
     <script src="{{ asset('/asset/barren/js/vertical-responsive-menu.min.js') }}"></script>
     <script src="{{ asset('/asset/barren/js/jquery-3.6.0.min.js') }}"></script>
     <script src="{{ asset('/asset/barren/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

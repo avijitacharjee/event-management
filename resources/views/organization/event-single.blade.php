@@ -1,11 +1,17 @@
 @extends('organization.layout')
+@section('css')
+    <link href="{{ asset('asset/barren/css/datepicker.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('asset/barren/vendor/ckeditor5/sample/css/sample.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/css/ion.rangeSlider.min.css" />
+
+@endsection
 @section('content')
     <div class="wrapper wrapper-body">
         <div class="row">
             <div class="col-md-12">
                 <div class="d-main-title">
-                    <h3>
-                        <i class="fa-solid fa-calendar-days me-3"></i>Single Event
+                    <h3 class="ml-80">
+                        <i class="fa-solid fa-calendar-days me-3"></i>Event Details
                     </h3>
                 </div>
             </div>
@@ -96,17 +102,17 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="event-dt-right-group mt-5">
+                            {{-- <div class="event-dt-right-group mt-5">
                                 <div class="event-dt-right-icon">
                                     <i class="fa-solid fa-circle-user"></i>
                                 </div>
                                 <div class="event-dt-right-content">
                                     <h4>Organised by</h4>
                                     <h5>{{ $event->user->name }}</h5>
-                                    {{-- <a href="attendee_profile_view.html">View Profile</a> --}}
+                                    <a href="attendee_profile_view.html">View Profile</a>
                                 </div>
-                            </div>
-                            <div class="event-dt-right-group">
+                            </div> --}}
+                            <div class="event-dt-right-group mt-5">
                                 <div class="event-dt-right-icon">
                                     <i class="fa-solid fa-calendar-day"></i>
                                 </div>
@@ -174,10 +180,10 @@
                                     x glass of bubbles / or coffee
                                     Individual grazing box / fruit cup
                                 </p> --}}
-                                <div class="xtotel-tickets-count">
+                                {{-- <div class="xtotel-tickets-count">
                                     <div class="x-title">1x Ticket(s)</div>
                                     <h4>{{ $event->currency }} <span>{{ $event->ticket_price }}</span></h4>
-                                </div>
+                                </div> --}}
                             </div>
                             <div class="booking-btn">
                                 <a href="/event/checkout" class="main-btn btn-hover w-100">Book Now</a>
@@ -186,11 +192,30 @@
                     </div>
 
                 </div>
+                <x-sections.ticket-content :event="$event"/>
             </div>
         </div>
     </div>
 @endsection
 @section('js')
+    <script src="{{ asset('asset/barren/vendor/ckeditor5/ckeditor.js') }}"></script>
+    <script src="{{ asset('asset/barren/js/jquery-steps.min.js') }}"></script>
+    <script src="{{ asset('asset/barren/js/datepicker.min.js') }}"></script>
+    <script src="{{ asset('asset/barren/js/i18n/datepicker.en.js') }}"></script>
+
+    {{-- For age input --}}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ion-rangeslider/2.3.1/js/ion.rangeSlider.min.js"></script>
+    <script>
+        ClassicEditor.create(document.querySelector("#ticket_description_editor"), {
+                // toolbar: [ 'heading', '|', 'bold', 'italic', 'link' ]
+            })
+            .then((editor) => {
+                window.editor = editor;
+            })
+            .catch((err) => {
+                console.error(err.stack);
+            });
+    </script>
     <script>
         // === Timer === //
         (function() {
@@ -237,5 +262,64 @@
                     //seconds
                 }, 0)
         }());
+    </script>
+    // Age script
+    <script>
+        $("#slider1").ionRangeSlider({
+            type: "double",
+            min: 0,
+            max: 100,
+            from: 0,
+            to: 10,
+            grid: true,
+            postfix: " years",
+            onFinish: function(data) {
+                console.log($('#slider2').data("ionRangeSlider"));
+                $('#slider2').data("ionRangeSlider").update({
+                    from: data.to+1
+                });
+            }
+        });
+        $("#slider2").ionRangeSlider({
+            type: "double",
+            min: 0,
+            max: 100,
+            from: 11,
+            to: 50,
+            grid: true,
+            postfix: " years",
+            onFinish: function(data) {
+                $('#slider3').data("ionRangeSlider").update({
+                    from: data.to+1
+                });
+                $('#slider1').data("ionRangeSlider").update({
+                    to: data.from-1
+                });
+            }
+        });
+        $("#slider3").ionRangeSlider({
+            type: "double",
+            min: 0,
+            max: 100,
+            from: 51,
+            to: 100,
+            grid: true,
+            postfix: " years",
+            onFinish: function(data) {
+                $('#slider2').data("ionRangeSlider").update({
+                    to: data.from-1
+                });
+            }
+        });
+        $('#age_based_ticket_checkbox').on('change', function(e) {
+            const isOn = e.currentTarget.checked;
+            if (isOn) {
+                $("#age_based_price_input").show(650);
+                $("#ticket_price").hide(650);
+            } else {
+                $("#age_based_price_input").hide(650);
+                $("#ticket_price").show(650);
+            }
+        });
     </script>
 @endsection

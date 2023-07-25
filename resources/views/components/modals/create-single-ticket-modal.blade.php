@@ -9,13 +9,15 @@
                     <i class="uil uil-multiply"></i>
                 </button>
             </div>
+            <form action="" method="post" enctype="multipart/form-data">
+            @csrf
             <div class="modal-body">
                 <div class="model-content main-form">
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="form-group mt-4">
                                 <label class="form-label">Ticket Name*</label>
-                                <input class="form-control h_40" type="text" placeholder="Event Ticket Name"
+                                <input name="name" class="form-control h_40" type="text" placeholder="Event Ticket Name"
                                     value="" />
                             </div>
                         </div>
@@ -91,7 +93,7 @@
                                             available
                                         </h4>
                                         <label class="btn-switch m-0 me-3">
-                                            <input type="checkbox" id="is-restrict-total-ticket" checked="" />
+                                            <input name="is_ticket_unlimited" type="checkbox" id="is-restrict-total-ticket" checked="" />
                                             <span class="checkbox-slider"></span>
                                         </label>
                                         <div>
@@ -101,7 +103,7 @@
                                     <div class="p-0 mb-4 total_ticket_per_level" style="display: none">
                                         <div class="form-group">
                                             <div class="input-number">
-                                                <input class="form-control h_40" type="number" min="0"
+                                                <input name="num_of_tickets" class="form-control h_40" type="number" min="0"
                                                     max="30" placeholder="Enter Total Tickets" />
                                             </div>
                                         </div>
@@ -143,7 +145,7 @@
                                             Age based tickets
                                         </h4>
                                         <label class="btn-switch m-0 me-3">
-                                            <input type="checkbox" id="age_based_ticket_checkbox" />
+                                            <input name="age_based_enabled" type="checkbox" id="age_based_ticket_checkbox" />
                                             <span class="checkbox-slider"></span>
                                         </label>
                                         <div>
@@ -163,33 +165,33 @@
                                             <div class="col-md-8">
                                                 <div class="p-0 mb-4 total_ticket_per_level" style="display:block">
                                                     <input type="text" class="js-range-slider" id="slider1"
-                                                        name="my_range" value="" />
+                                                        name="age_range1" value="" />
                                                 </div>
                                             </div>
                                             <div class="pt-3 col-md-4">
-                                                <input type="number" name="" id="">
+                                                <input type="number" name="aged_price1" id="">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-8">
                                                 <div class="p-0 mb-4 total_ticket_per_level" style="display:block">
                                                     <input type="text" class="js-range-slider" id="slider2"
-                                                        name="my_range" value="" />
+                                                        name="age_range2" value="" />
                                                 </div>
                                             </div>
                                             <div class="pt-3 col-md-4">
-                                                <input type="number" name="" id="">
+                                                <input type="number" name="aged_price2" id="">
                                             </div>
                                         </div>
                                         <div class="row">
                                             <div class="col-md-8">
                                                 <div class="p-0 mb-4 total_ticket_per_level" style="display:block">
                                                     <input type="text" class="js-range-slider" id="slider3"
-                                                        name="my_range" value="" />
+                                                        name="age_range3" value="" />
                                                 </div>
                                             </div>
                                             <div class="pt-3 col-md-4">
-                                                <input type="number" name="" id="">
+                                                <input type="number" name="aged_price3" id="">
                                             </div>
                                         </div>
                                     </div>
@@ -202,11 +204,11 @@
                                 </div>
                                 <div class="form-group mt-4">
                                     <label class="form-label mb-2 fs-14">Ticket Description*</label>
-                                    <textarea class="form-textarea" placeholder="Description will go here" id="ticket_description_editor"></textarea>
+                                    <textarea name="description" class="form-textarea" placeholder="Description will go here" id="ticket_description_editor"></textarea>
                                 </div>
                                 <div class="form-group mt-4">
                                     <label class="form-label mb-2 fs-14">Add logo*</label>
-                                    <input type="file" class="form-image" />
+                                    <input name="image" type="file" class="form-image" />
                                 </div>
                             </div>
                         </div>
@@ -620,10 +622,11 @@
                     data-bs-toggle="modal" data-bs-dismiss="modal">
                     Cancel
                 </button>
-                <button type="button" class="main-btn min-width btn-hover h_40">
+                <button type="submit" class="main-btn min-width btn-hover h_40">
                     Save
                 </button>
             </div>
+            </form>
         </div>
     </div>
 </div>
