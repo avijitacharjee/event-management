@@ -14,6 +14,6 @@ class Booking extends Model
     }
     public function ticketPrice()
     {
-        return $this->hasOne(TicketPrice::class);
+        return $this->belongsTo(TicketPrice::class);
     }
 }

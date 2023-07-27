@@ -1,0 +1,25 @@
+{
+    "font awesome 6 brands": {
+        "normal": "font_awesome_6_brands_normal_92c45b19798a109fcc8b8f9e249272d8"
+    },
+    "font awesome 6 free": {
+        "normal": "I:\\Projects\\Laravel\\evento\\storage\\fonts\/font_awesome_6_free_normal_30b57e7665436a6587cd5386a637d3de",
+        "900": "font_awesome_6_free_900_72233ab0c0c82334bfa8594e8b8daca5"
+    },
+    "font awesome 5 brands": {
+        "normal": "font_awesome_5_brands_normal_92c45b19798a109fcc8b8f9e249272d8"
+    },
+    "font awesome 5 free": {
+        "900": "I:\\Projects\\Laravel\\evento\\storage\\fonts\/font_awesome_5_free_900_72233ab0c0c82334bfa8594e8b8daca5",
+        "normal": "font_awesome_5_free_normal_30b57e7665436a6587cd5386a637d3de"
+    },
+    "fontawesome": {
+        "normal": "fontawesome_normal_43761f5746d8c4fa117cda43d0ce99da"
+    },
+    "barlow": {
+        "normal": "barlow_normal_d408f686ba6d0ac4b32224d31d9c4915"
+    },
+    "saira stencil one": {
+        "normal": "saira_stencil_one_normal_0017568a0aff2908bbdcec84b81bfdcd"
+    }
+}

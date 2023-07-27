@@ -31,14 +31,24 @@
             <div class="event-dt-block p-80">
                 <div class="container">
                     <div class="row">
-                        <h1>Qr code for entry</h1>
+                        <h1>Ticket</h1>
                     </div>
-                    <div class="row">
-                        <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=Avijit"
-                            style="width: 200px;height:200px;" alt="">
-                    </div>
+                    {{-- <embed src="{{ url('event/ticket/1') }}" width="900" height="250" type="application/pdf"> --}}
+                    <iframe id="ticket" src="{{ url('event/ticket/1#toolbar=1') }}" style="width:900px; height:250px;"></iframe>
+                    <button id="downloadButton">Download ticket</button>
+                    {{-- <a href="{{url('event/ticket/download/'.$booking->id)}}">Download ticket</a> --}}
                 </div>
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+    <script src="https://cdn.jsdelivr.net/npm/pdfobject@2.2.12/pdfobject.min.js"></script>
+    <script>
+        document.getElementById('downloadButton').onclick = function() {
+            // window.frames["ticket"].focus();
+            // window.frames["ticket"].print();
+            document.getElementById("ticket").contentWindow.print();
+        };
+    </script>
 @endsection

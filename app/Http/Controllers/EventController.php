@@ -12,7 +12,7 @@ use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Storage;
-
+use Barryvdh\DomPDF\Facade\Pdf;
 class EventController extends Controller
 {
     public function createNew()
@@ -143,7 +143,7 @@ class EventController extends Controller
         $booking->ticket_price_id = $request->price_id;
         $booking->save();
 
-        return redirect('event/booking_confirmed');
+        return redirect('event/booking_confirmed/' . $booking->id);
     }
     public function book(Event $event, Request $request)
     {
@@ -155,8 +155,30 @@ class EventController extends Controller
             'ticketPrice'
         ]));
     }
-    public function bookingConfirmed()
+    public function bookingConfirmed(Booking $booking)
     {
-        return view('public.booking_confirmed');
+        $ticket = $booking->ticketPrice->ticket;
+        $event = $ticket->event;
+        return view('public.booking_confirmed', compact([
+            'event',
+            'booking',
+            'ticket'
+        ]));
+    }
+    public function showTicket(Booking $booking)
+    {
+        $ticket = $booking->ticketPrice->ticket;
+        $event = $ticket->event;
+        return view('public.ticket', compact([
+            'booking',
+            'event'
+        ]));
+    }
+    public function downloadTicket(Booking $booking)
+    {
+        $ticket = $booking->ticketPrice->ticket;
+        $event = $ticket->event;
+        $pdf = Pdf::loadView('public.ticket', compact(['booking','event']));
+        return $pdf->download('invoice.pdf');
     }
 }
