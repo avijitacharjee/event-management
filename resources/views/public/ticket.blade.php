@@ -10,6 +10,7 @@
             width: 250px;
             height: 250px;
         }
+
         @page {
             width: 250px;
             height: 250px;
@@ -47,7 +48,7 @@
 
     .image {
         height: 250px;
-        background-image: url("https://s.yimg.com/ny/api/res/1.2/Z7_veDUdwMryJWHtTVCkMg--/YXBwaWQ9aGlnaGxhbmRlcjt3PTk2MDtoPTcxOTtjZj13ZWJw/https://media.zenfs.com/en/the_independent_577/59c5db5af93e84038e82db81dfc7268b");
+        background-image: url({{ asset($ticket->logo) }});
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center;
@@ -243,23 +244,28 @@
         </div>
         <div class="ticket-info">
             <p class="date">
-                <span>WEDNESDAY</span>
-                <span class="nov-10">JUNE 28</span>
-                <span>2023</span>
+                <span>{{ $event->date_time->format('l') }}</span>
+                <span class="nov-10">{{ $event->date_time->format('F j') }}</span>
+                <span>{{ $event->date_time->format('Y') }}</span>
             </p>
             <div class="show-name">
                 <h2>{{ $event->name }}</h2>
-                <h2></h2>
-                <h2>Halo Bearers</h2>
             </div>
             <div class="time">
-                <p>07:16 AM <span>TO</span> TBD</p>
+                <p>{{ $event->date_time->format('h:i A') }} <span>TO</span> TBD</p>
             </div>
             <div class="tagline">
-                <p>IN THIS LIFE OR THE NEXT</p>
+                <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl={{ $booking->id }}"
+                style="width: 60px;height:60px;"
+                alt="QR code">
+                {{-- <p>IN THIS LIFE OR THE NEXT</p> --}}
             </div>
-            <p class="location"><span>THE CAT'S CRADLE</span>
-                <span class="separator"><i class="fa-solid fa-cross"></i></span><span>ANDALUCÍA, SPAIN</span>
+            <p class="location">
+                {{-- <span>THE CAT'S CRADLE</span>
+                <span class="separator"><i class="fa-solid fa-cross"></i></span><span>ANDALUCÍA, SPAIN</span> --}}
+                <span>
+                    {{ $event->type=="online"?"To be held online":$event->location }}
+                </span>
             </p>
         </div>
     </div>
@@ -271,17 +277,17 @@
         </p>
         <div class="right-info-container">
             <div class="show-name">
-                <h1>#WarriorNunSaved</h1>
+                <small>{{str($event->name)->limit(30)}}</small>
             </div>
             <div class="time">
-                <p>28.06.2023</p>
-                <p>07:16 AM <span>TO</span> TBD</p>
+                <p>{{$event->date_time->format('j.M.Y')}}</p>
+                <p>{{$event->date_time->format('h:i A')}}<span>TO</span> TBD</p>
             </div>
             <div class="barcode">
-                <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl=Avijit" alt="QR code">
+                <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl={{ $booking->id }}" alt="QR code">
             </div>
             <p class="ticket-number">
-                #20200702
+                #{{$booking->id}}
             </p>
         </div>
     </div>

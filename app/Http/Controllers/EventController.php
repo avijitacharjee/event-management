@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Storage;
 use Barryvdh\DomPDF\Facade\Pdf;
+
 class EventController extends Controller
 {
     public function createNew()
@@ -171,14 +172,15 @@ class EventController extends Controller
         $event = $ticket->event;
         return view('public.ticket', compact([
             'booking',
-            'event'
+            'event',
+            'ticket'
         ]));
     }
     public function downloadTicket(Booking $booking)
     {
         $ticket = $booking->ticketPrice->ticket;
         $event = $ticket->event;
-        $pdf = Pdf::loadView('public.ticket', compact(['booking','event']));
+        $pdf = Pdf::loadView('public.ticket', compact(['booking', 'event', 'ticket']));
         return $pdf->download('invoice.pdf');
     }
 }
