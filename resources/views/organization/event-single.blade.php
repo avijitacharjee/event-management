@@ -161,36 +161,8 @@
                                     {{-- <a href="#"><i class="fa-solid fa-location-dot me-2"></i>View Map</a> --}}
                                 </div>
                             </div>
-                            <div class="select-tickets-block">
-                                <h6>Buy Ticket</h6>
-                                {{-- <div class="select-ticket-action">
-                                    <div class="ticket-price">
-                                        {{$event->currency}} {{$event->ticket_price}}
-                                    </div>
-                                    <div class="quantity">
-                                        <div class="counter">
-                                            <span class="down" onClick="decreaseCount(event, this)">-</span>
-                                            <input type="text" value="0" />
-                                            <span class="up" onClick="increaseCount(event, this)">+</span>
-                                        </div>
-                                    </div>
-                                </div> --}}
-                                {{-- <p>
-                                    2 x pair hand painted leather earrings 1
-                                    x glass of bubbles / or coffee
-                                    Individual grazing box / fruit cup
-                                </p> --}}
-                                {{-- <div class="xtotel-tickets-count">
-                                    <div class="x-title">1x Ticket(s)</div>
-                                    <h4>{{ $event->currency }} <span>{{ $event->ticket_price }}</span></h4>
-                                </div> --}}
-                            </div>
-                            <div class="booking-btn">
-                                <a href="/event/checkout" class="main-btn btn-hover w-100">Book Now</a>
-                            </div>
                         </div>
                     </div>
-
                 </div>
                 <x-sections.ticket-content :event="$event"/>
             </div>

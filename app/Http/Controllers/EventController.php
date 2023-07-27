@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Booking;
 use App\Models\Event;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
 use App\Models\EventVenue;
+use App\Models\TicketPrice;
 use DateTime;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
@@ -122,14 +124,39 @@ class EventController extends Controller
     public function show(Event $event)
     {
         $moreEvents = Event::latest()->take(5)->get();
-        return view('public.event-single',compact([
+        $prices = $event->tickets->count() ? $event->tickets[0]?->prices : null;
+        return view('public.event-single', compact([
             'event',
-            'moreEvents'
+            'moreEvents',
+            'prices'
         ]));
     }
 
     public function checkout()
     {
         return view('public.event-checkout');
+    }
+    public function storeCheckout(Request $request)
+    {
+        $booking = new Booking();
+        $booking->user_id = auth()->user()->id;
+        $booking->ticket_price_id = $request->price_id;
+        $booking->save();
+
+        return redirect('event/booking_confirmed');
+    }
+    public function book(Event $event, Request $request)
+    {
+        $ticketPrice = TicketPrice::find($request->price_id);
+        // dd($request->all());
+        // $booking->save();
+        return view('public.event-checkout', compact([
+            'event',
+            'ticketPrice'
+        ]));
+    }
+    public function bookingConfirmed()
+    {
+        return view('public.booking_confirmed');
     }
 }

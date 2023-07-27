@@ -45,7 +45,8 @@
 
                         <ul class="navbar-nav justify-content-end flex-grow-1 pe_5">
                             <li class="nav-item">
-                                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page" href="/">Home</a>
+                                <a class="nav-link {{ request()->is('/') ? 'active' : '' }}" aria-current="page"
+                                    href="/">Home</a>
                             </li>
                             {{-- <li class="nav-item">
                                 <a href="" class="nav-link"></a>
@@ -210,12 +211,12 @@
                         @endauth
                         @guest
                             <li>
-                                <div class="sign_in_btn">
-                                    <a class="" href="/sign-in">
+                                <a class="" href="/sign-in">
+                                    <div class="sign_in_btn">
                                         <i class="fa-solid fa-sign-in"></i>
                                         {{-- <span>Join</span> --}}
-                                    </a>
-                                </div>
+                                    </div>
+                                </a>
                             </li>
                         @endguest
                         <li>

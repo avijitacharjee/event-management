@@ -48,7 +48,7 @@ class EventFactory extends Factory
         if(!$isOnline){
             $eventVenue = EventVenue::factory()->createOne();
         }
-        $dateTime = fake()->dateTimeBetween('+1 week', '+1 month');
+        $dateTime = fake()->dateTimeBetween('+2 month', '+1 year');
 
         return [
             'name' => fake()->unique()->sentence(),

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -77,20 +78,25 @@
                         <div class="footer-content">
                             <h4>Follow Us</h4>
                             <ul class="social-links">
-                                <li><a target="_blank" href="https://web.facebook.com/avijitech.cse" class="social-link"><i class="fab fa-facebook-square"></i></a>
-                                <li><a target="_blank" href="https://www.instagram.com/avijitech/" class="social-link"><i class="fab fa-instagram"></i></a>
-                                <li><a target="_blank" href="https://twitter.com/avi57225670" class="social-link"><i class="fab fa-twitter"></i></a>
-                                <li><a target="_blank" href="https://www.linkedin.com/in/avijitech/" class="social-link"><i class="fab fa-linkedin-in"></i></a>
-                                <li><a target="_blank" href="https://www.youtube.com/@avijitacharjee1441" class="social-link"><i class="fab fa-youtube"></i></a>
+                                <li><a target="_blank" href="https://web.facebook.com/avijitech.cse"
+                                        class="social-link"><i class="fab fa-facebook-square"></i></a>
+                                <li><a target="_blank" href="https://www.instagram.com/avijitech/"
+                                        class="social-link"><i class="fab fa-instagram"></i></a>
+                                <li><a target="_blank" href="https://twitter.com/avi57225670" class="social-link"><i
+                                            class="fab fa-twitter"></i></a>
+                                <li><a target="_blank" href="https://www.linkedin.com/in/avijitech/"
+                                        class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                                <li><a target="_blank" href="https://www.youtube.com/@avijitacharjee1441"
+                                        class="social-link"><i class="fab fa-youtube"></i></a>
                             </ul>
                         </div>
                         <div class="footer-content">
                             <h4>Download Mobile App</h4>
                             <div class="download-app-link">
-                                <a href="#" class="download-btn"><img src="{{asset('asset/barren/images/app-store.png')}}"
-                                        alt=""></a>
-                                <a href="#" class="download-btn"><img src="{{asset('asset/barren/images/google-play.png')}}"
-                                        alt=""></a>
+                                <a href="#" class="download-btn"><img
+                                        src="{{ asset('asset/barren/images/app-store.png') }}" alt=""></a>
+                                <a href="#" class="download-btn"><img
+                                        src="{{ asset('asset/barren/images/google-play.png') }}" alt=""></a>
                             </div>
                         </div>
                     </div>
@@ -108,7 +114,7 @@
                                 </a>
                             </p>
                             <p>
-                                v{{config('app.version')}}
+                                v{{ config('app.version') }}
                             </p>
                         </div>
                     </div>
@@ -117,14 +123,15 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="{{asset('../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js')}}"></script>
-    <script src="{{ asset('asset/barren/js/jquery-3.6.0.min.js')}}"></script>
-    <script src="{{ asset('asset/barren/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{ asset('asset/barren/vendor/OwlCarousel/owl.carousel.js')}}"></script>
-    <script src="{{ asset('asset/barren/vendor/bootstrap-select/dist/js/bootstrap-select.min.js')}}"></script>
-    <script src="{{ asset('asset/barren/vendor/mixitup/dist/mixitup.min.js')}}"></script>
-    <script src="{{ asset('asset/barren/js/custom.js')}}"></script>
-    <script src="{{ asset('asset/barren/js/night-mode.js')}}"></script>
+    <script data-cfasync="false"
+        src="{{ asset('../../../cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js') }}"></script>
+    <script src="{{ asset('asset/barren/js/jquery-3.6.0.min.js') }}"></script>
+    <script src="{{ asset('asset/barren/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('asset/barren/vendor/OwlCarousel/owl.carousel.js') }}"></script>
+    <script src="{{ asset('asset/barren/vendor/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+    <script src="{{ asset('asset/barren/vendor/mixitup/dist/mixitup.min.js') }}"></script>
+    <script src="{{ asset('asset/barren/js/custom.js') }}"></script>
+    <script src="{{ asset('asset/barren/js/night-mode.js') }}"></script>
     <script>
         var containerEl = document.querySelector('[data-ref~="event-filter-content"]');
 
@@ -133,7 +140,12 @@
                 target: '[data-ref~="mixitup-target"]'
             }
         });
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+        var tooltipList = tooltipTriggerList.map(function(tooltipTriggerEl) {
+            return new bootstrap.Tooltip(tooltipTriggerEl)
+        })
     </script>
     @yield('js')
 </body>
+
 </html>

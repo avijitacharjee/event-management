@@ -218,9 +218,9 @@
                                                 <div class="event-footer">
                                                     <div class="event-timing">
                                                         <div class="publish-date">
-                                                            <span><i class="fa-solid fa-calendar-day me-2"></i>{{(new \DateTime($event->datetime))->format('j M')}}</span>
+                                                            <span><i class="fa-solid fa-calendar-day me-2"></i>{{(new \DateTime($event->date_time))->format('j M')}}</span>
                                                             <span class="dot"><i class="fa-solid fa-circle"></i></span>
-                                                            <span>{{date('D, g:i a',strtotime($event->datetime))}}</span>
+                                                            <span>{{date('D, g:i a',strtotime($event->date_time))}}</span>
                                                         </div>
                                                         <span class="publish-time"><i
                                                                 class="fa-solid fa-clock me-2"></i>{{$event->duration_in_h}}h</span>
@@ -255,9 +255,9 @@
                                                 <div class="event-footer">
                                                     <div class="event-timing">
                                                         <div class="publish-date">
-                                                            <span><i class="fa-solid fa-calendar-day me-2"></i>{{(new \DateTime($event->datetime))->format('j M')}}</span>
+                                                            <span><i class="fa-solid fa-calendar-day me-2"></i>{{(new \DateTime($event->date_time))->format('j M')}}</span>
                                                             <span class="dot"><i class="fa-solid fa-circle"></i></span>
-                                                            <span>{{date('D, g:i a',strtotime($event->datetime))}}</span>
+                                                            <span>{{date('D, g:i a',strtotime($event->date_time))}}</span>
                                                         </div>
                                                         <span class="publish-time"><i
                                                                 class="fa-solid fa-clock me-2"></i>{{$event->duration_in_h}}h</span>

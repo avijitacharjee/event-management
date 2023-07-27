@@ -12,4 +12,8 @@ class TicketPrice extends Model
     {
         return $this->belongsTo(Ticket::class);
     }
+    protected $casts = [
+        'from_age' => 'integer',
+        'to_age' => 'integer'
+    ];
 }

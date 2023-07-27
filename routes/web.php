@@ -54,6 +54,9 @@ Route::group([
     Route::get('explore-events', 'exploreEvents');
     Route::get('event-single/{event}', 'show');
     Route::get('checkout', 'checkout');
+    Route::post('checkout', 'storeCheckout');
+    Route::post('checkout/{event}','book');
+    Route::get('booking_confirmed', 'bookingConfirmed');
 });
 Route::group([
     'prefix' => 'blog',
@@ -82,6 +85,7 @@ Route::group(
         Route::post('blogs/update/{blog}', 'updateBlog');
         Route::get('blogs/duplicate/{blog}', 'duplicateBlog');
         Route::get('/ticket/{ticket}/delete','deleteTicket');
+        Route::get('ticket/{booking}', 'showTicket');
     }
 );
 Route::group([

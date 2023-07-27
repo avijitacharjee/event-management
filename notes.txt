@@ -27,7 +27,7 @@ Web:
       1. Add age in ticket (✔)
       2. Use Mapbox for locations ( Location picker not available in Mapbox)
       3. Qr to recognize both food and entry
-      4. RSVP
+      4. Bookmark
       5. Event ( duration -> from-time,to-time ) ✔
       6. Pdf Generating
 App:

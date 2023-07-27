@@ -126,7 +126,7 @@
                                 </div>
                                 <div class="event-dt-right-content">
                                     <h4>Date and Time</h4>
-                                    <h5>Sat, Apr 30, 2022 11:30 AM</h5>
+                                    <h5>{{ $event->date_time->format('D, M j, Y h:ia') }}</h5>
                                     {{-- <div class="add-to-calendar">
                                         <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                             <i class="fa-regular fa-calendar-days me-3"></i>Add to Calendar
@@ -169,33 +169,72 @@
                                     {{-- <a href="#"><i class="fa-solid fa-location-dot me-2"></i>View Map</a> --}}
                                 </div>
                             </div>
-                            <div class="select-tickets-block">
-                                <h6>Buy Ticket</h6>
-                                {{-- <div class="select-ticket-action">
-                                    <div class="ticket-price">
-                                        {{$event->currency}} {{$event->ticket_price}}
-                                    </div>
-                                    <div class="quantity">
-                                        <div class="counter">
-                                            <span class="down" onClick="decreaseCount(event, this)">-</span>
-                                            <input type="text" value="0" />
-                                            <span class="up" onClick="increaseCount(event, this)">+</span>
-                                        </div>
-                                    </div>
-                                </div> --}}
-                                {{-- <p>
-                                    2 x pair hand painted leather earrings 1
-                                    x glass of bubbles / or coffee
-                                    Individual grazing box / fruit cup
-                                </p> --}}
-                                <div class="xtotel-tickets-count">
+                            <form method="POST" action="{{ url('event/checkout/' . $event->id) }}">
+                                @csrf
+                                <div class="select-tickets-block">
+                                    <h6>Buy Ticket</h6>
+                                    @if ($event->tickets->count())
+                                        <input type="hidden" id="price_n" name="price_id"
+                                            value="{{ $event->tickets[0]?->prices[0]?->id }}">
+                                        @if ($event->tickets[0]->prices?->count() > 1)
+                                            <div class="form-group my-3">
+                                                <label for="">Select Age Range</label>
+                                                <select id="age_select" class="form-control">
+                                                    @foreach ($event->tickets[0]?->prices as $price)
+                                                        <option value="{{ $loop->index }}">
+                                                            {{ "{$price->from_age}-{$price->to_age}" }}</option>
+                                                    @endforeach
+                                                </select>
+                                                <small>Price may very on age</small>
+                                            </div>
+                                        @endif
+                                        @foreach ($event->tickets as $ticket)
+                                            {{-- @foreach ($ticket->prices as $price) --}}
+                                            <div class="select-ticket-action">
+                                                <div class="ticket-price">
+                                                    Price : $<span id="price">{{ $ticket->prices[0]?->price }}</span>
+                                                </div>
+                                                {{-- <div class="quantity">
+                                                <div class="counter">
+                                                    <span class="down" onClick="decreaseCount(event, this)">-</span>
+                                                    <input type="text" value="0" />
+                                                    <span class="up" onClick="increaseCount(event, this)">+</span>
+                                                </div>
+                                            </div> --}}
+                                            </div>
+
+                                            <p>
+                                                {!! $ticket->description !!}
+                                            </p>
+                                            <p>
+                                                {{-- {{ "For age from {$price->from_age} to {$price->to_age}" }} --}}
+                                            </p>
+                                            {{-- @endforeach --}}
+                                        @endforeach
+                                    @else
+                                        <p>
+                                            Tickets are not yet available for this event.
+                                        </p>
+                                    @endif
+
+                                    {{-- <div class="xtotel-tickets-count">
                                     <div class="x-title">1x Ticket(s)</div>
                                     <h4>{{ $event->currency }} <span>{{ $event->ticket_price }}</span></h4>
+                                </div> --}}
                                 </div>
-                            </div>
-                            <div class="booking-btn">
-                                <a href="/event/checkout" class="main-btn btn-hover w-100">Book Now</a>
-                            </div>
+                                @if ($event->tickets->count())
+                                    <div class="booking-btn">
+                                        <button type="submit" class="main-btn btn-hover w-100">Book Now</button>
+                                    </div>
+                                @else
+                                    <div class="booking-btn" data-bs-toggle="tooltip" data-bs-placement="top"
+                                        title="Booking will be available soon">
+                                        <button type="submit" disabled class="main-btn w-100"
+                                            style="color: #838080;background:#475741;1px solid #1a2317;">Book Now</button>
+                                    </div>
+                                @endif
+
+                            </form>
                         </div>
                     </div>
                     <div class="col-xl-12 col-lg-12 col-md-12">
@@ -294,5 +333,10 @@
                     //seconds
                 }, 0)
         }());
+        $('#age_select').change(function() {
+            var prices = @json($prices);
+            $('#price').html(prices[$('#age_select').val()].price);
+            $('#price_n').val(prices[$('#age_select').val()].id);
+        });
     </script>
 @endsection
