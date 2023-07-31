@@ -4,7 +4,6 @@ use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\EventController;
 use App\Http\Middleware\ApiMiddleware;
 use App\Http\Middleware\Authenticate;
-use App\Http\Middleware\ForceJsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,15 +24,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group([
     'controller' => AuthController::class,
-    'middleware'=>[ForceJsonResponse::class],
 ], function () {
     Route::post('/sign-in',  'login');
-    Route::post('/sign-up','signUp');
+    Route::post('/sign-up', 'signUp');
     Route::get('/sign-out', 'logout');
     Route::get('profile',  'profile');
 });
-Route::group([
-    'middleware' => ApiMiddleware::class
-], function () {
+Route::group([], function () {
     Route::resource('event', EventController::class);
 });

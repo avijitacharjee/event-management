@@ -29,7 +29,7 @@ Web:
       3. Qr to recognize both food and entry
       4. Bookmark
       5. Event ( duration -> from-time,to-time ) ✔
-      6. Pdf Generating
+      6. Pdf Generating ✔
 App:
   V1.0.0
     Features Added:
