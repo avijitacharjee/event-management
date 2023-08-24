@@ -14,7 +14,6 @@ class BlogTest extends TestCase
     public function testBlogsPage(): void
     {
         $response = $this->get('/blogs');
-
         $response->assertStatus(200);
     }
     public function testSingleBlog():void

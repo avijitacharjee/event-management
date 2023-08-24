@@ -20,21 +20,20 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, ValidatesRequests;
 
-    public function succeededResponse($data, $message,$status=Response::HTTP_OK)
+    public function succeededResponse($data, $message, $status = Response::HTTP_OK)
     {
         return response()->json([
-            'data'=>$data,
-            'success'=>true,
-            'messages'=>$message
-        ],$status);
+            'data' => $data,
+            'success' => true,
+            'message' => $message
+        ], $status);
     }
-    public function failedResponse($data, $message)
+    public function failedResponse($data, $message, $status = Response::HTTP_OK)
     {
         return response()->json([
-            'data'=>$data,
-            'success'=>false,
-            'messages'=>$message
+            'data' => $data,
+            'success' => false,
+            'message' => $message
         ]);
     }
-
 }

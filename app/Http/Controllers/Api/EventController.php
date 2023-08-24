@@ -3,18 +3,33 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Models\Booking;
 use App\Models\Event;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $events = Event::all();
         return $this->succeededResponse($events, 'All events');
+    }
+    public function getInfoByBookingId(int $id)
+    {
+        $booking = Booking::find($id);
+        if (!$booking) {
+            return $this->failedResponse(null, "This booking is invalid");
+        }
+        $temp = clone $booking;
+        $event = $temp->ticketPrice->ticket->event;
+        return $this->succeededResponse(
+            [
+                'booking' => $booking,
+               'event' => $event
+            ],
+            "Booking is valid"
+        );
     }
 
     /**

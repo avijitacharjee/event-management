@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\Api\EventController;
+use App\Http\Controllers\Api\TicketController;
 use App\Http\Middleware\ApiMiddleware;
 use App\Http\Middleware\Authenticate;
 use Illuminate\Http\Request;
@@ -32,4 +33,14 @@ Route::group([
 });
 Route::group([], function () {
     Route::resource('event', EventController::class);
+});
+Route::group([
+    'controller' => TicketController::class
+], function () {
+    Route::get('event-ticket/{event}', 'getTicketByEventId');
+});
+Route::group([
+    'controller' => EventController::class
+], function () {
+    Route::get('booking-info/{id}', 'getInfoByBookingId');
 });
