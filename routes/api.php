@@ -43,4 +43,5 @@ Route::group([
     'controller' => EventController::class
 ], function () {
     Route::get('booking-info/{id}', 'getInfoByBookingId');
+    Route::get('/booking-status/{booking}/{status}','changeBookingStatus');
 });

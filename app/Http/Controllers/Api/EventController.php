@@ -23,12 +23,23 @@ class EventController extends Controller
         }
         $temp = clone $booking;
         $event = $temp->ticketPrice->ticket->event;
+        $ticket = $temp->ticketPrice->ticket;
         return $this->succeededResponse(
             [
                 'booking' => $booking,
-               'event' => $event
+                'event' => $event,
+                'ticket' => $ticket
             ],
             "Booking is valid"
+        );
+    }
+    public function changeBookingStatus(Booking $booking, $status)
+    {
+        $booking->status = $status=="null"?null:$status;
+        $booking->save();
+        return $this->succeededResponse(
+            $booking,
+            "Successfully Changed"
         );
     }
 
