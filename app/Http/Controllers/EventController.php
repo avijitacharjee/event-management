@@ -139,21 +139,24 @@ class EventController extends Controller
     }
     public function storeCheckout(Request $request)
     {
-        $booking = new Booking();
-        $booking->user_id = auth()->user()->id;
-        $booking->ticket_price_id = $request->price_id;
-        $booking->save();
+        dd($request->all());
+        for ($i = 0; $i < count($request->price_id); $i++) {
+            $booking = new Booking();
+            $booking->user_id = auth()->user()->id;
+            $booking->ticket_price_id = $request->price_id[$i];
+            $booking->save();
+        }
 
         return redirect('event/booking_confirmed/' . $booking->id);
     }
     public function book(Event $event, Request $request)
     {
         $ticketPrice = TicketPrice::find($request->price_id);
-        // dd($request->all());
-        // $booking->save();
+        $prices = $event->tickets->count() ? $event->tickets[0]?->prices : null;
         return view('public.event-checkout', compact([
             'event',
-            'ticketPrice'
+            'ticketPrice',
+            'prices'
         ]));
     }
     public function bookingConfirmed(Booking $booking)

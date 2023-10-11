@@ -44,71 +44,109 @@
                             <div class="checkout-block">
                                 <div class="main-card">
                                     <div class="bp-title">
-                                        <h4>Billing information</h4>
+                                        <h4>Attendee information</h4>
                                     </div>
-                                    <div class="bp-content bp-form">
-                                        <div class="row">
-                                            <div class="col-lg-6 col-md-12">
-                                                <div class="form-group mt-4">
-                                                    <label class="form-label">First Name*</label>
-                                                    <input class="form-control h_50" type="text" name="firstname" />
-                                                </div>
+                                    @for ($i = 0; $i < request()->num_of_tickets; $i++)
+                                        <div class="bp-content bp-form">
+                                            <div class="row">
+                                                <h3 class="m-1">
+                                                    Person {{ $i + 1 }}
+                                                </h3>
                                             </div>
-                                            <div class="col-lg-6 col-md-12">
-                                                <div class="form-group mt-4">
-                                                    <label class="form-label">Last Name*</label>
-                                                    <input class="form-control h_50" type="text" name="lastname" />
+                                            <div class="row">
+                                                <div class="col-lg-6 col-md-12">
+                                                    <div class="form-group mt-4">
+                                                        <label class="form-label">First Name*</label>
+                                                        <input class="form-control h_50" type="text"
+                                                            name="firstname[]" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-12">
-                                                <div class="form-group mt-4">
-                                                    <label class="form-label">Email*</label>
-                                                    <input class="form-control h_50" type="text" name="email" />
+                                                <div class="col-lg-6 col-md-12">
+                                                    <div class="form-group mt-4">
+                                                        <label class="form-label">Last Name*</label>
+                                                        <input class="form-control h_50" type="text" name="lastname[]" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-12">
-                                                <div class="form-group mt-4">
-                                                    <label class="form-label">Address*</label>
-                                                    <input class="form-control h_50" type="text" name="address" />
+                                                <div class="col-lg-6 col-md-12">
+                                                    <div class="form-group mt-4">
+                                                        <label class="form-label">Email*</label>
+                                                        <input class="form-control h_50" type="text" name="email[]" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-12">
-                                                <div class="form-group main-form mt-4">
-                                                    <label class="form-label">Country*</label>
-                                                    <select class="selectpicker" data-size="5" title="Nothing selected"
-                                                        name="country" data-live-search="true">
-                                                        <x-utils.country-select-options />
-                                                    </select>
+                                                <div class="col-lg-6 col-md-12">
+                                                    <div class="form-group mt-4">
+                                                        <label class="form-label">Address*</label>
+                                                        <input class="form-control h_50" type="text" name="address[]" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-12">
-                                                <div class="form-group mt-4">
-                                                    <label class="form-label">State/Division*</label>
-                                                    <input class="form-control h_50" type="text" name="state"
-                                                        value="Chattogram" />
+                                                <div class="col-lg-6 col-md-12">
+                                                    <div class="form-group main-form mt-4">
+                                                        <label class="form-label">Country*</label>
+                                                        <select class="selectpicker" data-size="5" title="Nothing selected"
+                                                            name="country[]" data-live-search="true">
+                                                            <x-utils.country-select-options />
+                                                        </select>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-12">
-                                                <div class="form-group mt-4">
-                                                    <label class="form-label">City/Suburb*</label>
-                                                    <input class="form-control h_50" type="text" name="city"
-                                                        value="Chattogram" />
+                                                <div class="col-lg-6 col-md-12">
+                                                    <div class="form-group mt-4">
+                                                        <label class="form-label">State/Division*</label>
+                                                        <input class="form-control h_50" type="text" name="state[]"
+                                                            value="Chattogram" />
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-12">
-                                                <div class="form-group mt-4">
-                                                    <label class="form-label">Zip/Post Code*</label>
-                                                    <input class="form-control h_50" type="text" name="zip_code"
-                                                        value="4000" />
+                                                <div class="col-lg-6 col-md-12">
+                                                    <div class="form-group mt-4">
+                                                        <label class="form-label">City/Suburb*</label>
+                                                        <input class="form-control h_50" type="text" name="city[]"
+                                                            value="Chattogram" />
+                                                    </div>
                                                 </div>
+                                                <div class="col-lg-6 col-md-12">
+                                                    <div class="form-group mt-4">
+                                                        <label class="form-label">Zip/Post Code*</label>
+                                                        <input class="form-control h_50" type="text" name="zip_code[]"
+                                                            value="4000" />
+                                                    </div>
+                                                </div>
+                                                <input type="hidden" id="price_n" name="price_id[]"
+                                                    value="{{ $event->tickets[0]?->prices[0]?->id }}">
+                                                @if ($event->tickets[0]->prices?->count() > 1)
+                                                    <div class="form-group my-3">
+                                                        <label for="">Select Age Range</label>
+                                                        <select id="age_select{{$i}}" class="form-control">
+                                                            @foreach ($event->tickets[0]?->prices as $price)
+                                                                <option value="{{ $loop->index }}">
+                                                                    {{ "{$price->from_age}-{$price->to_age}" }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                        <small>Price may very on age</small>
+                                                    </div>
+                                                @endif
+                                                @foreach ($event->tickets as $ticket)
+                                                    {{-- @foreach ($ticket->prices as $price) --}}
+                                                    <div class="select-ticket-action">
+                                                        <div class="ticket-price">
+                                                            Price : $<span
+                                                                id="price{{$i}}">{{ $ticket->prices[0]?->price }}</span>
+                                                        </div>
+                                                    </div>
+                                                    <p>
+                                                        {!! $ticket->description !!}
+                                                    </p>
+                                                    <p>
+                                                        {{-- {{ "For age from {$price->from_age} to {$price->to_age}" }} --}}
+                                                    </p>
+                                                    {{-- @endforeach --}}
+                                                @endforeach
                                             </div>
                                         </div>
-                                    </div>
+                                    @endfor
                                 </div>
                                 <div class="main-card mt-5">
                                     <div class="bp-title">
                                         <h4>
-                                            Total Payable Amount : ${{ $ticketPrice->price ?? 50 }}
+                                            Total Payable Amount : $<span id="total">{{ $ticketPrice->price ?? 50 }}</span>
                                         </h4>
                                     </div>
                                     <div class="bp-content bp-form">
@@ -142,7 +180,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-xl-4 col-lg-12 col-md-12" id="billing_info">
+                        <div class="col-xl-4 col-lg-12 col-md-12 d-none" id="billing_info">
                             <div class="main-card order-summary">
                                 <div class="bp-title">
                                     <h4>Billing information</h4>
@@ -212,4 +250,26 @@
             </div>
         </div>
     </div>
+@endsection
+@section('js')
+    <script>
+        function calculateTotal(){
+            let num = @json(request()->num_of_tickets);
+            let prices = @json($prices);
+            let sum = 0;
+            for(let i=0;i<num;i++){
+                sum = sum + parseFloat(prices[$('#age_select'+i).val()].price)
+            }
+            $('#total').html(sum);
+
+        }
+        @for ($i = 0; $i < request()->num_of_tickets; $i++)
+            $('#age_select{{$i}}').change(function() {
+                let prices = @json($prices);
+                $('#price{{$i}}').html(prices[$('#age_select{{$i}}').val()].price);
+                $('#price_n{{$i}}').val(prices[$('#age_select{{$i}}').val()].id);
+                calculateTotal();
+            });
+        @endfor
+    </script>
 @endsection

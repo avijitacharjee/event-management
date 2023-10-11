@@ -35,7 +35,7 @@ class AuthController extends Controller
         if ($user) {
             if (Hash::check($request->password, $user->password)) {
                 Auth::login($user);
-                return redirect('/');
+                return redirect()->intended('/');
             } else {
                 return back()->with('msg','Invalid password');
             }

@@ -171,57 +171,23 @@
                             </div>
                             <form method="POST" action="{{ url('event/checkout/' . $event->id) }}">
                                 @csrf
+                                <input type="hidden" id="price_n" name="price_id" value="{{ $event->tickets[0]?->prices[0]?->id }}">
                                 <div class="select-tickets-block">
                                     <h6>Buy Ticket</h6>
-                                    @if ($event->tickets->count())
-                                        <input type="hidden" id="price_n" name="price_id"
-                                            value="{{ $event->tickets[0]?->prices[0]?->id }}">
-                                        @if ($event->tickets[0]->prices?->count() > 1)
-                                            <div class="form-group my-3">
-                                                <label for="">Select Age Range</label>
-                                                <select id="age_select" class="form-control">
-                                                    @foreach ($event->tickets[0]?->prices as $price)
-                                                        <option value="{{ $loop->index }}">
-                                                            {{ "{$price->from_age}-{$price->to_age}" }}</option>
-                                                    @endforeach
-                                                </select>
-                                                <small>Price may very on age</small>
-                                            </div>
-                                        @endif
-                                        @foreach ($event->tickets as $ticket)
-                                            {{-- @foreach ($ticket->prices as $price) --}}
-                                            <div class="select-ticket-action">
-                                                <div class="ticket-price">
-                                                    Price : $<span id="price">{{ $ticket->prices[0]?->price }}</span>
-                                                </div>
-                                                {{-- <div class="quantity">
-                                                <div class="counter">
-                                                    <span class="down" onClick="decreaseCount(event, this)">-</span>
-                                                    <input type="text" value="0" />
-                                                    <span class="up" onClick="increaseCount(event, this)">+</span>
-                                                </div>
-                                            </div> --}}
-                                            </div>
-
-                                            <p>
-                                                {!! $ticket->description !!}
-                                            </p>
-                                            <p>
-                                                {{-- {{ "For age from {$price->from_age} to {$price->to_age}" }} --}}
-                                            </p>
-                                            {{-- @endforeach --}}
-                                        @endforeach
-                                    @else
-                                        <p>
-                                            Tickets are not yet available for this event.
-                                        </p>
-                                    @endif
-
+                                    <div class="form-group mt-4">
+                                        <label class="form-label">Enter number of persons*</label>
+                                        <input class="form-control h_50" type="number" name="num_of_tickets"
+                                            min="1" value="1"/>
+                                    </div>
                                     {{-- <div class="xtotel-tickets-count">
-                                    <div class="x-title">1x Ticket(s)</div>
-                                    <h4>{{ $event->currency }} <span>{{ $event->ticket_price }}</span></h4>
-                                </div> --}}
+                                        <div class="x-title">1x Ticket(s)</div>
+                                        <h4>{{ $event->currency }} <span>{{ $event->ticket_price }}</span></h4>
+                                    </div> --}}
                                 </div>
+                                <div class="booking-btn">
+                                    <button type="submit" class="main-btn btn-hover w-100">Book Now</button>
+                                </div>
+                                {{--
                                 @if ($event->tickets->count())
                                     <div class="booking-btn">
                                         <button type="submit" class="main-btn btn-hover w-100">Book Now</button>
@@ -233,6 +199,7 @@
                                             style="color: #838080;background:#475741;1px solid #1a2317;">Book Now</button>
                                     </div>
                                 @endif
+                                --}}
 
                             </form>
                         </div>

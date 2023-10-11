@@ -18,7 +18,7 @@ Web:
       11. Refund ✔
       12. Event search with filtering system (eg. location,radius) (Location,radius not possible) ✔
       13. Featured events with special payment ( premium package/sponsored events ) ✔
-  V1.0.1
+  V1.1.0
     Features Added:
     Bugs fixed: 1
     Bugs:
@@ -30,6 +30,14 @@ Web:
       4. Bookmark
       5. Event ( duration -> from-time,to-time ) ✔
       6. Pdf Generating ✔
+  V1.2.0
+    Features Added:
+      1. Age in ticket
+      2. Generating tickets as PDF with QR code
+    Bugs:
+    Features to add:
+      1. Purchase tickets for Multiple persons
+      2. Payment Gateway Sandbox
 App:
   V1.0.0
     Features Added:
