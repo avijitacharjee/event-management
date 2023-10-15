@@ -185,12 +185,18 @@
                                         <h4>{{ $event->currency }} <span>{{ $event->ticket_price }}</span></h4>
                                     </div> --}}
                                 </div>
-                                @if ($event->tickets->isEmpty())
-                                    <button type="submit" disabled class="btn btn-primary mx-4 mb-5">Tickets are not available yet</button>
+                                @if ($event->tickets->isNotEmpty())
+                                    @if ($event->ticket->num_of_tickets == null || $event->ticket->tickets_sold < $event->ticket->num_of_tickets)
+                                        <div class="booking-btn">
+                                            <button type="submit" class="main-btn btn-hover w-100">Book Now</button>
+                                        </div>
+                                    @else
+                                        <button type="submit" disabled class="btn btn-primary mx-4 mb-5">Tickets are sold
+                                            out</button>
+                                    @endif
                                 @else
-                                    <div class="booking-btn">
-                                        <button type="submit" class="main-btn btn-hover w-100">Book Now</button>
-                                    </div>
+                                    <button type="submit" disabled class="btn btn-primary mx-4 mb-5">Tickets are not
+                                        available yet</button>
                                 @endif
                                 {{--
                                 @if ($event->tickets->count())

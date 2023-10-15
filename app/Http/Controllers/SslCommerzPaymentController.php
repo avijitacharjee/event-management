@@ -115,6 +115,10 @@ class SslCommerzPaymentController extends Controller
             $booking->country = $request_data->country;
             $booking->city = $request_data->city;
             $booking->save();
+
+            $ticket = $booking->ticketPrice->ticket;
+            $ticket->tickets_sold += 1;
+            $ticket->save();
         } else {
             for ($i = 0; $i < count($request_data->price_id); $i++) {
                 $booking = new Booking();
@@ -127,6 +131,10 @@ class SslCommerzPaymentController extends Controller
                 $booking->country = $request_data->country[$i];
                 $booking->city = $request_data->city[$i];
                 $booking->save();
+
+                $ticket = $booking->ticketPrice->ticket;
+                $ticket->tickets_sold += 1;
+                $ticket->save();
             }
         }
 

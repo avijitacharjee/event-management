@@ -22,6 +22,10 @@ class Event extends Model
     {
         return $this->hasMany(Ticket::class);
     }
+    public function ticket()
+    {
+        return $this->hasOne(Ticket::class);
+    }
     public function durationInH(): Attribute
     {
         return Attribute::make(
