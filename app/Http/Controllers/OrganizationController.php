@@ -91,7 +91,7 @@ class OrganizationController extends Controller
         } else {
             $ticketPrice = new TicketPrice();
             $ticketPrice->ticket_id = $ticket->id;
-            $ticketPrice->price = $request['price'];
+            $ticketPrice->price = $request->price;
             $ticketPrice->save();
         }
         return back()->with('msg', 'Successfully saved');

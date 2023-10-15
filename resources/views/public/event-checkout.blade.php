@@ -110,12 +110,12 @@
                                                     </div>
                                                 </div>
                                                 <input type="hidden" id="price_n{{$i}}" name="price_id[]"
-                                                    value="{{ $event->tickets[0]?->prices[0]?->id }}">
-                                                @if ($event->tickets[0]->prices?->count() > 1)
+                                                    value="{{ $event->tickets->first()?->prices->first()?->id }}">
+                                                @if ($event->tickets?->first()->prices?->count() > 1)
                                                     <div class="form-group my-3">
                                                         <label for="">Select Age Range</label>
                                                         <select id="age_select{{ $i }}" class="form-control">
-                                                            @foreach ($event->tickets[0]?->prices as $price)
+                                                            @foreach ($event->tickets->first()?->prices as $price)
                                                                 <option value="{{ $loop->index }}">
                                                                     {{ "{$price->from_age}-{$price->to_age}" }}</option>
                                                             @endforeach
@@ -128,7 +128,7 @@
                                                     <div class="select-ticket-action">
                                                         <div class="ticket-price">
                                                             Price : $<span
-                                                                id="price{{ $i }}">{{ $ticket->prices[0]?->price }}</span>
+                                                                id="price{{ $i }}">{{ $ticket->prices->first()?->price }}</span>
                                                         </div>
                                                     </div>
                                                     <p>

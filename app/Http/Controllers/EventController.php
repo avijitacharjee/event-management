@@ -126,7 +126,7 @@ class EventController extends Controller
     public function show(Event $event)
     {
         $moreEvents = Event::latest()->take(5)->get();
-        $prices = $event->tickets->count() ? $event->tickets[0]?->prices : null;
+        $prices = $event->tickets->count() ? $event->tickets->get(0)?->prices : null;
         return view('public.event-single', compact([
             'event',
             'moreEvents',
@@ -176,9 +176,14 @@ class EventController extends Controller
     }
     public function showTicket(Checkout $checkout)
     {
-        $ticket = $checkout->bookings[0]->ticketPrice->ticket;
+
+        $ticket = $checkout->bookings->first()?->ticketPrice->ticket;
         $event = $ticket->event;
-        return view('public.ticket', compact([
+        $viewName = "public.ticket";
+        if($ticket->template_name==2){
+            $viewName = "public.ticket2";
+        }
+        return view($viewName, compact([
             'checkout',
             'ticket',
             'event'

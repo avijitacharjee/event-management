@@ -171,22 +171,27 @@
                             </div>
                             <form method="POST" action="{{ url('event/checkout/' . $event->id) }}">
                                 @csrf
-                                <input type="hidden" id="price_n" name="price_id" value="{{ $event->tickets[0]?->prices[0]?->id }}">
+                                <input type="hidden" id="price_n" name="price_id"
+                                    value="{{ $event->tickets->first()?->prices->first()?->id }}">
                                 <div class="select-tickets-block">
                                     <h6>Buy Ticket</h6>
                                     <div class="form-group mt-4">
                                         <label class="form-label">Enter number of persons*</label>
-                                        <input class="form-control h_50" type="number" name="num_of_tickets"
-                                            min="1" value="1"/>
+                                        <input class="form-control h_50" type="number" name="num_of_tickets" min="1"
+                                            value="1" />
                                     </div>
                                     {{-- <div class="xtotel-tickets-count">
                                         <div class="x-title">1x Ticket(s)</div>
                                         <h4>{{ $event->currency }} <span>{{ $event->ticket_price }}</span></h4>
                                     </div> --}}
                                 </div>
-                                <div class="booking-btn">
-                                    <button type="submit" class="main-btn btn-hover w-100">Book Now</button>
-                                </div>
+                                @if ($event->tickets->isEmpty())
+                                    <button type="submit" disabled class="btn btn-primary mx-4 mb-5">Tickets are not available yet</button>
+                                @else
+                                    <div class="booking-btn">
+                                        <button type="submit" class="main-btn btn-hover w-100">Book Now</button>
+                                    </div>
+                                @endif
                                 {{--
                                 @if ($event->tickets->count())
                                     <div class="booking-btn">

@@ -22,13 +22,13 @@
                             </div>
                         </div>
                         <div class="stepper-data-set">
-                            <label class="form-label mt-4">Choose template*</label>
+                            <label class="form-label mt-4">Choose ticket template*</label>
                             <div class="content-holder template-selector">
                                 <div class="row g-3">
                                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="template-item mt-3">
                                             <input id="standard_webinar" type="radio" name="template_id"
-                                                value="standard webinar" />
+                                                value="1" />
                                             <label class="template sw-template" for="standard_webinar">
                                                 <img src="{{ asset('/asset/barren/images/icons/standard-webinar.png') }}"
                                                     alt="" />
@@ -41,7 +41,7 @@
                                     <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="template-item mt-3">
                                             <input id="traning_workshop" type="radio" name="template_id"
-                                                value="traning workshop" />
+                                                value="2" />
                                             <label class="template tw-template" for="traning_workshop">
                                                 <img src="{{ asset('/asset/barren/images/icons/health-and-welbeing.png') }}"
                                                     alt="" />
@@ -53,7 +53,7 @@
                                             </h6>
                                         </div>
                                     </div>
-                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+                                    {{-- <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="template-item mt-3">
                                             <input id="online_classes" type="radio" name="template_id"
                                                 value="online classes" />
@@ -77,7 +77,7 @@
                                                 Podcast
                                             </h6>
                                         </div>
-                                    </div>
+                                    </div> --}}
                                 </div>
                             </div>
                         </div>
@@ -199,15 +199,15 @@
                                 </div>
                                 <div class="form-group" id="ticket_price">
                                     <label class="form-label mb-2 fs-14">Ticket Price*</label>
-                                    <input class="form-control h_40" type="number" value="1" min="1" placeholder="Enter ticket price" />
+                                    <input class="form-control h_40" name="price" type="number" value="1" min="1" placeholder="Enter ticket price" />
                                 </div>
                                 <div class="form-group mt-4">
                                     <label class="form-label mb-2 fs-14">Ticket Description*</label>
-                                    <textarea name="description" class="form-textarea" placeholder="Description will go here" id="ticket_description_editor"></textarea>
+                                    <textarea name="description" class="form-textarea" placeholder="Description will go here" id="ticket_description_editor" required></textarea>
                                 </div>
                                 <div class="form-group mt-4">
                                     <label class="form-label mb-2 fs-14">Add logo*</label>
-                                    <input name="image" type="file" class="form-image" />
+                                    <input name="image" type="file" class="form-image" required/>
                                 </div>
                             </div>
                         </div>

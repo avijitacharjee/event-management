@@ -8,6 +8,7 @@ use App\Http\Controllers\EventController;
 use App\Http\Controllers\OrganizationController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Middleware\OrganizationMiddleware;
+use App\Models\Checkout;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -60,7 +61,9 @@ Route::group([
     Route::get('booking_confirmed/{checkout}', 'bookingConfirmed');
     Route::get('ticket/{checkout}', 'showTicket');
     Route::get('ticket/download/{checkout}', 'downloadTicket');
-
+    Route::get('ticket2', function () {
+        return view('public.ticket2')->with('checkout', Checkout::find(11));
+    });
 
 });
 Route::group([

@@ -20,7 +20,7 @@ class TicketFactory extends Factory
     {
         return [
             'name' => fake()->name(),
-            'template_name' => 'concert',
+            'template_name' => random_int(1,2),
             'num_of_tickets' => 100,
             'description' => fake()->sentence(),
             'logo' => (new Client(['allow_redirects' => ['track_redirects' => true]]))

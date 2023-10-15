@@ -32,7 +32,13 @@
                             (<span class="venue-event-ticket-counter">{{ $event->tickets->count() }}</span>)
                         </h3>
                         @if ($event->tickets->count() == 0)
-                            <div class="dropdown dropdown-default dropdown-normal btn-ticket-type-top">
+                            <a class="btn btn-primary btn-ticket-type-top" href="#" data-bs-toggle="modal"
+                                data-bs-target="#singleTicketModal">
+                                <i class="fa-solid fa-ticket me-2"></i>
+                                Add Ticket
+                            </a>
+
+                            {{-- <div class="dropdown dropdown-default dropdown-normal btn-ticket-type-top">
                                 <button class="dropdown-toggle main-btn btn-hover h_40 pe-4 ps-4" type="button"
                                     id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
                                     aria-expanded="false">
@@ -47,14 +53,14 @@
                                         Single
                                         Ticket
                                     </a>
-                                    {{-- <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#groupTicketModal">
-                                    <i class="fa-solid fa-ticket me-2"></i>
-                                    Group
-                                    Ticket
-                                </a> --}}
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#groupTicketModal">
+                                        <i class="fa-solid fa-ticket me-2"></i>
+                                        Group
+                                        Ticket
+                                    </a>
                                 </div>
-                            </div>
+                            </div> --}}
                         @endif
                     </div>
                     <div class="ticket-type-item-empty d-none text-center p_30">
@@ -118,7 +124,7 @@
                                             <img src="images/discount.png" alt="" />
                                         </div>
                                         <label class="btn-switch tfs-8 mb-0 me-4 mt-1">
-                                            <input type="checkbox" value="" checked />
+                                            <input type="checkbox" value="" readonly checked />
                                             <span class="checkbox-slider"></span>
                                         </label>
                                         <div class="dropdown dropdown-default dropdown-text dropdown-icon-item">
