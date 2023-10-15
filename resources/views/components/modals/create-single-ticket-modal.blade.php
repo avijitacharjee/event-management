@@ -199,8 +199,7 @@
                                 </div>
                                 <div class="form-group" id="ticket_price">
                                     <label class="form-label mb-2 fs-14">Ticket Price*</label>
-                                    <input class="form-control h_40" type="number" value="1" min="1"
-                                        max="30" placeholder="Enter ticket price" />
+                                    <input class="form-control h_40" type="number" value="1" min="1" placeholder="Enter ticket price" />
                                 </div>
                                 <div class="form-group mt-4">
                                     <label class="form-label mb-2 fs-14">Ticket Description*</label>

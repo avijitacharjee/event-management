@@ -25,7 +25,7 @@
 
     body,
     html {
-        height: 250px;
+        /* height: 250px; */
         width: 900px;
         display: grid;
         font-family: "Barlow", sans-serif;
@@ -33,6 +33,7 @@
         color: black;
         font-size: 14px;
         letter-spacing: 0.1em;
+        margin: 0 auto;
     }
 
     .ticket {
@@ -227,68 +228,91 @@
         color: #505050;
         font-weight: 700;
     }
+    /* Skissor */
+    #scissors {
+        height: 50px; /* image height */
+        width: 90%;
+        margin: auto auto;
+        background-image: url('http://i.stack.imgur.com/cXciH.png');
+        background-repeat: no-repeat;
+        background-position: right;
+        position: relative;
+        overflow: hidden;
+    }
+    #scissors:after {
+        content: "";
+        position: relative;
+        top: 50%;
+        display: block;
+        border-top: 3px dashed black;
+        margin-top: -3px;
+    }
 </style>
-<div class="ticket">
-    <div class="left">
-        <div class="image">
+@foreach ($checkout->bookings as $booking)
+    <div class="ticket">
+        <div class="left">
+            <div class="image">
+                <p class="admit-one">
+                    <span>Evento</span>
+                    <span>Evento</span>
+                    <span>Evento</span>
+                </p>
+                <div class="ticket-number">
+                    <p>
+                        #{{ $booking->id }}
+                    </p>
+                </div>
+            </div>
+            <div class="ticket-info">
+                <p class="date">
+                    <span>{{ $event->date_time->format('l') }}</span>
+                    <span class="nov-10">{{ $event->date_time->format('F j') }}</span>
+                    <span>{{ $event->date_time->format('Y') }}</span>
+                </p>
+                <div class="show-name">
+                    <h2>{{ $event->name }}</h2>
+                </div>
+                <div class="time">
+                    <p>{{ $event->date_time->format('h:i A') }} <span>TO</span> TBD</p>
+                </div>
+                <div class="tagline">
+                    <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl={{ $booking->id }}"
+                        style="width: 60px;height:60px;" alt="QR code">
+                    {{-- <p>IN THIS LIFE OR THE NEXT</p> --}}
+                </div>
+                <p class="location">
+                    {{-- <span>THE CAT'S CRADLE</span>
+                <span class="separator"><i class="fa-solid fa-cross"></i></span><span>ANDALUCÍA, SPAIN</span> --}}
+                    <span>
+                        {{ $event->type == 'online' ? 'To be held online' : $event->location }}
+                    </span>
+                </p>
+            </div>
+        </div>
+        <div class="right">
             <p class="admit-one">
-                <span>Evento</span>
-                <span>Evento</span>
-                <span>Evento</span>
+                @for ($i = 0; $i < 3; $i++)
+                    <span>Evento</span>
+                @endfor
             </p>
-            <div class="ticket-number">
-                <p>
+            <div class="right-info-container">
+                <div class="show-name">
+                    <small>{{ str($event->name)->limit(30) }}</small>
+                </div>
+                <div class="time">
+                    <p>{{ $event->date_time->format('j.M.Y') }}</p>
+                    <p>{{ $event->date_time->format('h:i A') }}<span>TO</span> TBD</p>
+                </div>
+                <div class="barcode">
+                    <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl={{ $booking->id }}"
+                        alt="QR code">
+                </div>
+                <p class="ticket-number">
                     #{{ $booking->id }}
                 </p>
             </div>
         </div>
-        <div class="ticket-info">
-            <p class="date">
-                <span>{{ $event->date_time->format('l') }}</span>
-                <span class="nov-10">{{ $event->date_time->format('F j') }}</span>
-                <span>{{ $event->date_time->format('Y') }}</span>
-            </p>
-            <div class="show-name">
-                <h2>{{ $event->name }}</h2>
-            </div>
-            <div class="time">
-                <p>{{ $event->date_time->format('h:i A') }} <span>TO</span> TBD</p>
-            </div>
-            <div class="tagline">
-                <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl={{ $booking->id }}"
-                style="width: 60px;height:60px;"
-                alt="QR code">
-                {{-- <p>IN THIS LIFE OR THE NEXT</p> --}}
-            </div>
-            <p class="location">
-                {{-- <span>THE CAT'S CRADLE</span>
-                <span class="separator"><i class="fa-solid fa-cross"></i></span><span>ANDALUCÍA, SPAIN</span> --}}
-                <span>
-                    {{ $event->type=="online"?"To be held online":$event->location }}
-                </span>
-            </p>
-        </div>
     </div>
-    <div class="right">
-        <p class="admit-one">
-            @for ($i = 0; $i < 3; $i++)
-                <span>Evento</span>
-            @endfor
-        </p>
-        <div class="right-info-container">
-            <div class="show-name">
-                <small>{{str($event->name)->limit(30)}}</small>
-            </div>
-            <div class="time">
-                <p>{{$event->date_time->format('j.M.Y')}}</p>
-                <p>{{$event->date_time->format('h:i A')}}<span>TO</span> TBD</p>
-            </div>
-            <div class="barcode">
-                <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl={{ $booking->id }}" alt="QR code">
-            </div>
-            <p class="ticket-number">
-                #{{$booking->id}}
-            </p>
-        </div>
-    </div>
-</div>
+    <div style="height: 30px;"></div>
+    {{-- <div id="scissors"></div> --}}
+@endforeach

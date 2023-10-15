@@ -29,31 +29,33 @@
                     <div class="d-flex align-items-center justify-content-between pt-4 pb-3 full-width">
                         <h3 class="fs-18 mb-0">
                             Tickets
-                            (<span class="venue-event-ticket-counter">{{$event->tickets->count()}}</span>)
+                            (<span class="venue-event-ticket-counter">{{ $event->tickets->count() }}</span>)
                         </h3>
-                        <div class="dropdown dropdown-default dropdown-normal btn-ticket-type-top">
-                            <button class="dropdown-toggle main-btn btn-hover h_40 pe-4 ps-4" type="button"
-                                id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
-                                aria-expanded="false">
-                                <span>Add
-                                    Tickets</span>
-                            </button>
-                            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton"
-                                style="">
-                                <a class="dropdown-item" href="#" data-bs-toggle="modal"
-                                    data-bs-target="#singleTicketModal">
-                                    <i class="fa-solid fa-ticket me-2"></i>
-                                    Single
-                                    Ticket
-                                </a>
-                                {{-- <a class="dropdown-item" href="#" data-bs-toggle="modal"
+                        @if ($event->tickets->count() == 0)
+                            <div class="dropdown dropdown-default dropdown-normal btn-ticket-type-top">
+                                <button class="dropdown-toggle main-btn btn-hover h_40 pe-4 ps-4" type="button"
+                                    id="dropdownMenuButton" data-bs-toggle="dropdown" aria-haspopup="true"
+                                    aria-expanded="false">
+                                    <span>Add
+                                        Tickets</span>
+                                </button>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuButton"
+                                    style="">
+                                    <a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                        data-bs-target="#singleTicketModal">
+                                        <i class="fa-solid fa-ticket me-2"></i>
+                                        Single
+                                        Ticket
+                                    </a>
+                                    {{-- <a class="dropdown-item" href="#" data-bs-toggle="modal"
                                     data-bs-target="#groupTicketModal">
                                     <i class="fa-solid fa-ticket me-2"></i>
                                     Group
                                     Ticket
                                 </a> --}}
+                                </div>
                             </div>
-                        </div>
+                        @endif
                     </div>
                     <div class="ticket-type-item-empty d-none text-center p_30">
                         <div class="ticket-list-icon d-inline-block">
@@ -127,7 +129,8 @@
                                             <div class="dropdown-menu dropdown-menu-end">
                                                 {{-- <a href="#" class="dropdown-item"><i
                                                         class="fa-solid fa-pen me-3"></i>Edit</a> --}}
-                                                <a href="{{url('organization/ticket/'.$ticket->id.'/delete')}}" class="dropdown-item"><i
+                                                <a href="{{ url('organization/ticket/' . $ticket->id . '/delete') }}"
+                                                    class="dropdown-item"><i
                                                         class="fa-solid fa-trash-can me-3"></i>Delete</a>
                                             </div>
                                         </div>

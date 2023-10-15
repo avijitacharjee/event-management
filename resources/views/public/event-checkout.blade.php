@@ -29,10 +29,9 @@
         </div>
         <div class="event-dt-block p-80">
             <div class="container">
-                <form action="{{ url('event/checkout') }}" method="POST">
+                <form action="{{ url('event/checkout') }}" method="POST" id="c-form">
                     @csrf
                     <input type="hidden" name="event_id" value="{{ $event->id }}">
-                    <input type="hidden" name="price_id" value="{{ $ticketPrice->id }}">
                     <div class="row">
                         <div class="col-lg-12 col-md-12">
                             <div class="main-title checkout-title">
@@ -58,13 +57,14 @@
                                                     <div class="form-group mt-4">
                                                         <label class="form-label">First Name*</label>
                                                         <input class="form-control h_50" type="text"
-                                                            name="firstname[]" />
+                                                            name="first_name[]" />
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-12">
                                                     <div class="form-group mt-4">
                                                         <label class="form-label">Last Name*</label>
-                                                        <input class="form-control h_50" type="text" name="lastname[]" />
+                                                        <input class="form-control h_50" type="text"
+                                                            name="last_name[]" />
                                                     </div>
                                                 </div>
                                                 <div class="col-lg-6 col-md-12">
@@ -109,12 +109,12 @@
                                                             value="4000" />
                                                     </div>
                                                 </div>
-                                                <input type="hidden" id="price_n" name="price_id[]"
+                                                <input type="hidden" id="price_n{{$i}}" name="price_id[]"
                                                     value="{{ $event->tickets[0]?->prices[0]?->id }}">
                                                 @if ($event->tickets[0]->prices?->count() > 1)
                                                     <div class="form-group my-3">
                                                         <label for="">Select Age Range</label>
-                                                        <select id="age_select{{$i}}" class="form-control">
+                                                        <select id="age_select{{ $i }}" class="form-control">
                                                             @foreach ($event->tickets[0]?->prices as $price)
                                                                 <option value="{{ $loop->index }}">
                                                                     {{ "{$price->from_age}-{$price->to_age}" }}</option>
@@ -128,7 +128,7 @@
                                                     <div class="select-ticket-action">
                                                         <div class="ticket-price">
                                                             Price : $<span
-                                                                id="price{{$i}}">{{ $ticket->prices[0]?->price }}</span>
+                                                                id="price{{ $i }}">{{ $ticket->prices[0]?->price }}</span>
                                                         </div>
                                                     </div>
                                                     <p>
@@ -146,12 +146,13 @@
                                 <div class="main-card mt-5">
                                     <div class="bp-title">
                                         <h4>
-                                            Total Payable Amount : $<span id="total">{{ $ticketPrice->price ?? 50 }}</span>
+                                            Total Payable Amount : $<span
+                                                id="total">{{ $ticketPrice->price ?? 50 }}</span>
                                         </h4>
                                     </div>
                                     <div class="bp-content bp-form">
                                         <div class="row">
-                                            <div class="col-lg-12 col-md-12">
+                                            {{-- <div class="col-lg-12 col-md-12">
                                                 <div class="form-group mt-4">
                                                     <label class="form-label">Card number*</label>
                                                     <input class="form-control h_50" type="text" name="card_number" />
@@ -169,9 +170,13 @@
                                                     <label class="form-label">CVV*</label>
                                                     <input class="form-control h_50" type="text" name="card_cvv" />
                                                 </div>
-                                            </div>
+                                            </div> --}}
                                             <div class="col-lg-12 col-md-12">
-                                                <button type="submit" class="main-btn btn-hover h_50 w-100 mt-5">
+                                                <button class="btn btn-hover h_50 w-100 mt-5 btn-lg btn-block"
+                                                    id="sslczPayBtn" token="if you have any token validation"
+                                                    postdata="your javascript arrays or objects which requires in backend"
+                                                    order="If you already have the transaction generated for current order"
+                                                    endpoint="{{ url('/pay-via-ajax') }}">
                                                     Confirm & Pay
                                                 </button>
                                             </div>
@@ -253,12 +258,12 @@
 @endsection
 @section('js')
     <script>
-        function calculateTotal(){
+        function calculateTotal() {
             let num = @json(request()->num_of_tickets);
             let prices = @json($prices);
             let sum = 0;
-            for(let i=0;i<num;i++){
-                sum = sum + parseFloat(prices[$('#age_select'+i).val()].price)
+            for (let i = 0; i < num; i++) {
+                sum = sum + parseFloat(prices[$('#age_select' + i).val()].price)
             }
             $('#total').html(sum);
 
@@ -271,5 +276,52 @@
                 calculateTotal();
             });
         @endfor
+    </script>
+
+    <!-- If you want to use the popup integration, -->
+    <script>
+        var obj = {};
+        // Function start
+        $.fn.getFormObject = function() {
+            var object = $(this).serializeArray().reduce(function(obj, item) {
+                var name = item.name.replace("[]", "");
+                if (typeof obj[name] !== "undefined") {
+                    if (!Array.isArray(obj[name])) {
+                        obj[name] = [obj[name], item.value];
+                    } else {
+                        obj[name].push(item.value);
+                    }
+                } else {
+                    obj[name] = item.value;
+                }
+                return obj;
+            }, {});
+            return object;
+        }
+        $('#sslczPayBtn').click(function() {
+            // obj.first_name = '';
+            // obj.cus_phone = $('#mobile').val();
+            // obj.cus_email = $('#email').val();
+            // obj.cus_addr1 = $('#address').val();
+            obj = $('#c-form').getFormObject();
+            //obj = $('#c-form').serializeArray();
+            obj.amount = parseFloat($('#total').html());
+            $('#sslczPayBtn').prop('postdata', obj);
+            console.log(obj);
+        });
+
+        (function(window, document) {
+            var loader = function() {
+                var script = document.createElement("script"),
+                    tag = document.getElementsByTagName("script")[0];
+                // script.src = "https://seamless-epay.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7); // USE THIS FOR LIVE
+                script.src = "https://sandbox.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(
+                    7); // USE THIS FOR SANDBOX
+                tag.parentNode.insertBefore(script, tag);
+            };
+
+            window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload",
+                loader);
+        })(window, document);
     </script>
 @endsection

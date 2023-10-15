@@ -34,7 +34,9 @@
                         <h1>Ticket</h1>
                     </div>
                     {{-- <embed src="{{ url('event/ticket/1') }}" width="900" height="250" type="application/pdf"> --}}
-                    <iframe id="ticket" src="{{ url('event/ticket/1#toolbar=1') }}" style="width:900px; height:250px;"></iframe>
+
+                    <iframe id="ticket" src="{{ url("event/ticket/{$checkout->id}#toolbar=1") }}"
+                        style="width:950px;height: 1000px; background-color: white; display:flex;align-items:center;"></iframe>
                     <button id="downloadButton">Download ticket</button>
                     {{-- <a href="{{url('event/ticket/download/'.$booking->id)}}">Download ticket</a> --}}
                 </div>

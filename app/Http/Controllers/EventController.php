@@ -6,6 +6,7 @@ use App\Models\Booking;
 use App\Models\Event;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
+use App\Models\Checkout;
 use App\Models\EventVenue;
 use App\Models\TicketPrice;
 use DateTime;
@@ -139,15 +140,23 @@ class EventController extends Controller
     }
     public function storeCheckout(Request $request)
     {
-        dd($request->all());
+        //dd($request->all());
+        $checkout = new Checkout();
+        $checkout->user_id = auth()->user()->id;
+        $checkout->save();
         for ($i = 0; $i < count($request->price_id); $i++) {
             $booking = new Booking();
-            $booking->user_id = auth()->user()->id;
             $booking->ticket_price_id = $request->price_id[$i];
+            $booking->checkout_id = $checkout->id;
+            $booking->first_name = $request->firstname[$i];
+            $booking->last_name = $request->lastname[$i];
+            $booking->email = $request->email[$i];
+            $booking->address = $request->address[$i];
+            $booking->country = $request->country[$i];
+            $booking->city = $request->city[$i];
             $booking->save();
         }
-
-        return redirect('event/booking_confirmed/' . $booking->id);
+        return redirect('event/booking_confirmed/' . $checkout->id);
     }
     public function book(Event $event, Request $request)
     {
@@ -159,24 +168,20 @@ class EventController extends Controller
             'prices'
         ]));
     }
-    public function bookingConfirmed(Booking $booking)
+    public function bookingConfirmed(Checkout $checkout)
     {
-        $ticket = $booking->ticketPrice->ticket;
-        $event = $ticket->event;
         return view('public.booking_confirmed', compact([
-            'event',
-            'booking',
-            'ticket'
+            'checkout',
         ]));
     }
-    public function showTicket(Booking $booking)
+    public function showTicket(Checkout $checkout)
     {
-        $ticket = $booking->ticketPrice->ticket;
+        $ticket = $checkout->bookings[0]->ticketPrice->ticket;
         $event = $ticket->event;
         return view('public.ticket', compact([
-            'booking',
-            'event',
-            'ticket'
+            'checkout',
+            'ticket',
+            'event'
         ]));
     }
     public function downloadTicket(Booking $booking)

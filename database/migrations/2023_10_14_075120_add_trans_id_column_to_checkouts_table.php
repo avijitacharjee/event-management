@@ -11,8 +11,12 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::table('bookings', function (Blueprint $table) {
-
+        Schema::table('checkouts', function (Blueprint $table) {
+            $table->after('status', function (Blueprint $table) {
+                $table->string('transaction_id')->nullable();
+                $table->float('amount')->nullable();
+                $table->string('currency')->nullable();
+            });
         });
     }
 
@@ -21,7 +25,7 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::table('bookings', function (Blueprint $table) {
+        Schema::table('checkouts', function (Blueprint $table) {
             //
         });
     }

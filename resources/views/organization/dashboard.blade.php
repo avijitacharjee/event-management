@@ -16,10 +16,10 @@
                         <div class="main-card add-organisation-card p-4 mt-5">
                             <div class="ocard-left">
                                 <div class="ocard-avatar">
-                                    <img src="{{ asset('/asset/barren/images/profile-imgs/img-13.jpg') }}" alt="" />
+                                    <img src="{{ asset('/asset/barren/images/avatar1.svg') }}" alt="" />
                                 </div>
                                 <div class="ocard-name">
-                                    <h4>John Doe</h4>
+                                    <h4>{{ auth()->user()->name?? "John Doe"}}</h4>
                                     <span>My Organisation</span>
                                 </div>
                             </div>

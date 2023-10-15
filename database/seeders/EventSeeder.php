@@ -15,7 +15,7 @@ class EventSeeder extends Seeder
      */
     public function run(): void
     {
-        Event::factory()->count(2)->create()->each(function ($event) {
+        Event::factory()->count(6)->create()->each(function ($event) {
             Ticket::factory()->count(1)->create(['event_id' => $event->id])->each(function ($ticket) {
                 if ((bool) mt_rand(0, 1)) {
                     TicketPrice::factory()->count(1)->create([

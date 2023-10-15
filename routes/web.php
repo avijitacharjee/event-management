@@ -6,6 +6,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\OrganizationController;
+use App\Http\Controllers\SslCommerzPaymentController;
 use App\Http\Middleware\OrganizationMiddleware;
 use Illuminate\Support\Facades\Route;
 
@@ -56,9 +57,9 @@ Route::group([
     Route::get('checkout', 'checkout');
     Route::post('checkout', 'storeCheckout');
     Route::post('checkout/{event}','book');
-    Route::get('booking_confirmed/{booking}', 'bookingConfirmed');
-    Route::get('ticket/{booking}', 'showTicket');
-    Route::get('ticket/download/{booking}', 'downloadTicket');
+    Route::get('booking_confirmed/{checkout}', 'bookingConfirmed');
+    Route::get('ticket/{checkout}', 'showTicket');
+    Route::get('ticket/download/{checkout}', 'downloadTicket');
 
 
 });
@@ -101,3 +102,19 @@ Route::group([
 Route::fallback(function () {
     return view('public.404');
 });
+
+
+
+// SSLCOMMERZ Start
+Route::get('/example1', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);
+Route::get('/example2', [SslCommerzPaymentController::class, 'exampleHostedCheckout']);
+
+Route::post('/pay', [SslCommerzPaymentController::class, 'index']);
+Route::post('/pay-via-ajax', [SslCommerzPaymentController::class, 'payViaAjax']);
+
+Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+Route::post('/ipn', [SslCommerzPaymentController::class, 'ipn']);
+//SSLCOMMERZ END
