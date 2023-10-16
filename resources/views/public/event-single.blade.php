@@ -219,7 +219,7 @@
                         <div class="more-events">
                             <div class="main-title position-relative">
                                 <h3>More Events</h3>
-                                <a href="explore_events.html" class="view-all-link">Browse All<i
+                                <a href="{{url('event/explore-events')}}" class="view-all-link">Browse All<i
                                         class="fa-solid fa-right-long ms-2"></i></a>
                             </div>
                             <div class="owl-carousel moreEvents-slider owl-theme">

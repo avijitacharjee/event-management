@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Blog;
 use App\Models\Event;
 use App\Models\Ticket;
+use App\Models\TicketCoupon;
 use App\Models\TicketPrice;
 use Illuminate\Http\Request;
 
@@ -75,17 +76,26 @@ class OrganizationController extends Controller
         $ticket->template_name = $request->template_id;
         $ticket->num_of_tickets = $request->is_ticket_unlimited ? null : $request->num_of_tickets;
         $ticket->description = $request->description;
+        $ticket->image_required = $request->image_enabled == "on" ? true : false;
         $ticket->logo = $request->hasFile('image')
             ? 'storage/' . $request->file('image')->store('ticket-logos', 'public')
             : null;
         $ticket->save();
+
+        $couponNames = str($request->coupons)->trim()->explode(',');
+        foreach ($couponNames as $couponName) {
+            $ticketCoupon = new TicketCoupon();
+            $ticketCoupon->name = str($couponName)->trim();
+            $ticketCoupon->ticket_id = $ticket->id;
+            $ticketCoupon->save();
+        }
 
         if ($request->age_based_enabled) {
             for ($i = 1; $i <= 3; $i++) {
                 $ticketPrice = new TicketPrice();
                 $ticketPrice->ticket_id = $ticket->id;
                 $ticketPrice->price = $request['aged_price' . $i];
-                [$ticketPrice->from_age, $ticketPrice->to_age] = explode(';',$request['age_range' . $i]);
+                [$ticketPrice->from_age, $ticketPrice->to_age] = explode(';', $request['age_range' . $i]);
                 $ticketPrice->save();
             }
         } else {

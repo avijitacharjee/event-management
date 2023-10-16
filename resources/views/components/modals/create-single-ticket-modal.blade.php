@@ -10,50 +10,50 @@
                 </button>
             </div>
             <form action="" method="post" enctype="multipart/form-data">
-            @csrf
-            <div class="modal-body">
-                <div class="model-content main-form">
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12">
-                            <div class="form-group mt-4">
-                                <label class="form-label">Ticket Name*</label>
-                                <input name="name" class="form-control h_40" type="text" placeholder="Event Ticket Name"
-                                    value="" />
+                @csrf
+                <div class="modal-body">
+                    <div class="model-content main-form">
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12">
+                                <div class="form-group mt-4">
+                                    <label class="form-label">Ticket Name*</label>
+                                    <input name="name" class="form-control h_40" type="text"
+                                        placeholder="Event Ticket Name" value="" />
+                                </div>
                             </div>
-                        </div>
-                        <div class="stepper-data-set">
-                            <label class="form-label mt-4">Choose ticket template*</label>
-                            <div class="content-holder template-selector">
-                                <div class="row g-3">
-                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
-                                        <div class="template-item mt-3">
-                                            <input id="standard_webinar" type="radio" name="template_id"
-                                                value="1" />
-                                            <label class="template sw-template" for="standard_webinar">
-                                                <img src="{{ asset('/asset/barren/images/icons/standard-webinar.png') }}"
-                                                    alt="" />
-                                            </label>
-                                            <h6 class="hosting-title fs-14 mt-2 mb-0">
-                                                Concert
-                                            </h6>
+                            <div class="stepper-data-set">
+                                <label class="form-label mt-4">Choose ticket template*</label>
+                                <div class="content-holder template-selector">
+                                    <div class="row g-3">
+                                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+                                            <div class="template-item mt-3">
+                                                <input id="standard_webinar" type="radio" name="template_id"
+                                                    value="1" />
+                                                <label class="template sw-template" for="standard_webinar">
+                                                    <img src="{{ asset('/asset/barren/images/icons/standard-webinar.png') }}"
+                                                        alt="" />
+                                                </label>
+                                                <h6 class="hosting-title fs-14 mt-2 mb-0">
+                                                    Concert
+                                                </h6>
+                                            </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
-                                        <div class="template-item mt-3">
-                                            <input id="traning_workshop" type="radio" name="template_id"
-                                                value="2" />
-                                            <label class="template tw-template" for="traning_workshop">
-                                                <img src="{{ asset('/asset/barren/images/icons/health-and-welbeing.png') }}"
-                                                    alt="" />
-                                            </label>
-                                            <h6 class="hosting-title fs-14 mt-2 mb-0">
-                                                Training
-                                                and
-                                                Workshop
-                                            </h6>
+                                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+                                            <div class="template-item mt-3">
+                                                <input id="traning_workshop" type="radio" name="template_id"
+                                                    value="2" />
+                                                <label class="template tw-template" for="traning_workshop">
+                                                    <img src="{{ asset('/asset/barren/images/icons/health-and-welbeing.png') }}"
+                                                        alt="" />
+                                                </label>
+                                                <h6 class="hosting-title fs-14 mt-2 mb-0">
+                                                    Training
+                                                    and
+                                                    Workshop
+                                                </h6>
+                                            </div>
                                         </div>
-                                    </div>
-                                    {{-- <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
+                                        {{-- <div class="col-xl-3 col-lg-6 col-md-6 col-sm-6 col-6">
                                         <div class="template-item mt-3">
                                             <input id="online_classes" type="radio" name="template_id"
                                                 value="online classes" />
@@ -78,38 +78,40 @@
                                             </h6>
                                         </div>
                                     </div> --}}
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="main-card p-4 mt-4">
-                                <div class="form-label mb-4 fs-16">
-                                    Ticket Restrictions
-                                </div>
-                                <div class="form-group border_bottom">
-                                    <div class="d-flex align-items-center flex-wrap pb-4 flex-nowrap">
-                                        <h4 class="fs-14 mb-0 me-auto">
-                                            Total number of tickets
-                                            available
-                                        </h4>
-                                        <label class="btn-switch m-0 me-3">
-                                            <input name="is_ticket_unlimited" type="checkbox" id="is-restrict-total-ticket" checked="" />
-                                            <span class="checkbox-slider"></span>
-                                        </label>
-                                        <div>
-                                            <label class="fs-12 m-0">Unlimited</label>
-                                        </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="main-card p-4 mt-4">
+                                    <div class="form-label mb-4 fs-16">
+                                        Ticket Restrictions
                                     </div>
-                                    <div class="p-0 mb-4 total_ticket_per_level" style="display: none">
-                                        <div class="form-group">
-                                            <div class="input-number">
-                                                <input name="num_of_tickets" class="form-control h_40" type="number" min="0"
-                                                    max="30" placeholder="Enter Total Tickets" />
+                                    <div class="form-group border_bottom">
+                                        <div class="d-flex align-items-center flex-wrap pb-4 flex-nowrap">
+                                            <h4 class="fs-14 mb-0 me-auto">
+                                                Total number of tickets
+                                                available
+                                            </h4>
+                                            <label class="btn-switch m-0 me-3">
+                                                <input name="is_ticket_unlimited" type="checkbox"
+                                                    id="is-restrict-total-ticket" checked="" />
+                                                <span class="checkbox-slider"></span>
+                                            </label>
+                                            <div>
+                                                <label class="fs-12 m-0">Unlimited</label>
+                                            </div>
+                                        </div>
+                                        <div class="p-0 mb-4 total_ticket_per_level" style="display: none">
+                                            <div class="form-group">
+                                                <div class="input-number">
+                                                    <input name="num_of_tickets" class="form-control h_40"
+                                                        type="number" min="0" max="30"
+                                                        placeholder="Enter Total Tickets" />
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                {{-- <div class="form-group">
+                                    {{-- <div class="form-group">
                                     <div class="d-flex align-items-center flex-wrap pt-4 flex-nowrap">
                                         <h4 class="fs-14 mb-0 me-auto">
                                             Maximum number of tickets
@@ -132,86 +134,111 @@
                                         </div>
                                     </div>
                                 </div> --}}
-                            </div>
-                        </div>
-                        <div class="col-lg-12 col-md-12">
-                            <div class="main-card p-4 mt-4">
-                                <div class="form-label mb-4 fs-16">
-                                    Ticket Details
                                 </div>
-                                <div class="form-group">
-                                    <div class="d-flex align-items-center flex-wrap pb-4 flex-nowrap">
-                                        <h4 class="fs-14 mb-0 me-auto">
-                                            Age based tickets
-                                        </h4>
-                                        <label class="btn-switch m-0 me-3">
-                                            <input name="age_based_enabled" type="checkbox" id="age_based_ticket_checkbox" />
-                                            <span class="checkbox-slider"></span>
-                                        </label>
-                                        <div>
-                                            <label class="fs-12 m-0">Enabled</label>
-                                        </div>
+                            </div>
+                            <div class="col-lg-12 col-md-12">
+                                <div class="main-card p-4 mt-4">
+                                    <div class="form-label mb-4 fs-16">
+                                        Ticket Details
                                     </div>
-                                    <div id="age_based_price_input" style="display:none;">
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                Age ( Years )
-                                            </div>
-                                            <div class="pt-3 col-md-4">
-                                                Ticket Price ( $ )
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <div class="p-0 mb-4 total_ticket_per_level" style="display:block">
-                                                    <input type="text" class="js-range-slider" id="slider1"
-                                                        name="age_range1" value="" />
-                                                </div>
-                                            </div>
-                                            <div class="pt-3 col-md-4">
-                                                <input type="number" name="aged_price1" id="">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <div class="p-0 mb-4 total_ticket_per_level" style="display:block">
-                                                    <input type="text" class="js-range-slider" id="slider2"
-                                                        name="age_range2" value="" />
-                                                </div>
-                                            </div>
-                                            <div class="pt-3 col-md-4">
-                                                <input type="number" name="aged_price2" id="">
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-md-8">
-                                                <div class="p-0 mb-4 total_ticket_per_level" style="display:block">
-                                                    <input type="text" class="js-range-slider" id="slider3"
-                                                        name="age_range3" value="" />
-                                                </div>
-                                            </div>
-                                            <div class="pt-3 col-md-4">
-                                                <input type="number" name="aged_price3" id="">
+                                    <div class="form-group">
+                                        <div class="d-flex align-items-center flex-wrap pb-4 flex-nowrap">
+                                            <h4 class="fs-14 mb-0 me-auto">
+                                                Image
+                                            </h4>
+                                            <label class="btn-switch m-0 me-3">
+                                                <input name="image_enabled" type="checkbox" id="image_enabled"
+                                                    checked />
+                                                <span class="checkbox-slider"></span>
+                                            </label>
+                                            <div>
+                                                <label class="fs-12 m-0">Required</label>
                                             </div>
                                         </div>
                                     </div>
-
-                                </div>
-                                <div class="form-group" id="ticket_price">
-                                    <label class="form-label mb-2 fs-14">Ticket Price*</label>
-                                    <input class="form-control h_40" name="price" type="number" value="1" min="1" placeholder="Enter ticket price" />
-                                </div>
-                                <div class="form-group mt-4">
-                                    <label class="form-label mb-2 fs-14">Ticket Description*</label>
-                                    <textarea name="description" class="form-textarea" placeholder="Description will go here" id="ticket_description_editor" required></textarea>
-                                </div>
-                                <div class="form-group mt-4">
-                                    <label class="form-label mb-2 fs-14">Add logo*</label>
-                                    <input name="image" type="file" class="form-image" required/>
+                                    <div class="form-group">
+                                        <div class="d-flex align-items-center flex-wrap pb-4 flex-nowrap">
+                                            <h4 class="fs-14 mb-0 me-auto">
+                                                Age based tickets
+                                            </h4>
+                                            <label class="btn-switch m-0 me-3">
+                                                <input name="age_based_enabled" type="checkbox"
+                                                    id="age_based_ticket_checkbox" />
+                                                <span class="checkbox-slider"></span>
+                                            </label>
+                                            <div>
+                                                <label class="fs-12 m-0">Enabled</label>
+                                            </div>
+                                        </div>
+                                        <div id="age_based_price_input" style="display:none;">
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    Age ( Years )
+                                                </div>
+                                                <div class="pt-3 col-md-4">
+                                                    Ticket Price ( $ )
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="p-0 mb-4 total_ticket_per_level"
+                                                        style="display:block">
+                                                        <input type="text" class="js-range-slider" id="slider1"
+                                                            name="age_range1" value="" />
+                                                    </div>
+                                                </div>
+                                                <div class="pt-3 col-md-4">
+                                                    <input type="number" name="aged_price1" id="">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="p-0 mb-4 total_ticket_per_level"
+                                                        style="display:block">
+                                                        <input type="text" class="js-range-slider" id="slider2"
+                                                            name="age_range2" value="" />
+                                                    </div>
+                                                </div>
+                                                <div class="pt-3 col-md-4">
+                                                    <input type="number" name="aged_price2" id="">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-8">
+                                                    <div class="p-0 mb-4 total_ticket_per_level"
+                                                        style="display:block">
+                                                        <input type="text" class="js-range-slider" id="slider3"
+                                                            name="age_range3" value="" />
+                                                    </div>
+                                                </div>
+                                                <div class="pt-3 col-md-4">
+                                                    <input type="number" name="aged_price3" id="">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group" id="ticket_price">
+                                        <label class="form-label mb-2 fs-14">Ticket Price*</label>
+                                        <input class="form-control h_40" name="price" type="number"
+                                            value="1" min="1" placeholder="Enter ticket price" />
+                                    </div>
+                                    <div class="form-group mt-4">
+                                        <label class="form-label mb-2 fs-14">Ticket Description*</label>
+                                        <textarea name="description" class="form-textarea" placeholder="Description will go here"
+                                            id="ticket_description_editor"></textarea>
+                                    </div>
+                                    <div class="form-group mt-4">
+                                        <label class="form-label">Coupons( Write names separated by comma. blank if no
+                                            coupons )</label>
+                                        <input type="text" class="form-control" name="coupons">
+                                    </div>
+                                    <div class="form-group mt-4">
+                                        <label class="form-label mb-2 fs-14">Add logo*</label>
+                                        <input name="image" type="file" class="form-image" required />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        {{-- <div class="col-lg-12 col-md-12">
+                            {{-- <div class="col-lg-12 col-md-12">
                             <div class="main-card p-4 mt-4">
                                 <div class="d-flex align-items-center justify-content-between price-variation-head">
                                     <h5 class="m-0 color-black fs-16">
@@ -613,18 +640,18 @@
                                 </div>
                             </div>
                         </div> --}}
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="co-main-btn min-width btn-hover h_40" data-bs-target="#aboutModal"
-                    data-bs-toggle="modal" data-bs-dismiss="modal">
-                    Cancel
-                </button>
-                <button type="submit" class="main-btn min-width btn-hover h_40">
-                    Save
-                </button>
-            </div>
+                <div class="modal-footer">
+                    <button type="button" class="co-main-btn min-width btn-hover h_40" data-bs-target="#aboutModal"
+                        data-bs-toggle="modal" data-bs-dismiss="modal">
+                        Cancel
+                    </button>
+                    <button type="submit" class="main-btn min-width btn-hover h_40">
+                        Save
+                    </button>
+                </div>
             </form>
         </div>
     </div>

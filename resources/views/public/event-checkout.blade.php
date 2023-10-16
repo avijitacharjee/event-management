@@ -29,7 +29,7 @@
         </div>
         <div class="event-dt-block p-80">
             <div class="container">
-                <form action="{{ url('event/checkout') }}" method="POST" id="c-form">
+                <form action="{{ url('event/checkout') }}" method="POST" id="c-form" enctype="multipart/form-data">
                     @csrf
                     <input type="hidden" name="event_id" value="{{ $event->id }}">
                     <div class="row">
@@ -38,7 +38,6 @@
                                 <h3>Order Confirmation</h3>
                             </div>
                         </div>
-
                         <div class="col-xl-8 col-lg-12 col-md-12">
                             <div class="checkout-block">
                                 <div class="main-card">
@@ -109,7 +108,18 @@
                                                             value="4000" />
                                                     </div>
                                                 </div>
-                                                <input type="hidden" id="price_n{{$i}}" name="price_id[]"
+                                                @if ($event->ticket->image_required)
+                                                    <div class="col-lg-6 col-md-12">
+                                                        <div class="form-group mt-4">
+                                                            <label class="form-label">Image*</label>
+                                                            <input type="hidden" id="image_text{{ $i }}"
+                                                                name="image_text[]">
+                                                            <input class="form-control" type="file" accept="image/*"
+                                                                id="image{{ $i }}" name="image[]" required />
+                                                        </div>
+                                                    </div>
+                                                @endif
+                                                <input type="hidden" id="price_n{{ $i }}" name="price_id[]"
                                                     value="{{ $event->tickets->first()?->prices->first()?->id }}">
                                                 @if ($event->tickets?->first()->prices?->count() > 1)
                                                     <div class="form-group my-3">
@@ -131,13 +141,6 @@
                                                                 id="price{{ $i }}">{{ $ticket->prices->first()?->price }}</span>
                                                         </div>
                                                     </div>
-                                                    <p>
-                                                        {!! $ticket->description !!}
-                                                    </p>
-                                                    <p>
-                                                        {{-- {{ "For age from {$price->from_age} to {$price->to_age}" }} --}}
-                                                    </p>
-                                                    {{-- @endforeach --}}
                                                 @endforeach
                                             </div>
                                         </div>
@@ -147,7 +150,7 @@
                                     <div class="bp-title">
                                         <h4>
                                             Total Payable Amount : $<span
-                                                id="total">{{ $ticketPrice->price ?? 50 }}</span>
+                                                id="total">{{ $ticketPrice->price * request()->num_of_tickets }}</span>
                                         </h4>
                                     </div>
                                     <div class="bp-content bp-form">
@@ -268,19 +271,38 @@
             $('#total').html(sum);
 
         }
+        @if ($event->tickets?->first()->prices?->count() > 1)
+            calculateTotal();
+        @endif
+        var toBase64 = function(file, callBack) {
+            file = file.files[0];
+            var reader = new FileReader();
+            reader.readAsDataURL(file);
+            reader.onload = function() {
+                callBack(file, reader.result);
+            };
+            reader.onerror = function(error) {
+                console.log('Error: ', error);
+            };
+        };
         @for ($i = 0; $i < request()->num_of_tickets; $i++)
-            $('#age_select{{$i}}').change(function() {
+            @if ($event->tickets?->first()->prices?->count() > 1)
                 let prices = @json($prices);
-                $('#price{{$i}}').html(prices[$('#age_select{{$i}}').val()].price);
-                $('#price_n{{$i}}').val(prices[$('#age_select{{$i}}').val()].id);
-                calculateTotal();
+                $('#age_select{{ $i }}').change(function() {
+                    $('#price{{ $i }}').html(prices[$('#age_select{{ $i }}').val()].price);
+                    $('#price_n{{ $i }}').val(prices[$('#age_select{{ $i }}').val()].id);
+                    calculateTotal();
+                });
+            @endif
+            $('#image{{ $i }}').on('change', function() {
+                toBase64(this, function(file, base64) {
+                    $('#image_text{{$i}}').val(base64);
+                });
             });
         @endfor
-    </script>
 
-    <!-- If you want to use the popup integration, -->
-    <script>
         var obj = {};
+
         // Function start
         $.fn.getFormObject = function() {
             var object = $(this).serializeArray().reduce(function(obj, item) {

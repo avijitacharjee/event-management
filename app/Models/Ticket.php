@@ -17,4 +17,7 @@ class Ticket extends Model
     {
         return $this->hasMany(TicketPrice::class);
     }
+    public function coupons(){
+        return $this->hasMany(TicketCoupon::class);
+    }
 }
