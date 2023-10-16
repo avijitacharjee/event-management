@@ -14,6 +14,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Storage;
 use Barryvdh\DomPDF\Facade\Pdf;
+use Illuminate\Support\Facades\Mail;
 
 class EventController extends Controller
 {
@@ -176,13 +177,24 @@ class EventController extends Controller
     }
     public function showTicket(Checkout $checkout)
     {
-
+        $email = "avijitach@gmail.com";
+        Mail::send(['view' => 'public.ticket'], [], function ($message) use ($checkout,$email){
+            $message->subject('Your ticket from evento')->text("Download your ticket from the link below..\n".url('event/booking_confirmed/'.$checkout->id))
+                ->to($email);
+        });
         $ticket = $checkout->bookings->first()?->ticketPrice->ticket;
         $event = $ticket->event;
         $viewName = "public.ticket";
-        if($ticket->template_name==2){
+        if ($ticket->template_name == 2) {
             $viewName = "public.ticket2";
         }
+        // $pdf = PDF::loadView($viewName, compact([
+        //         'checkout',
+        //         'ticket',
+        //         'event'
+        //     ]));
+        // return $pdf->stream('itsolutionstuff.pdf');
+
         return view($viewName, compact([
             'checkout',
             'ticket',

@@ -8,7 +8,7 @@ use App\Models\Booking;
 use App\Models\Checkout;
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\DB;
-
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\File\File;
@@ -202,8 +202,8 @@ class SslCommerzPaymentController extends Controller
         # OPTIONAL PARAMETERS
         $post_data['value_a'] = "ref001";
         $post_data['value_b'] = "ref002";
-        $post_data['value_c'] = "ref003";
-        $post_data['value_d'] = $request->postdata;
+        $post_data['value_c'] = auth()->user()->name;
+        $post_data['value_d'] = auth()->user()->email;
 
 
         #Before  going to initiate the payment order status need to update as Pending.
@@ -232,10 +232,11 @@ class SslCommerzPaymentController extends Controller
 
     public function success(Request $request)
     {
-
         $tran_id = $request->input('tran_id');
         $amount = $request->input('amount');
         $currency = $request->input('currency');
+        $name = $request->input('value_c');
+        $email = $request->input('value_d');
 
         $sslc = new SslCommerzNotification();
 
@@ -256,6 +257,10 @@ class SslCommerzPaymentController extends Controller
                 $update_product = DB::table('checkouts')
                     ->where('transaction_id', $tran_id)
                     ->update(['status' => 'Complete']);
+                    Mail::send(['view' => 'public.ticket'], [], function ($message) use ($order_details,$name,$email){
+                        $message->subject('Your ticket from evento')->text("Hi ".$name.",\nDownload your ticket from the link below..\n".url('event/booking_confirmed/'.$order_details->id))
+                            ->to($email);
+                    });
                 return redirect("event/booking_confirmed/" . $order_details->id);
             }
         } else if ($order_details->status == 'Processing' || $order_details->status == 'Complete') {
@@ -267,6 +272,7 @@ class SslCommerzPaymentController extends Controller
             #That means something wrong happened. You can redirect customer to your product page.
             echo "Invalid Transaction";
         }
+
     }
 
     public function fail(Request $request)
