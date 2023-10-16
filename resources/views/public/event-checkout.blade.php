@@ -325,6 +325,10 @@
             // obj.cus_phone = $('#mobile').val();
             // obj.cus_email = $('#email').val();
             // obj.cus_addr1 = $('#address').val();
+            if(!this.checkValidity()){
+                this.reportValidity();
+                return;
+            }
             obj = $('#c-form').getFormObject();
             //obj = $('#c-form').serializeArray();
             obj.amount = parseFloat($('#total').html());

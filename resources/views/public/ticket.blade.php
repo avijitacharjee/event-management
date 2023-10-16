@@ -8,12 +8,12 @@
         html,
         body {
             width: 250px;
-            height: 250px;
+            height: 285px;
         }
 
         @page {
             width: 250px;
-            height: 250px;
+            height: 285px;
         }
     }
 
@@ -25,7 +25,7 @@
 
     body,
     html {
-        /* height: 250px; */
+        /* height: 285px; */
         width: 900px;
         display: grid;
         font-family: "Barlow", sans-serif;
@@ -48,7 +48,7 @@
     }
 
     .image {
-        height: 250px;
+        height: 285px;
         background-image: url({{ asset($ticket->logo) }});
         background-size: cover;
         background-repeat: no-repeat;
@@ -59,7 +59,7 @@
     .admit-one {
         position: absolute;
         color: darkgray;
-        height: 250px;
+        height: 285px;
         padding: 0 10px;
         letter-spacing: 0.15em;
         font-size: 12px;
@@ -76,7 +76,7 @@
     }
 
     .left .ticket-number {
-        height: 250px;
+        height: 285px;
         width: 310px;
         display: flex;
         justify-content: flex-end;
@@ -199,7 +199,7 @@
     }
 
     .right .right-info-container {
-        height: 250px;
+        height: 285px;
         padding: 10px 10px 10px 30px;
         display: flex;
         flex-direction: column;
@@ -228,9 +228,11 @@
         color: #505050;
         font-weight: 700;
     }
+
     /* Skissor */
     #scissors {
-        height: 50px; /* image height */
+        height: 50px;
+        /* image height */
         width: 90%;
         margin: auto auto;
         background-image: url('http://i.stack.imgur.com/cXciH.png');
@@ -239,6 +241,7 @@
         position: relative;
         overflow: hidden;
     }
+
     #scissors:after {
         content: "";
         position: relative;
@@ -278,11 +281,17 @@
                 <div class="tagline">
                     <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl={{ $booking->id }}"
                         style="width: 60px;height:60px;" alt="QR code">
+                    @if ($booking->image)
+                        <img src="{{ url($booking->image) }}" alt="" srcset=""
+                            style="width: 50px;height:50px;">
+                    @endif
+
                     {{-- <p>IN THIS LIFE OR THE NEXT</p> --}}
                 </div>
+                <span style="width: 100%; font=size: 20px;">
+                    Name: {{$booking->first_name}} {{$booking->last_name}}
+                </span>
                 <p class="location">
-                    {{-- <span>THE CAT'S CRADLE</span>
-                <span class="separator"><i class="fa-solid fa-cross"></i></span><span>ANDALUCÍA, SPAIN</span> --}}
                     <span>
                         {{ $event->type == 'online' ? 'To be held online' : $event->location }}
                     </span>
@@ -304,6 +313,7 @@
                     <p>{{ $event->date_time->format('h:i A') }}<span>TO</span> TBD</p>
                 </div>
                 <div class="barcode">
+
                     <img src="https://chart.googleapis.com/chart?chs=500x500&cht=qr&chl={{ $booking->id }}"
                         alt="QR code">
                 </div>

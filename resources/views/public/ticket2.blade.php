@@ -198,27 +198,37 @@
                     </div>
                 </div>
                 <div class="ticket__body">
-                    <img src="{{asset($booking->ticketPrice->ticket->event->image)}}" alt="" srcset="" width="100%">
-                    <p class="ticket__route">Event: {{$booking->ticketPrice->ticket->event->name}}</p>
+                    <img src="{{ asset($booking->ticketPrice->ticket->event->image) }}" alt="" srcset=""
+                        width="100%">
+                    <p class="ticket__route">Event: {{ $booking->ticketPrice->ticket->event->name }}</p>
                     {{-- <p class="ticket__description">{{str($booking->ticketPrice->ticket->event->description)}}</p> --}}
                     <div class="ticket__timing">
                         <p>
                             <span class="u-upper ticket__small-label">Date</span>
-                            <span class="ticket__detail">{{$booking->ticketPrice->ticket->event->date_time->format("M j")}}</span>
+                            <span
+                                class="ticket__detail">{{ $booking->ticketPrice->ticket->event->date_time->format('M j') }}</span>
                         </p>
                         <p>
                             <span class="u-upper ticket__small-label">From</span>
-                            <span class="ticket__detail">{{ $booking->ticketPrice->ticket->event->date_time->format('h:i A') }}</span>
+                            <span
+                                class="ticket__detail">{{ $booking->ticketPrice->ticket->event->date_time->format('h:i A') }}</span>
                         </p>
                         <p>
                             <span class="u-upper ticket__small-label">To</span>
                             <span class="ticket__detail">4:00 pm</span>
                         </p>
                     </div>
-                    <p class="ticket__fine-print">Ticket name: {{$booking->ticketPrice->ticket->name}}</p>
-                    <p class="u-upper ticket__admit">Ticket description: {!!$booking->ticketPrice->ticket->description!!}</p>
-                    <img style="height: 20mm;width: 20mm;" src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl={{ $booking->id }}"
+                    <p class="ticket__fine-print">Ticket name: {{ $booking->ticketPrice->ticket->name }}</p>
+                    <p class="u-upper ticket__admit">Ticket description: {!! $booking->ticketPrice->ticket->description !!}</p>
+                    <p>Attendee name: {{ $booking->first_name }} {{ $booking->last_name }}</p>
+                    <p>Booking id: {{$booking->id}}</p>
+                    @if ($booking->image)
+                        <img src="{{ url($booking->image) }}" style="width: 20mm;height:20mm;">
+                    @endif
+                    <img style="height: 20mm;width: 20mm;"
+                        src="https://chart.googleapis.com/chart?chs=300x300&cht=qr&chl={{ $booking->id }}"
                         alt="QR code">
+
                 </div>
             </div>
         </div>
