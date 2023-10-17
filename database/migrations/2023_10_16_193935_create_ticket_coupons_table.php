@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignIdFor(Ticket::class)->constrained()->cascadeOnUpdate()->cascadeOnDelete();
-            $table->binary('done')->default(false);
+            $table->boolean('done')->default(false);
             $table->timestamps();
         });
     }

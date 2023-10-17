@@ -188,7 +188,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="pt-3 col-md-4">
-                                                    <input type="number" name="aged_price1" id="">
+                                                    <input type="number" name="aged_price1" value="10" min="10" id="">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -200,7 +200,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="pt-3 col-md-4">
-                                                    <input type="number" name="aged_price2" id="">
+                                                    <input type="number" value="10" min="10" name="aged_price2" id="">
                                                 </div>
                                             </div>
                                             <div class="row">
@@ -212,7 +212,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="pt-3 col-md-4">
-                                                    <input type="number" name="aged_price3" id="">
+                                                    <input type="number" name="aged_price3" value="10" min="10" id="">
                                                 </div>
                                             </div>
                                         </div>
@@ -220,7 +220,7 @@
                                     <div class="form-group" id="ticket_price">
                                         <label class="form-label mb-2 fs-14">Ticket Price*</label>
                                         <input class="form-control h_40" name="price" type="number"
-                                            value="1" min="1" placeholder="Enter ticket price" />
+                                            value="10" min="10" placeholder="Enter ticket price" />
                                     </div>
                                     <div class="form-group mt-4">
                                         <label class="form-label mb-2 fs-14">Ticket Description*</label>

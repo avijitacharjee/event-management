@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Models\Booking;
 use App\Models\Event;
+use App\Models\TicketCoupon;
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -24,11 +25,13 @@ class EventController extends Controller
         $temp = clone $booking;
         $event = $temp->ticketPrice->ticket->event;
         $ticket = $temp->ticketPrice->ticket;
+        $coupons = $temp->ticketPrice->ticket->coupons;
         return $this->succeededResponse(
             [
                 'booking' => $booking,
                 'event' => $event,
-                'ticket' => $ticket
+                'ticket' => $ticket,
+                'coupons' => $coupons
             ],
             "Booking is valid"
         );
@@ -41,6 +44,11 @@ class EventController extends Controller
             $booking,
             "Successfully Changed"
         );
+    }
+    public function changeCouponStatus(TicketCoupon $coupon,int $status){
+        $coupon->done = $status;
+        $coupon->save();
+        return $this->succeededResponse($coupon, "Successfully Changed");
     }
 
     /**
